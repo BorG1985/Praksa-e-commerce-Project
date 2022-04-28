@@ -1,16 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="product-view.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/product-view.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="./css/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
     <title>Product view</title>
-</head>
-<body>
+  </head>
+  <body>
     <section class="header-section">
-        <div class="page-title"><h1>PRODUCT VIEW</h1></div>
-        
+      <div class="page-title">
+        <p>
+          <span style="font-weight: bold; color: white">PRODUCT</span>
+          <span style="font-weight: lighter; color: white">VIEW</span>
+        </p>
+      </div>
+      <div class="breadcrumbs">
+        <p style="color: white">
+          MENS - CASUALS - HOODIES & SWEATSHIRTS -
+          <span style="color: #00c8c8">AVE CLASSIC SWEATSHIRT</span>
+        </p>
+      </div>
     </section>
-</body>
+    <section class="product-view-body">
+      <div class="row">
+        <div class="column-left">
+          <div class="slideshow-container">
+            <div class="mySlides fade">
+              <img
+                src="./assets/img/products/product1.jpg"
+                style="width: 500px; height: 550px; object-fit: cover"
+              />
+            </div>
+
+            <div class="mySlides fade">
+              <img
+                src="./assets/img/products/product2.jpg"
+                style="width: 500px; height: 550px; object-fit: cover"
+              />
+            </div>
+
+            <div class="mySlides fade">
+              <img
+                src="./assets/img/products/product1.jpg"
+                style="width: 500px; height: 550px; object-fit: cover"
+              />
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+          </div>
+          <br />
+        </div>
+        <div class="column-right">
+          <div class="product-title"><p>Ave classic sweatshirt</p></div>
+          <div>
+            <p style="font-family: 'Montserrat'">
+              <i
+                class="fa fa-star"
+                aria-hidden="true"
+                style="color: #ded3aa"
+              ></i
+              ><i
+                class="fa fa-star"
+                aria-hidden="true"
+                style="color: #ded3aa"
+              ></i
+              ><i
+                class="fa fa-star"
+                aria-hidden="true"
+                style="color: #ded3aa"
+              ></i
+              ><i
+                class="fa fa-star"
+                aria-hidden="true"
+                style="color: #ded3aa"
+              ></i
+              ><i
+                class="fa fa-star"
+                aria-hidden="true"
+                style="color: #dfdfde"
+              ></i>
+              3 Review(s) |
+              <a
+                href="#"
+                style="
+                  color: #00c8c8;
+                  font-family: 'Montserrat';
+                  text-decoration: none;
+                  font-weight: bold;
+                "
+                >Add a Review</a
+              >
+              | Share:
+              <i
+                class="fa fa-facebook share-icons"
+                aria-hidden="true"
+                style="color: #8c8c8c"
+              ></i>
+              <i
+                class="fa fa-twitter share-icons"
+                aria-hidden="true"
+                style="color: #8c8c8c"
+              ></i>
+              <i
+                class="fa fa-google-plus share-icons"
+                aria-hidden="true"
+                style="color: #8c8c8c"
+              ></i>
+              <i
+                class="fa fa-pinterest-p share-icons"
+                aria-hidden="true"
+                style="color: #8c8c8c"
+              ></i>
+              <i
+                class="fa fa-instagram share-icons"
+                aria-hidden="true"
+                style="color: #8c8c8c"
+              ></i>
+              <i
+                class="fa fa-envelope-o share-icons"
+                aria-hidden="true"
+                style="color: #8c8c8c"
+              ></i>
+            </p>
+          </div>
+          <div class="price-tag" style="padding-bottom: 5%">
+            <p style="color: #9a9a9a">
+              <span
+                style="
+                  font-family: 'Montserrat';
+                  font-size: 15px;
+                  vertical-align: top;
+                "
+              >
+                £
+              </span>
+              <span
+                style="
+                  font-family: 'Montserrat';
+                  font-size: 25px;
+                  text-decoration: line-through;
+                  padding-right: 2%;
+                "
+                >107</span
+              >
+              <span
+                style="
+                  font-family: 'Montserrat';
+                  font-size: 15px;
+                  vertical-align: top;
+                "
+              >
+                £
+              </span>
+              <span style="font-family: 'Montserrat'; font-size: 25px"
+                >89.99</span
+              >
+            </p>
+          </div>
+          <div>
+            <p style="padding-bottom: 2%">
+              <span style="font-weight: bold; color: #575153"
+                >AVAILABILITY :</span
+              >
+              In stock
+            </p>
+          </div>
+          <div>
+            <p style="padding-bottom: 2%">
+              <span style="font-weight: bold; color: #575153"
+                >PRODUCT CODE :</span
+              >
+              #499577
+            </p>
+          </div>
+          <div>
+            <p style="padding-bottom: 2%">
+              <span style="font-weight: bold; color: #575153">TAGS :</span>
+              <a
+                href="#"
+                style="color: #00c8c8; text-decoration: none; font-weight: bold"
+                >Classic</a
+              ><span
+                style="color: #00c8c8; text-decoration: none; font-weight: bold"
+                >,</span
+              >
+              <a
+                href="#"
+                style="color: #00c8c8; text-decoration: none; font-weight: bold"
+                >Casual</a
+              ><span
+                style="color: #00c8c8; text-decoration: none; font-weight: bold"
+                >,</span
+              >
+              <a
+                href="#"
+                style="color: #00c8c8; text-decoration: none; font-weight: bold"
+                >V-neck</a
+              ><span
+                style="color: #00c8c8; text-decoration: none; font-weight: bold"
+                >,</span
+              >
+              <a
+                href="#"
+                style="color: #00c8c8; text-decoration: none; font-weight: bold"
+                >Loose</a
+              ><span
+                style="color: #00c8c8; text-decoration: none; font-weight: bold"
+                >,</span
+              >
+            </p>
+          </div>
+          <div>
+            <p  style="padding-bottom: 2%;">
+              Donec sem lorem laoreet tempor un risus vitae, rutrum sodales nibh
+              suspendisse est congue metus nunc, id viverra elit loreti rhoncus
+              quis consecteur es. Donec pulvinar tempor lorem a pretium justo
+              interdum.
+            </p>
+            <ul style="padding-left: 3%;">
+                <li>Elasticated cuffs</li>
+                <li>Casual fit</li>
+                <li>100% Cotton</li>
+                <li>Free shipping with 4 days delivery</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- -----------------single-product-slider------------------ -->
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+    </script>
+    <!-- -----------------single-product-slider------------------ -->
+  </body>
 </html>
