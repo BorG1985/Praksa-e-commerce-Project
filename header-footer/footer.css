@@ -1,0 +1,154 @@
+body{
+    margin: auto;
+}
+.footer{
+    background-color: f7f7f7;
+    height: 550px;
+    margin: auto;
+    
+
+}
+.main-footer{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+}
+li{
+    text-decoration: none;
+    padding-top: 10px;
+    color: #575153;
+    font-family: montserrat;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+    
+    
+}
+a{
+    text-decoration: none;
+    font-family:montserrat; 
+    font-size: 13px;
+
+}
+h5{
+    font-family: montserrat;
+    
+
+}
+.award{
+    background-image:url(./award.png) ;
+    width: 30%;
+    margin-right: 10px;
+    display: block;
+    text-align: center;
+    padding-top: 30px;
+    
+    color: white;
+    
+}
+.social-icons{
+    background-image: url(./social-icons.png);
+    width: 30%;
+    margin-left: 10px;
+    text-align: center;
+    padding-top: 30px;
+    color: white;
+    display: flex;
+    
+}
+.right-side-footer{
+    width: 20%;
+}
+.left-side-footer{
+    width: 20%;
+}
+.banner-footer{
+    display: flex;
+    justify-content: space-between;
+    height: 150px;
+    margin-top: 20px;
+    
+}
+
+.fa-facebook {
+    
+    color: white;
+}
+
+.fa-twitter {
+
+color: white;
+}
+
+.fa-google {
+
+color: white;
+}
+
+.fa-linkedin {
+
+color: white;
+}
+
+.fa {
+    
+    font-size: 30px;
+    width: 25%;
+    text-align: center;
+    text-decoration: none;
+    padding-top: 30px;
+  }
+.copyright-footer{
+    display: flex;
+    background-color: #333333;
+    justify-content: center;
+    margin-top: 30px;
+}
+.copyright{
+    align-items: center;
+    color: white;
+    font-size: 10px;
+    width: 50%;
+    margin-left: 250px;
+}
+.design-by{
+    align-items: center;
+    color: white;
+    font-size: 10px;
+    width: 50%;
+}
+
+@media (max-width:768px) {
+    .footer{
+      display: block;
+    }
+    .main-footer{
+        display: block;
+    }
+    .banner-footer{
+        display: block;
+      }
+    .copyright-footer{
+        margin-top: 220px;
+    }
+    .award{
+        width: 473px;
+        margin-left: 10px;
+        height: 140px;
+    }
+    .social-icons{
+        width: 473px;
+        height: 140px;
+        margin-top: 10px;
+        
+        
+    }
+    .fa{
+        margin-bottom: 50px;
+    }
+    
+    
+  }
