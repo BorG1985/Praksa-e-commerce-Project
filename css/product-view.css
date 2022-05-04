@@ -25,6 +25,11 @@ ul {
   padding: 0px;
   margin: 0px;
 }
+@media only screen and (max-width: 768px) {
+  .header-section {
+    height: 300px;
+    width: 1240px;}
+}
 
 .page-title {
   text-align: center;
@@ -56,16 +61,27 @@ ul {
   box-sizing: border-box;
 }
 
+@media only screen and (max-width: 768px) {
+  .breadcrumbs {font-size: 25px;}
+}
+
 .row {
   display: flex;
   padding-top: 3%;
   padding-left: 19%;
+}
+@media only screen and (max-width: 768px) {
+  .row {width: 100%;}
 }
 
 /* Create two equal columns that sits next to each other */
 .column {
   flex: 50%;
   padding: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .column {flex: 100%;}
 }
 
 /* Clear floats after the columns */
@@ -86,6 +102,8 @@ ul {
   padding-left: 33px;
 }
 
+
+
 .share-icons {
   padding-left: 4px;
   padding-right: 11px;
@@ -95,6 +113,15 @@ ul {
 .price-tag {
   padding-top: 17px;
 }
+@media only screen and (max-width: 768px) {
+  .product-title {font-size: 55px;
+    font-weight: bold;}
+  .price-tag{padding-top: 5px;}
+  .share-icons {
+    font-size: 0px;
+  }
+  }
+
 
 /* -----three-coulomn------- */
 
@@ -121,6 +148,15 @@ ul {
   padding-left: 365px;
   padding-right: 368px;
   padding-top: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .row-triple {padding-top: 0%;
+    padding-left: 10px;}
+  .column-one {width: 1240px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;}
 }
 
 /* Clear floats after the columns */
@@ -212,6 +248,7 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #9a9a9a;
 }
 
+
 /* ----------------product-slider----------------------- */
 
 * {
@@ -233,6 +270,9 @@ img {
   max-width: 1000px;
   position: relative;
   margin: auto;
+}
+@media only screen and (max-width: 768px) {
+  .slideshow-container {width:auto}
 }
 
 /* Next & previous buttons */
@@ -319,4 +359,15 @@ img {
   object-fit: cover;
 }
 
+.product-slide-img {
+  width: 570px;
+  height: 710px;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 768px) {
+  .product-slide-img {height: 900px;}
+}
+
 /* ----------------product-slider----------------------- */
+
