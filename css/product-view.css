@@ -25,10 +25,23 @@ ul {
   padding: 0px;
   margin: 0px;
 }
+
+.product-view-body {
+  width: 100%;
+}
 @media only screen and (max-width: 768px) {
   .header-section {
     height: 300px;
-    width: 1240px;
+    width: 1000px;
+    display: inline-block;
+    background-blend-mode: overlay;
+    background-position: inherit;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .product-view-body {
+    width: 80%;
   }
 }
 
@@ -67,7 +80,7 @@ ul {
     font-size: 20px;
   }
   .page-title {
-    font-size: 60px;
+    font-size: 40px;
   }
 }
 
@@ -76,22 +89,25 @@ ul {
   padding-top: 3%;
   padding-left: 19%;
 }
-@media only screen and (max-width: 768px) {
+
+@media screen and (max-width: 768px) {
   .row {
-    width: 100%;
+    content: "";
+    display: table;
+    clear: both;
   }
 }
 
 /* Create two equal columns that sits next to each other */
-.column {
-  flex: 50%;
-  padding: 10px;
+
+* {
+  box-sizing: border-box;
 }
 
-@media only screen and (max-width: 768px) {
-  .column {
-    flex: 100%;
-  }
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
 }
 
 /* Clear floats after the columns */
@@ -99,6 +115,13 @@ ul {
   content: "";
   display: table;
   clear: both;
+}
+
+@media screen and (max-width: 768px) {
+  .column {
+    width: 100%;
+    align-content: center;
+  }
 }
 
 .product-title {
@@ -169,41 +192,53 @@ ul {
     line-height: 30px;
   }
 }
-.row-triple {
+/* .row-triple {
   display: flex;
   padding-top: 3%;
   padding-left: 25px;
-}
+} */
 .column-triple {
-  flex: 33%;
-  padding: 10px;
+  float: left;
+  width: 33%;
+  text-align: center;
 }
-.column-one {
-  flex: 50%;
-  padding-left: 365px;
-  padding-right: 368px;
-  padding-top: 20px;
+
+#opt-row {
+  padding-left: 7px;
 }
 
 @media only screen and (max-width: 768px) {
-  .row-triple {
-    padding-top: 0%;
-    padding-left: 10px;
+  .column-triple {
+    width: 100%;
+    text-align: start;
   }
+  #opt-row {
+    padding-left: 150px;
+    width: auto;
+  }
+}
+
+.column-one {
+  float: left;
+  width: 100%;
+  padding-left: 365px;
+  padding-right: 368px;
+  padding-top: 20px;
+  padding-bottom: 200px;
+}
+
+@media only screen and (max-width: 768px) {
   .column-one {
-    width: 1240px;
-    padding-left: 20px;
-    padding-right: 20px;
+    width: 1000px;
     padding-top: 20px;
+    padding-left: 33px;
+    padding-right: 33px;
+    padding-top: 20px;
+    padding-bottom: 200px;
   }
 }
 
 /* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 /* -----three-coulomn------- */
 
@@ -220,6 +255,11 @@ input[type="number"]::-webkit-inner-spin-button {
   top: 0;
   right: 0;
   height: 100%;
+}
+
+#btn-row {
+  padding-top: 50px;
+  padding-left: 33px;
 }
 
 .btn {
@@ -241,6 +281,115 @@ input[type="number"]::-webkit-inner-spin-button {
   cursor: pointer;
 }
 
+#btn-lookbook {
+  height: 58px;
+  width: 305px;
+  letter-spacing: 3px;
+}
+#btn-cart {
+  height: 58px;
+  width: 240px;
+  letter-spacing: 4px;
+}
+
+#btn-col-lookbook {
+  padding-left: 25px;
+}
+
+#compare {
+  padding-left: 33px;
+  padding-top: 29px;
+}
+
+#compare-icon {
+  background-color: grey;
+  color: white;
+  border-radius: 50%;
+  border: 1px solid grey;
+  padding: 7px;
+}
+
+.compare-link {
+  padding-left: 50px;
+  letter-spacing: 2px;
+  font-size: 15px;
+  text-decoration: none;
+  color: #9a9a9a;
+}
+
+@media only screen and (max-width: 768px) {
+  #btn-lookbook {
+    height: 80px;
+    width: 200%;
+    letter-spacing: 3px;
+  }
+  #btn-cart {
+    height: 80px;
+    width: 200%;
+    letter-spacing: 4px;
+  }
+  #btn-row {
+    padding-top: 50px;
+    padding-left: 3%;
+  }
+
+  #btn-col-lookbook {
+    padding-left: 0px;
+  }
+
+  .btn {
+    background-color: rgb(255, 255, 255);
+    border: solid, 1px;
+    color: rgb(0, 0, 0);
+    padding: 12px 16px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: rgb(0, 0, 0);
+    border: solid, 1px;
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    font-size: 30px;
+
+    cursor: pointer;
+  }
+
+  #compare-icon {
+    background-color: grey;
+    color: white;
+    border-radius: 50%;
+    border: 1px solid grey;
+    padding: 7px;
+    font-size: 30px;
+  }
+
+  .compare-link {
+    padding-left: 50px;
+    letter-spacing: 2px;
+    font-size: 30px;
+    text-decoration: none;
+    color: #9a9a9a;
+  }
+  #compare {
+    padding-left: 220px;
+    padding-top: 29px;
+  }
+}
+
+#tab-content-subject {
+  text-transform: uppercase;
+  font-size: 13px;
+  padding-top: 18px;
+  font-weight: bold;
+}
+
+#tab-content {
+  font-size: 15px;
+  padding-top: 18px;
+}
+
 .tab {
   overflow: hidden;
   border: 0px solid #ccc;
@@ -257,6 +406,12 @@ input[type="number"]::-webkit-inner-spin-button {
   padding: 14px 16px;
   transition: 0.3s;
   font-size: 17px;
+  padding-left: 20px;
+  padding-bottom: 16px;
+}
+
+#btn-d-r{
+  width: 250px;
 }
 
 /* Change background color of buttons on hover */
@@ -287,6 +442,71 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #9a9a9a;
 }
 
+@media only screen and (max-width: 768px) {
+  .tab {
+    overflow: hidden;
+    border: 0px solid #ccc;
+    background-color: #f8f8f8;
+    width: auto;
+  }
+
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 20px;
+    height: 80px;
+    width: 100%;
+  }
+
+  #btn-d-r{
+    width: 100%;
+  }
+
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: rgb(5, 5, 5);
+    color: white;
+  }
+
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: rgb(2, 2, 2);
+    color: white;
+  }
+
+  /* Style the tab content */
+  .tabcontent {
+    padding: 6px 12px;
+    border: 0px solid #ccc;
+    border-top: none;
+  }
+
+  .tablinks {
+    width: 150px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #9a9a9a;
+  }
+
+  #tab-content-subject {
+    text-transform: uppercase;
+    font-size: 30px;
+    padding-top: 18px;
+    font-weight: bold;
+  }
+
+  #tab-content {
+    font-size: 30px;
+    padding-top: 18px;
+  }
+}
+
 /* ----------------product-slider----------------------- */
 
 * {
@@ -309,9 +529,13 @@ img {
   position: relative;
   margin: auto;
 }
+
 @media only screen and (max-width: 768px) {
   .slideshow-container {
-    width: auto;
+    margin-left: 0px;
+    align-items: center;
+    align-content: center;
+    width: 890px;
   }
 }
 
@@ -354,23 +578,6 @@ img {
   top: 0;
 }
 
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active,
-.dot:hover {
-  background-color: #717171;
-}
-
 /* Fading animation */
 .fade {
   animation-name: fade;
@@ -407,8 +614,37 @@ img {
 
 @media only screen and (max-width: 768px) {
   .product-slide-img {
-    height: 900px;
+    width: 890px;
+    height: 1200px;
+    object-fit: cover;
+    align-content: center;
   }
 }
 
 /* ----------------product-slider----------------------- */
+
+.dropdown-selector {
+  font-size: 12px;
+  padding-bottom: 11px;
+}
+
+.select-opt {
+  font-size: 15px;
+  width: 150px;
+  height: 35px;
+  color: #9a9a9a;
+}
+
+@media only screen and (max-width: 768px) {
+  .dropdown-selector {
+    font-size: 30px;
+    padding-bottom: 20px;
+  }
+
+  .select-opt {
+    font-size: 40px;
+    width: 600px;
+    height: 60px;
+    color: #9a9a9a;
+  }
+}

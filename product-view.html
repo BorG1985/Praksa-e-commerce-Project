@@ -35,19 +35,22 @@
         <div class="column-left">
           <div class="slideshow-container">
             <div class="mySlides fade">
-              <img class="product-slide-img"
+              <img
+                class="product-slide-img"
                 src="./assets/img/products/product1.jpg"
               />
             </div>
 
             <div class="mySlides fade">
-              <img class="product-slide-img"
+              <img
+                class="product-slide-img"
                 src="./assets/img/products/product2.jpg"
               />
             </div>
 
             <div class="mySlides fade">
-              <img class="product-slide-img"
+              <img
+                class="product-slide-img"
                 src="./assets/img/products/product1.jpg"
               />
             </div>
@@ -294,8 +297,7 @@
             </p>
           </div>
           <div style="padding-bottom: 14px">
-            <p class="description-text"
-            >
+            <p class="description-text">
               Donec sem lorem laoreet tempor un risus vitae, rutrum sodales nibh
               suspendisse est<br />
               congue metus nunc, id viverra elit loreti rhoncus quis consecteur
@@ -309,67 +311,40 @@
               <li>Free shipping with 4 days delivery</li>
             </ul>
           </div>
-          <div class="row-triple">
-            <div class="column-triple left">
-              <p style="font-size: 12px; padding-bottom: 11px">COLOUR</p>
-              <select
-                name="color"
-                id="color"
-                style="
-                  font-size: 15px;
-                  width: 165px;
-                  height: 35px;
-                  color: #9a9a9a;
-                "
-              >
+          <div class="row" id="opt-row">
+            <div class="column-triple">
+              <p class="dropdown-selector">COLOUR</p>
+              <select class="select-opt" name="color" id="color">
                 <option value="Select color">Select Color</option>
                 <option value="blue">Blue</option>
                 <option value="red">Red</option>
                 <option value="orange">Orange</option>
               </select>
             </div>
-            <div class="column-triple middle">
-              <p style="font-size: 12px; padding-bottom: 11px">SIZE</p>
-              <select
-                name="color"
-                id="color"
-                style="
-                  font-size: 15px;
-                  width: 168px;
-                  height: 35px;
-                  color: #9a9a9a;
-                "
-              >
+            <div class="column-triple">
+              <p class="dropdown-selector">SIZE</p>
+              <select name="color" id="color" class="select-opt">
                 <option value="Select color">Select Size</option>
                 <option value="blue">Blue</option>
                 <option value="red">Red</option>
                 <option value="orange">Orange</option>
               </select>
             </div>
-            <div class="column-triple right">
-              <p style="font-size: 12px; padding-bottom: 11px">QTY</p>
+            <div class="column-triple">
+              <p class="dropdown-selector">QTY</p>
               <input
                 type="number"
                 id="quantity"
                 name="quantity"
                 min="1"
                 max="500"
-                style="
-                  font-size: 15px;
-                  width: 70px;
-                  height: 35px;
-                  color: #9a9a9a;
-                  opacity: 1;
-                "
+                class="select-opt"
               />
             </div>
           </div>
-          <div class="row" style="padding-top: 50px; padding-left: 33px">
+          <div class="row" id="btn-row">
             <div class="column-left">
-              <button
-                class="btn"
-                style="height: 58px; width: 240px; letter-spacing: 4px"
-              >
+              <button class="btn" id="btn-cart">
                 <i
                   class="fa fa-shopping-cart"
                   aria-hidden="true"
@@ -378,79 +353,59 @@
                 <span style="padding-left: 7px">ADD TO CART</span>
               </button>
             </div>
-            <div class="column-right" style="padding-left: 25px">
-              <button
-                class="btn"
-                style="height: 58px; width: 305px; letter-spacing: 3px"
-              >
+            <div class="column-right" id="btn-col-lookbook">
+              <button class="btn" id="btn-lookbook">
                 <i class="fa fa-heart-o"></i>
                 <span style="padding-left: 10px">ADD TO LOOKBOOK</span>
               </button>
             </div>
           </div>
-          <div style="padding-left: 33px; padding-top: 29px">
-            <i
-              class="fa fa-compress"
-              aria-hidden="true"
-              style="
-                background-color: grey;
-                color: white;
-                border-radius: 50%;
-                border: 1px solid grey;
-                padding: 7px;
-              "
-            ></i>
-            <a
-              href=""
-              style="
-                padding-left: 8px;
-                letter-spacing: 2px;
-                font-size: 15px;
-                text-decoration: none;
-                color: #9a9a9a;
-              "
-            >
-              ADD TO COMPARE</a
-            >
+          <div id="compare">
+            <i id="compare-icon" class="fa fa-compress" aria-hidden="true"></i>
+            <a class="compare-link" href=""> ADD TO COMPARE</a>
           </div>
         </div>
       </div>
-      <div class="column-one" style="padding-bottom: 200px;">
+      <div class="column-one">
         <div class="tab">
           <button
             class="tablinks"
             onclick="openCity(event, 'DESCRIPTION')"
             id="defaultOpen"
-            style="width: 150px"
           >
             DESCRIPTION
           </button>
-          <button class="tablinks" onclick="openCity(event, 'VIDEO')" style="width: 100px">
+          <button
+            class="tablinks"
+            onclick="openCity(event, 'VIDEO')"
+          >
             VIDEO
           </button>
-          <button class="tablinks" onclick="openCity(event, 'SIZE & SPEC' )" style="width: 200px">
+          <button
+            class="tablinks"
+            onclick="openCity(event, 'SIZE & SPEC' )"
+          >
             SIZE & SPEC
           </button>
-          <button class="tablinks" onclick="openCity(event, 'DELIVERY & RETURNS')"style="width: 250px">
-            DELIVERY & RETURNS  
+          <button id="btn-d-r"
+            class="tablinks"
+            onclick="openCity(event, 'DELIVERY & RETURNS')"
+          >
+            DELIVERY & RETURNS
           </button>
-          <button class="tablinks" onclick="openCity(event, 'REVIEWS')"style="width: 150px">
+          <button
+            class="tablinks"
+            onclick="openCity(event, 'REVIEWS')"
+          >
             REVIEWS
           </button>
         </div>
 
         <div id="DESCRIPTION" class="tabcontent"">
-        <p
-          style="
-            text-transform: uppercase;
-            font-size: 13px;
-            padding-top: 18px;
-            font-weight: bold;
-          "
-        >
+        <p id="tab-content-subject">
           Nunc egestas posuere enim, eu maximus erat posuere eget
         </p>
-        <p style="font-size: 15px; padding-top: 18px">
+        <p id="tab-content">
           Sed ut mi mollis, consequat nulla lacinia, hendrerit turpis. Nulla
           sapien magna, interdum quis pretium nec, pharetra at felis. Curabitur
           dictum sapien est, eget ultricies turpis porta vel. Nam suscipit nec
@@ -460,7 +415,7 @@
           eget ex. Sed quis aliquet risus, ut cursus lectus. In eget lorem
           tellus.
         </p>
-        <p style="font-size: 15px; padding-top: 18px">
+        <p id="tab-content">
           Quisque eleifend varius nisi nec sagittis. Nulla ullamcorper imperdiet
           justo, ut venenatis purus lobortis ut. Nunc sagittis urna et hendrerit
           sodales. Nunc molestie risus nec fringilla lacinia. Nulla facilisi.
@@ -479,17 +434,10 @@
       </div>
 
       <div id="VIDEO" class="tabcontent">
-        <p
-          style="
-            text-transform: uppercase;
-            font-size: 13px;
-            padding-top: 18px;
-            font-weight: bold;
-          "
-        >
+        <p id="tab-content-subject">
           Nunc egestas posuere enim, eu maximus erat posuere eget
         </p>
-        <p style="font-size: 15px; padding-top: 18px">
+        <p id="tab-content">
           Sed ut mi mollis, consequat nulla lacinia, hendrerit turpis. Nulla
           sapien magna, interdum quis pretium nec, pharetra at felis. Curabitur
           dictum sapien est, eget ultricies turpis porta vel. Nam suscipit nec
@@ -499,7 +447,7 @@
           eget ex. Sed quis aliquet risus, ut cursus lectus. In eget lorem
           tellus.
         </p>
-        <p style="font-size: 15px; padding-top: 18px">
+        <p id="tab-content">
           Quisque eleifend varius nisi nec sagittis. Nulla ullamcorper imperdiet
           justo, ut venenatis purus lobortis ut. Nunc sagittis urna et hendrerit
           sodales. Nunc molestie risus nec fringilla lacinia. Nulla facilisi.
@@ -518,17 +466,10 @@
       </div>
 
       <div id="SIZE & SPEC" class="tabcontent">
-        <p
-          style="
-            text-transform: uppercase;
-            font-size: 13px;
-            padding-top: 18px;
-            font-weight: bold;
-          "
-        >
+        <p id="tab-content-subject">
           Nunc egestas posuere enim, eu maximus erat posuere eget
         </p>
-        <p style="font-size: 15px; padding-top: 18px">
+        <p id="tab-content">
           Sed ut mi mollis, consequat nulla lacinia, hendrerit turpis. Nulla
           sapien magna, interdum quis pretium nec, pharetra at felis. Curabitur
           dictum sapien est, eget ultricies turpis porta vel. Nam suscipit nec
@@ -538,7 +479,7 @@
           eget ex. Sed quis aliquet risus, ut cursus lectus. In eget lorem
           tellus.
         </p>
-        <p style="font-size: 15px; padding-top: 18px">
+        <p id="tab-content">
           Quisque eleifend varius nisi nec sagittis. Nulla ullamcorper imperdiet
           justo, ut venenatis purus lobortis ut. Nunc sagittis urna et hendrerit
           sodales. Nunc molestie risus nec fringilla lacinia. Nulla facilisi.
@@ -557,17 +498,10 @@
       </div>
 
       <div id="DELIVERY & RETURNS" class="tabcontent">
-        <p
-          style="
-            text-transform: uppercase;
-            font-size: 13px;
-            padding-top: 18px;
-            font-weight: bold;
-          "
-        >
+        <p id="tab-content-subject">
           Nunc egestas posuere enim, eu maximus erat posuere eget
         </p>
-        <p style="font-size: 15px; padding-top: 18px">
+        <p id="tab-content">
           Sed ut mi mollis, consequat nulla lacinia, hendrerit turpis. Nulla
           sapien magna, interdum quis pretium nec, pharetra at felis. Curabitur
           dictum sapien est, eget ultricies turpis porta vel. Nam suscipit nec
@@ -577,7 +511,7 @@
           eget ex. Sed quis aliquet risus, ut cursus lectus. In eget lorem
           tellus.
         </p>
-        <p style="font-size: 15px; padding-top: 18px">
+        <p id="tab-content">
           Quisque eleifend varius nisi nec sagittis. Nulla ullamcorper imperdiet
           justo, ut venenatis purus lobortis ut. Nunc sagittis urna et hendrerit
           sodales. Nunc molestie risus nec fringilla lacinia. Nulla facilisi.
@@ -596,17 +530,10 @@
       </div>
 
       <div id="REVIEWS" class="tabcontent">
-        <p
-          style="
-            text-transform: uppercase;
-            font-size: 13px;
-            padding-top: 18px;
-            font-weight: bold;
-          "
-        >
+        <p id="tab-content-subject">
           Nunc egestas posuere enim, eu maximus erat posuere eget
         </p>
-        <p style="font-size: 15px; padding-top: 18px">
+        <p id="tab-content">
           Sed ut mi mollis, consequat nulla lacinia, hendrerit turpis. Nulla
           sapien magna, interdum quis pretium nec, pharetra at felis. Curabitur
           dictum sapien est, eget ultricies turpis porta vel. Nam suscipit nec
@@ -616,7 +543,7 @@
           eget ex. Sed quis aliquet risus, ut cursus lectus. In eget lorem
           tellus.
         </p>
-        <p style="font-size: 15px; padding-top: 18px">
+        <p id="tab-content">
           Quisque eleifend varius nisi nec sagittis. Nulla ullamcorper imperdiet
           justo, ut venenatis purus lobortis ut. Nunc sagittis urna et hendrerit
           sodales. Nunc molestie risus nec fringilla lacinia. Nulla facilisi.
