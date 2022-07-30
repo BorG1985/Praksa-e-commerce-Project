@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/local-stores-style.css' %}">
+  <script src="{% static 'js/header-footer.js' %}"></script>
+  
+  </head>
+
+  <body>
+    {% block content %}
+    {% include 'header.html' %}
+    {% endblock %}
+    <section class = "local-stores">
+        <div class = "find-us">
+          <h3>FIND A STORE NEAR YOU</h3>
+        </div>
+        <div class = "meni-info">
+
+          <div id ="london">
+              <p STYLE=text-align:left;font-weight:bold;font-size:14pt;>LONDON</p>
+              <p STYLE=text-align:left;font-weight:bold;><br>180-182 REGENT STREET, LONDON, W1B S5T</p>
+              <p><br>Lorem ipsum dolor sit amet. Qui cupiditate galisum aut ipsam omnis aut eligendi quia est sint iste aut ducimus quia. Non cumque optio rem odio sunt eum quia quia hic tenetur sequi et consectetur asperiores.</p><br>
+              <button id ="btn1" type="button" onClick="Myfunction1(this.id)">VIEW DETAILS</button>
+          </div>
+          <div id ="newyork">
+              <p STYLE=text-align:left;font-weight:bold;font-size:14pt;>NEWYORK</p>
+              <p STYLE=text-align:left;font-weight:bold;color:grey;><br>109 COLUMBUS CIRCLE, NEWYORK, NY 10023</p>
+              <p><br>Sit veritatis atque in sint maxime qui debitis facere et consectetur blanditiis id dicta velit est consequatur quos ex placeat laudantium. Qui galisum facilis sed impedit voluptate aut porro dignissimos. </p><br>
+              <button id ="btn2" type="button" onClick="Myfunction1(this.id)">VIEW DETAILS</button>
+          </div>
+          
+          <div id ="paris" > 
+              <p STYLE=text-align:left;font-weight:bold;font-size:14pt;>PARIS</p>
+              <p STYLE=text-align:left;font-weight:bold;><br>2133 RUE-SAINT HONORE, 75001 PARIS</p>
+              <p><br>At molestiae modi ea earum nemo quia voluptatem aut fuga fuga aut velit ctetur ut deleniti autem ut corporis cumque. Est repellendus sint ea quisquam quatur et dicta quibusdam ut internos sequi.</p><br>
+              <button id ="btn3"type="button" onClick="Myfunction1(this.id)">VIEW DETAILS</button>
+          </div>
+        </div>
+
+        <div id="parent1" style="display:none">
+            <div class = "map1" id="map1" >
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.040684901662!2d-0.14200518422985065!3d51.51246957963597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d5742d021f%3A0xa612bb1b1adfcb37!2s180-182%20Regent%20St.%2C%20London%20W1B%205TW%2C%20UK!5e0!3m2!1sen!2sba!4v1651251636087!5m2!1sen!2sba" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+
+            <div id=info1 >
+              <p style=margin-top:30px;margin-left:15px;margin-right:15px;font-size:14pt;font-weight:bold;>LONDON</p>
+              <p STYLE=text-align:left;font-weight:bold;><br>180-182 REGENT STREET, LONDON, W1B S5T</p>
+              <p><br>Lorem ipsum dolor sit amet. Qui cupiditate galisum aut ipsam omnis aut eligendi quia est sint iste aut ducimus quia. Non cumque optio rem odio sunt eum quia quia hic tenetur sequi et consectetur asperiores.</p> <br>
+              <p style=margin-left:0px><i style='font-size:14px;margin-left:15px' class='fas'>&#xf3c5;</i> 180-182 REGENT STREET, LONDON, W1B S5T</p>
+              <p style="margin-top:7px;margin-left:0px"><i style='font-size:14px;margin-left:15px' class='fas'>&#xf095;</i> 0132-456-789</p>
+              <p style="margin-top:7px;margin-left:0px"><i style="font-size:14px;margin-left:15px" class="fa">&#xf0c1;</i> www.yourwebsite.com</p>
+              <p style=margin-top:7px;margin-left:0px;><i style="font-size:14px;margin-left:15px" class="fa">&#xf0e0;</i> support@yourwebsite.com</p>
+              <p style="margin-top:7px;margin-left:0px"><i style="font-size:14px;margin-left:15px" class="fa">&#xf017;</i> Monday-Friday: 9am-6pm Saturday: 10am-6pm Sunday: 10am-2pm </p>
+            
+            <div class = "social-links">
+              <a href = "#" class = "fab fa-facebook-f"></a>
+              <a href = "#" class = "fab fa-twitter"></a>
+              <a href = "#" class = "fab fa-instagram"></a>
+              <a href = "#" class = "fab fa-pinterest"></a>
+            </div> 
+          </div>
+        </div>
+
+        <div id="parent2"style="display:none">
+            <div class = "map2" id="map2" >
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.7236685324137!2d-73.98413168459334!3d40.76810207932581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f63cf10429%3A0xfbc5a6a8a9420e16!2s109%20Columbus%20Cir%2C%20New%20York%2C%20NY%2010019%2C%20USA!5e0!3m2!1sen!2sba!4v1651251955753!5m2!1sen!2sba" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+
+            <div id=info2 >
+              <p style=margin-top:30px;margin-left:15px;margin-right:15px;font-size:14pt;font-weight:bold;>NEWYORK</p>
+              <p STYLE=text-align:left;font-weight:bold;><br>109 COLUMBUS CIRCLE, NEWYORK, NY 10023</p>
+              <p><br>Lorem ipsum dolor sit amet. Qui cupiditate galisum aut ipsam omnis aut eligendi quia est sint iste aut ducimus quia. Non cumque optio rem odio sunt eum quia quia hic tenetur sequi et consectetur asperiores.</p><br>
+              <p style=margin-left:0px><i style='font-size:14px;margin-left:15px' class='fas'>&#xf3c5;</i> 109 COLUMBUS CIRCLE, NEWYORK, NY 10023</p>
+              <p style="margin-top:7px;margin-left:0px"><i style='font-size:14px;margin-left:15px' class='fas'>&#xf095;</i> 0132-489-234</p>
+              <p style="margin-top:7px;margin-left:0px"><i style="font-size:14px;margin-left:15px" class="fa">&#xf0c1;</i> www.yourwebsite.com</p>
+              <p style=margin-top:7px;margin-left:0px;><i style="font-size:14px;margin-left:15px" class="fa">&#xf0e0;</i> support@yourwebsite.com</p>
+              <p style="margin-top:7px;margin-left:0px"><i style="font-size:14px;margin-left:15px" class="fa">&#xf017;</i> Monday-Friday: 9am-6pm Saturday: 10am-6pm Sunday: 10am-2pm </p>
+            
+            <div class = "social-links">
+              <a href = "#" class = "fab fa-facebook-f"></a>
+              <a href = "#" class = "fab fa-twitter"></a>
+              <a href = "#" class = "fab fa-instagram"></a>
+              <a href = "#" class = "fab fa-pinterest"></a>
+            </div>   
+          </div>
+        </div>
+
+        <div id="parent3" style="display:none">
+            <div class = "map3" id="map3" >
+              <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.6960843711026!2d2.3316885156745775!3d48.86400547928801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e257ab8a9d9%3A0x60ac8c5b948a55ef!2sRue%20St%20Honor%C3%A9%2C%2075001%20Paris%2C%20France!5e0!3m2!1sen!2sba!4v1651252174559!5m2!1sen!2sba"  width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+
+            <div id=info3 >
+              <p style=margin-top:30px;margin-left:15px;margin-right:15px;font-size:14pt;font-weight:bold;>PARIS</p>
+              <p STYLE=text-align:left;font-weight:bold;><br>2133 RUE-SAINT HONORE, 75001 PARIS</p>
+              <p><br>Lorem ipsum dolor sit amet. Qui cupiditate galisum aut ipsam omnis aut eligendi quia est sint iste aut ducimus quia. Non cumque optio rem odio sunt eum quia quia hic tenetur sequi et consectetur asperiores.</p><br>
+              <p style=margin-left:0px><i style='font-size:14px;margin-left:15px' class='fas'>&#xf3c5;</i> 2133 RUE-SAINT HONORE, 75001 PARIS</p>
+              <p style="margin-top:7px;margin-left:0px"><i style='font-size:14px;margin-left:15px' class='fas'>&#xf095;</i> s0132-643-435</p>
+              <p style="margin-top:7px;margin-left:0px"><i style="font-size:14px;margin-left:15px" class="fa">&#xf0c1;</i> www.yourwebsite.com</p>
+              <p style=margin-top:7px;margin-left:0px;><i style="font-size:14px;margin-left:15px" class="fa">&#xf0e0;</i> support@yourwebsite.com</p>
+              <p style="margin-top:7px;margin-left:0px"><i style="font-size:14px;margin-left:15px" class="fa">&#xf017;</i> Monday-Friday: 9am-6pm Saturday: 10am-6pm Sunday: 10am-2pm </p>
+            <div class = "social-links">
+              <a href = "#" class = "fab fa-facebook-f"></a>
+              <a href = "#" class = "fab fa-twitter"></a>
+              <a href = "#" class = "fab fa-instagram"></a>
+              <a href = "#" class = "fab fa-pinterest"></a>
+            </div>   
+          </div>
+        </div>
+          
+            
+        
+   
+    </section>
+    <footer-component></footer-component>
+
+  </body>
+</html>

@@ -1,0 +1,236 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/mens.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/font-awesome-4.7.0/css/font-awesome.min.css' %}"
+    />
+    <script src="{% static 'js/header-footer.js' %}"></script>
+    <script src="{% static 'js/mens.js' %}"></script>
+    <title>lookbook</title>
+  </head>
+  <body>
+    {% block content %}
+    {% include 'header.html' %}
+    {% endblock %}
+    <p style="height:10px ; color: black;">{{a}}</p>
+    <div class="container">
+        <div class="product-row">
+          
+            
+            
+            
+            {%for product in on_count %}
+            
+             <form method="POST" action="{% url 'add_to_cart' %}"  class="cart-form">
+              {% csrf_token %}
+            
+              
+              <div  class="product-card">
+                <input id="id" type="number"  name="id" value="{{product.id}}"><br>
+                  
+                  <img  class="product-img" name="product-img" src="../static/media/{{product.product_image}}">
+                  <p class="product-title" name="product-title" >{{product.product_title}}</p>
+                  <div class="price">
+                    <p class="product-price" name="product-price" >{{product.product_price}}</p>&nbsp;
+                    <p class="product-value" name="product-value">$</p>
+                  </div>
+                  <div class="product-cart-buttons">
+                    <a class="product-view-button" href="{% url 'product-view' %}"></a>
+                  
+                      VIEW PRODUCT
+                  </button>
+                  <button class="add-to-cart-button" href="{% url 'add_to_cart' %}" action="submit">ADD TO 
+                    <i style="font-size:26px" class="fa">&#xf07a;</i>
+                  </button>
+
+                  </div>
+
+                  <p class="is_avaliable">AVALIABLE NOW</p>
+                
+
+
+                  
+                  
+
+              </div>
+            </form>
+            
+            {%endfor%}
+            
+          
+            {%for product in off_count%}
+            <div class="product-card" >
+              <input id="id" type="number"  name="id" value="{{product.id}}"><br>
+                
+                <img  class="product-img" src="../static/media/{{product.Product_Image}}">
+                <p class="product-title">{{product.Product_Title}}</p>
+                <div class="price">
+                  <p class="product-price">{{product.Product_Price}}</p>&nbsp;
+                  <p class="product-value">$</p>
+                </div>
+                <div class="product-cart-buttons">
+                  <button class="product-view-button">
+                
+                    VIEW PRODUCT
+                </button>
+                <button class="add-to-cart-button-off" action="submit">ADD TO 
+                  <i style="font-size:26px" class="fa">&#xf07a;</i>
+                </button>
+
+                </div>
+                <p class="is_not_avaliable">NOT AVALIABLE NOW</p>
+
+                
+              
+
+
+                
+                
+
+            </div>
+            {%endfor%}
+        
+
+        </div>
+
+        
+    </div>
+    <footer-component></footer-component>
+  
+  </body>
+  <script>
+    const productCurrency=document.getElementsByClassName("product-price")
+    const data = [].map.call(productCurrency, item => item.textContent)
+    function myFunction(){
+      
+      var currency = document.getElementById("pay-currency").value
+      if (currency=="BAM"){
+        
+        newPrice=[]
+        
+      {
+        
+        
+        for (i in data){
+          newPrice[i]=data[i]*1.8
+
+
+        }
+        for (i in productCurrency){
+          productCurrency[i].innerHTML=newPrice[i];
+
+        }
+        productValue=document.getElementsByClassName('product-value')
+        for(i in productValue){
+          productValue[i].innerHTML="KM"
+        }
+
+      
+        document.getElementById('test').innerHTML=newPrice;
+        document.getElementById('test2').innerHTML=data;
+          
+          
+          
+          
+          
+        }
+
+
+      }
+      if (currency=="GBP"){
+        
+        newPrice=[]
+        
+      {
+        
+        
+        for (i in data){
+          newPrice[i]=data[i]*0.8
+
+
+        }
+        for (i in productCurrency){
+          productCurrency[i].innerHTML=newPrice[i];
+
+        }
+        productValue=document.getElementsByClassName('product-value')
+        for(i in productValue){
+          productValue[i].innerHTML="£"
+        }
+
+      
+        document.getElementById('test').innerHTML=newPrice;
+        document.getElementById('test2').innerHTML=data;
+          
+          
+          
+          
+          
+        }
+
+
+      }
+      if (currency=="USD"){
+        
+        newPrice=[]
+        
+      {
+        
+        
+        for (i in data){
+          newPrice[i]=data[i]
+
+
+        }
+        for (i in productCurrency){
+          productCurrency[i].innerHTML=newPrice[i];
+
+        }
+        productValue=document.getElementsByClassName('product-value')
+        for(i in productValue){
+          productValue[i].innerHTML="$"
+        }
+
+      
+        document.getElementById('test').innerHTML=newPrice;
+        document.getElementById('test2').innerHTML=data;
+          
+          
+          
+          
+          
+        }
+
+
+      }
+      
+    }
+    
+    
+  </script>
+    
+
+    
+
+
+
+
+
+  
+  
+  
+
+
+  
+  
+</html>

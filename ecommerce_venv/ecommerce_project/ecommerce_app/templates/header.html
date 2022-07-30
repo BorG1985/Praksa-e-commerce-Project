@@ -1,0 +1,168 @@
+{% load static %}
+{% block header %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/header.css' %}">
+</head>
+
+<body>
+  <div class="header">
+    
+    <div class="upper-header">
+      <div class="left-upper-header">
+        <select onclick="return myFunction()" name="pay-currency" id="pay-currency" required>
+          <option disabled="true">Currency</option>
+          <option>USD</option>
+          <option>GBP</option>
+          
+          <option>BAM</option>
+        </select>
+      </div>
+      <div class="center-upper-header">
+        <a href="{% url 'sign-in' %}" class="register-link">Register</a>&nbsp&nbsp&nbsp
+        <a class="sign-in-link" href="{% url 'sign-in' %}">Sing in</a>
+      </div>
+      <div class="right-upper-header">
+        <span class="cart">
+          <a href="{% url 'cart' %}" id="empty" class="empty">{{number_of_products}}</a>
+          
+          &nbsp&nbsp&nbsp
+          <i style="font-size:26px" class="fa">&#xf07a;</i>
+        </span>
+      </div>
+    </div>
+    <div class="main-header">
+      <div class="left-main-header">
+        <a href="{% url 'base' %}" class="home_link"><b>AVENUE </b>&nbsp FASHION<a>
+      </div>
+      <div class="center-main-header">
+        <ul>
+          <div class="dropdown">
+            <a href="{% url 'mens' %}">
+              <li><button class="dropbtn">MENS
+                  <i class="fa fa-caret-down"></i>
+                </button></li>
+            </a>
+            <div class="dropdown-content">
+              <div class="row">
+                <div class="column">
+                  <h3>OUR LOOKBOOKS</h3>
+                  <a href="#">Latest Posts</a>
+                  <a href="#">Men's Lookbook</a>
+                  <a href="#">Women's Lookbook</a>
+                </div>
+                <div class="column">
+                  <h3>YOUR LOOKBOOK</h3>
+                  <a href="#">View and Edit</a>
+                  <a href="#">Share</a>
+                  <a href="#">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dropdown">
+            <li><button class="dropbtn">WOMENS
+                <i class="fa fa-caret-down"></i>
+              </button></li>
+            <div class="dropdown-content">
+              <div class="row">
+                <div class="column">
+                  <h3>OUR LOOKBOOKS</h3>
+                  <a href="#">Latest Posts</a>
+                  <a href="#">Men's Lookbook</a>
+                  <a href="#">Women's Lookbook</a>
+                </div>
+                <div class="column">
+                  <h3>YOUR LOOKBOOK</h3>
+                  <a href="#">View and Edit</a>
+                  <a href="#">Share</a>
+                  <a href="#">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dropdown">
+            <li><button class="dropbtn">THE BRAND
+                <i class="fa fa-caret-down"></i>
+              </button></li>
+            <div class="dropdown-content">
+              <div class="row">
+                <div class="column">
+                  <h3>OUR LOOKBOOKS</h3>
+                  <a href="#">Latest Posts</a>
+                  <a href="#">Men's Lookbook</a>
+                  <a href="#">Women's Lookbook</a>
+                </div>
+                <div class="column">
+                  <h3>YOUR LOOKBOOK</h3>
+                  <a href="#">View and Edit</a>
+                  <a href="#">Share</a>
+                  <a href="#">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a href="{% url 'local-stores' %}">
+              <li><button class="dropbtn">LOCAL STORES
+                  <i class="fa fa-caret-down"></i>
+                </button></li>
+            </a>
+            <div class="dropdown-content">
+              <div class="row">
+                <div class="column">
+                  <h3>OUR LOOKBOOKS</h3>
+                  <a href="#">Latest Posts</a>
+                  <a href="#">Men's Lookbook</a>
+                  <a href="#">Women's Lookbook</a>
+                </div>
+                <div class="column">
+                  <h3>YOUR LOOKBOOK</h3>
+                  <a href="#">View and Edit</a>
+                  <a href="#">Share</a>
+                  <a href="#">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a href="{% url 'lookbook' %}">
+              <li><button class="dropbtn">LOOK BOOK
+                  <i class="fa fa-caret-down"></i>
+                </button></li>
+            </a>
+            <div class="dropdown-content">
+              <div class="row">
+                <div class="column">
+                  <h3>OUR LOOKBOOKS</h3>
+                  <a href="#">Latest Posts</a>
+                  <a href="#">Men's Lookbook</a>
+                  <a href="#">Women's Lookbook</a>
+                </div>
+                <div class="column">
+                  <h3>YOUR LOOKBOOK</h3>
+                  <a href="#">View and Edit</a>
+                  <a href="#">Share</a>
+                  <a href="#">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ul>
+      </div>
+      <div class="right-main-header">
+        <span class="search">
+          <input class="searchform" type="text" placeholder="Search..">
+          <button class="searchbutton" type="submit"><i class="fa fa-search"></i></button>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock %}

@@ -1,0 +1,227 @@
+{% load static %}
+{% block homepage %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+    <section id="main" class="main">
+        <div class="main-item">
+            <div class="background-image">
+                <img src="{% static 'img/bg-1.png' %}"> <button class="main-button" type="submit">SHOP MEN'S
+                    COLLECTION</button>
+            </div>
+        </div>
+    </section>
+    <section id="card-items" class="card-items">
+        <hr class="section-separator-line">
+        <div class="container">
+            <ul class="navbar">
+                <li class="nav-item"><a class="nav-link-a active" href="#"><b>POPULAR</b></a></li>
+                <li class="nav-item"><a class="nav-link-a" href="#"><b>NEW ARIVALS</b></a></li>
+                <li class="nav-item"><a class="nav-link-a" href="#"><b>BEST SELLERS</b></a></li>
+                <li class="nav-item"><a class="nav-link-a" href="#"><b>SPECIAL OFFERS</b></a></li>
+                <li class="nav-item"><a class="nav-link-a" href="#"><b>COMMING SOON</b></a></li>
+            </ul>
+            <div class="items-container">
+                <div class="first-row">
+                    <div class="item-1-2">
+                        <div class="item item-1">
+                            <img src="{% static 'img/product-1.png' %}">
+                            <p><span>£</span>89.99</p>
+                            <span class="fa fa-info-circle fa-4 info-icon"></span>
+                            <div class="plus-item">
+                                <img src="{% static 'img/plus-1.png' %}">
+                                <img src="{% static 'img/plus-2.jpg' %}">
+                            </div>
+                            <div class="item-detail">
+                                <h3 class="item-detail-title">womens burnt orange casual tee <span>£</span>29.99</h3>
+                                <p class="item-relative">classic casual t-shirt for women on the move.<br>100%
+                                    cotton.</p>
+                                <div class="icons text-center">
+                                    <span class=""><i class="fas fa-shopping-cart"></i></span>
+                                    <span class=""><i class="far fa-heart"></i></span>
+                                    <span class=""><i class="fas fa fa-compress fa-1"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item item-2">
+                            <img src="{% static 'img/product-2.jpg' %}">
+                            <p><span>£</span>47.50</p>
+                            <span class="fa fa-info-circle fa-4 info-icon"></span>
+                            <div class="plus-item">
+                                <img src="{% static 'img/plus-1.png' %}">
+                                <img src="{% static 'img/plus-2.jpg' %}">
+                            </div>
+                            <div class="item-detail">
+                                <h3 class="item-detail-title">womens burnt orange casual tee <span>£</span>29.99</h3>
+                                <p class="item-relative">classic casual t-shirt for women on the move.<br>100%
+                                    cotton.</p>
+                                <div class="icons text-center">
+                                    <span class=""><i class="fas fa-shopping-cart"></i></span>
+                                    <span class=""><i class="far fa-heart"></i></span>
+                                    <span class=""><i class="fas fa fa-compress fa-1"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item item-4">
+                        <img src="{% static 'img/product-4.jpg' %}">
+                        <p class="old-price"><span>£</span>107.00</p>
+                        <p class="new-price"><span>£</span>89.99</p>
+                        <span class="fa fa-info-circle fa-4 info-icon"></span>
+                        <div class="plus-item">
+                            <img src="{% static 'img/plus-1.png' %}">
+                            <img src="{% static 'img/plus-2.jpg' %}">
+                        </div>
+                        <div class="item-detail">
+                            <h3 class="item-detail-title">womens burnt orange casual tee <span>£</span>29.99</h3>
+                            <p class="item-relative">classic casual t-shirt for women on the move.<br>100%
+                                cotton.</p>
+                            <div class="icons text-center">
+                                <span class=""><i class="fas fa-shopping-cart"></i></span>
+                                <span class=""><i class="far fa-heart"></i></span>
+                                <span class=""><i class="fas fa fa-compress fa-1"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="second-row">
+                    <div class="item item-3">
+                        <img src="{% static 'img/product-3.jpg' %}">
+                        <p><span>£</span>69.95</p>
+                        <span class="fa fa-info-circle fa-4 info-icon"></span>
+                        <div class="plus-item">
+                            <img src="{% static 'img/plus-1.png' %}">
+                            <img src="{% static 'img/plus-2.jpg' %}">
+                        </div>
+                        <div class="item-detail">
+                            <h3 class="item-detail-title">womens burnt orange casual tee <span>£</span>29.99</h3>
+                            <p class="item-relative">classic casual t-shirt for women on the move.<br>100%
+                                cotton.</p>
+                            <div class="icons text-center">
+                                <span class=""><i class="fas fa-shopping-cart"></i></span>
+                                <span class=""><i class="far fa-heart"></i></span>
+                                <span class=""><i class="fas fa fa-compress fa-1"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-5-6">
+                        <div class="item item-5">
+                            <img src="{% static 'img/product-5.png' %}">
+                            <p><span>£</span>29.95</p>
+                            <span class="fa fa-info-circle fa-4 info-icon"></span>
+                            <div class="plus-item">
+                                <img src="{% static 'img/plus-1.png' %}">
+                                <img src="{% static 'img/plus-2.jpg' %}">
+                            </div>
+                            <div class="item-detail">
+                                <h3 class="item-detail-title">womens burnt orange casual tee <span>£</span>29.99</h3>
+                                <p class="item-relative">classic casual t-shirt for women on the move.<br>100%
+                                    cotton.</p>
+                                <div class="icons text-center">
+                                    <span class=""><i class="fas fa-shopping-cart"></i></span>
+                                    <span class=""><i class="far fa-heart"></i></span>
+                                    <span class=""><i class="fas fa fa-compress fa-1"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item item-6">
+                            <img src="{% static 'img/product-6.jpg' %}">
+                            <p><span>£</span>34.79</p>
+                            <span class="fa fa-info-circle fa-4 info-icon"></span>
+                            <div class="plus-item">
+                                <img src="{% static 'img/plus-1.png' %}">
+                                <img src="{% static 'img/plus-2.jpg' %}">
+                            </div>
+                            <div>
+                                <div class="item-detail">
+                                    <div>
+                                        <h3 class="item-detail-title">womens burnt orange casual tee <span>£</span>29.99
+                                        </h3>
+                                        <p class="item-relative">classic casual t-shirt for women on the move.<br>100%
+                                            cotton.</p>
+                                        <div class="icons text-center">
+                                            <span class=""><i class="fas fa-shopping-cart"></i></span>
+                                            <span class=""><i class="far fa-heart"></i></span>
+                                            <span class=""><i class="fas fa fa-compress fa-1"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="section-separator-line">
+            <br><br>
+    </section>
+    <section id="lookbooks" class="lookbooks">
+        <div class="man-lookbook">
+            <div class="man-picture">
+                <img src="{% static 'img/men.png' %}">
+            </div>
+            <div class="man-lookbook-text">
+                <div class="lookbook-text">
+                    <div>
+                        <h1><span class="lookbook-span-first">MENS'S</span><br>
+                            <span class="lookbook-span-second">LOOKBOOK</span>
+                        </h1>
+                    </div><br><br>
+                    <div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quod.</p>
+                        <button type="submit">VIEW NOW</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="woman-lookbook">
+            <div class="woman-picture">
+                <img src="{% static 'img/woman.png' %}">
+            </div>
+            <div class="woman-lookbok-text">
+                <div class="lookbook-text">
+                    <div>
+                        <h1>
+                            <span class="lookbook-span-first">WOMENS'S</span><br>
+                            <span class="lookbook-span-second">LOOKBOOK</span>
+                        </h1>
+                    </div><br><br>
+                    <div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quod.</p>
+                        <button type="submit">VIEW NOW</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="your-lookbook">
+            <div class="your-picture">
+                <img src="{% static 'img/anonim.png' %}">
+            </div>
+            <div class="your-lookbook-text">
+                <div class="lookbook-text">
+                    <div>
+                        <h1>
+                            <span class="lookbook-span-first">YOUR</span><br>
+                            <span class="lookbook-span-second">LOOKBOOK</span>
+                        </h1>
+                    </div><br><br>
+                    <div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quod.</p>
+                        <button type="submit">VIEW NOW</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><br>
+    <hr class="section-separator-line"><br><br>
+    {% endblock %}

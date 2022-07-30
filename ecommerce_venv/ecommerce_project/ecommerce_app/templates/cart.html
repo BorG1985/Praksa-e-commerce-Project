@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/font-awesome-4.7.0/css/font-awesome.min.css' %}"
+    />
+    <script src="{% static 'js/header-footer.js' %}"></script>
+    
+    <title>lookbook</title>
+  </head>
+  <body>
+    {% block content %}
+    {% include 'header.html' %}
+    {% endblock %}
+    <div class="conatiner">
+      {% for product in cart %}
+      <div class="product-card">
+        <img class="product-image" src="../static/media/{{product.Order_Product_Image}}">
+        <p class="Product_Title">{{product.Order_Product}}</p>
+        <p class="Product_Price">{{product.Order_Product_Price}}</p>
+        <button class="product-view-button">VIEW PRODUCT</button>
+        <button class="product-remove-button">REMOVE</button>
+      </div>
+      {%endfor%}
+      <form method="post" action="{% url 'make_order' %}">
+        {% csrf_token %}
+        <div class="payment">
+          <p class="number_of_products" id="number_of_products"></p>
+          
+          <p class="total_value" name="total_value" id="total_value"></p>
+          <input  name="total_value" id="i_total_value">
+          <button class="make_order" href="{% url 'make_order' %}" type="submit" >Make Order</button>
+
+      </form>
+      </div>
+    </div>
+
+    <footer-component>
+
+    </footer-component>
+  </body>
+  <script>
+    const productCurrency=document.getElementsByClassName("Product_Price")
+    const data = [].map.call(productCurrency, item => item.textContent)
+    counter=0
+    price=0
+    for(i in data){
+      counter=counter + 1
+      price=price + Number(data[i])
+
+
+    }
+    document.getElementById('number_of_products').innerHTML="Number of products: " + counter
+    document.getElementById('total_value').innerHTML="Total value: " + price + "$"
+    inputI=document.getElementById('i_total_value')
+    inputI.setAttribute('value',  + price + "$");
+    
+  </script>
+</html>

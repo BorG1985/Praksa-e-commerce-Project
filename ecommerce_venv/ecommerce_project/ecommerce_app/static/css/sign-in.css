@@ -1,0 +1,119 @@
+.main{
+    display: flex;
+}
+.sign-in{
+    display: block;
+    width: 50%;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-right: 2px;
+    border-color: black;
+    
+}
+
+h2{
+    display: block;
+    margin-bottom: 40px;
+    font-family: 'Montserrat';
+
+    color: darkgrey;
+    
+}
+
+.email, .password{
+    display: block;
+    width: 100%;
+    height:35px;
+    margin-top: 25px;
+}
+
+.register{
+    display: block;
+    width: 50%;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-right: 2px;
+    border-color: black;
+    
+}
+.sign-in-button{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    text-align: center;
+}
+
+hr{ 
+  
+    border:         none;
+    border-left:    1px solid hsla(200, 10%, 50%,100);
+    height:         50vh;
+    width:          1px;       
+}
+.sign-btn, .create-btn{
+    width: 180px;
+    height: 70px;
+    background-color: aqua;
+    color: aliceblue;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Montserrat';
+    letter-spacing: 2px;
+    border-style: none;
+}
+.link-btn{
+    font-family: 'Montserrat';
+    color: aqua;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 25px;
+}
+label{
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat';
+
+}
+.create{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    text-align: center;
+}
+p{
+    font-size: 12px;
+    font-family: 'Montserrat';
+}
+.check-div{
+    margin-top: 25px;
+}
+.link-btn-txt{
+    margin-top: 25px;
+}
+
+@media (max-width:768px){
+    .main{
+        display: block;
+    }
+    hr{
+        display: none;
+    }
+    .sign-in-button{
+        display: block;
+        
+        margin-top: 50px;
+        
+    }
+    .link-btn{
+        margin-top: 25px;
+    }
+    .create{
+        display: block;
+    }
+    .check-div{
+        display: block;
+    }
+    label{
+        display: block;
+    }
+}

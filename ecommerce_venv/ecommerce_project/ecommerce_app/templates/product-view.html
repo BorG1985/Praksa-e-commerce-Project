@@ -1,0 +1,628 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/product-view.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link
+      rel="stylesheet"
+      href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}"
+    />
+  <script src="{% static 'js/header-footer.js' %}"></script>
+    <title>Product view</title>
+  </head>
+  <body>
+    {% block content %}
+    {% include 'header.html' %}
+    {% endblock %}
+    <div class="header-section">
+      <div class="page-title">
+        <p>
+          <span style="font-weight: bold; color: white">PRODUCT</span>
+          <span style="font-weight: lighter; color: white">VIEW</span>
+        </p>
+      </div>
+      <div class="breadcrumbs">
+        <p style="color: white">
+          MENS - CASUALS - HOODIES & SWEATSHIRTS -
+          <span style="color: #00c8c8">AVE CLASSIC SWEATSHIRT</span>
+        </p>
+      </div>
+    </div>
+    <div class="product-view-body">
+      <div class="row">
+        <div class="column-left">
+          <div class="slideshow-container">
+            <div class="mySlides fade">
+              <img
+              
+                class="product-slide-img"
+                src="{% static 'img/products/product1.jpg' %}"
+                
+              />
+            </div>
+
+            <div class="mySlides fade">
+              <img
+                class="product-slide-img"
+                src="{% static 'img/products/product1.jpg' %}"
+              />
+            </div>
+
+            <div class="mySlides fade">
+              <img
+                class="product-slide-img"
+                src="{% static 'img/products/product1.jpg' %}"
+              />
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+          </div>
+          <br />
+        </div>
+        <div class="column-right">
+          <div class="product-title"><p>Ave classic sweatshirt</p></div>
+          <div>
+            <p
+              style="
+                font-family: 'Montserrat';
+                padding-left: 33px;
+                padding-bottom: 3px;
+              "
+            >
+              <i
+                class="fa fa-star"
+                aria-hidden="true"
+                style="color: #ded3aa"
+              ></i
+              ><i
+                class="fa fa-star"
+                aria-hidden="true"
+                style="color: #ded3aa"
+              ></i
+              ><i
+                class="fa fa-star"
+                aria-hidden="true"
+                style="color: #ded3aa"
+              ></i
+              ><i
+                class="fa fa-star"
+                aria-hidden="true"
+                style="color: #ded3aa"
+              ></i
+              ><i
+                class="fa fa-star"
+                aria-hidden="true"
+                style="color: #dfdfde"
+              ></i>
+              <span
+                style="
+                  font-size: 15px;
+                  font-weight: bold;
+                  padding-left: 8px;
+                  padding-right: 8px;
+                "
+                >3 Review(s)</span
+              >
+              |
+              <a
+                href="#"
+                style="
+                  color: #00c8c8;
+                  font-family: 'Montserrat';
+                  text-decoration: none;
+                  font-size: 15px;
+                  font-weight: bold;
+                  padding-left: 9px;
+                  padding-right: 6px;
+                "
+                >Add a Review</a
+              >
+              |
+              <span
+                style="
+                  font-size: 15px;
+                  font-weight: bold;
+                  padding-left: 9px;
+                  padding-right: 6px;
+                "
+                >Share:</span
+              >
+              <i
+                class="fa fa-facebook share-icons"
+                aria-hidden="true"
+                style="color: #8c8c8c"
+              ></i>
+              <i
+                class="fa fa-twitter share-icons"
+                aria-hidden="true"
+                style="color: #8c8c8c"
+              ></i>
+              <i
+                class="fa fa-google-plus share-icons"
+                aria-hidden="true"
+                style="color: #8c8c8c"
+              ></i>
+              <i
+                class="fa fa-pinterest-p share-icons"
+                aria-hidden="true"
+                style="color: #8c8c8c"
+              ></i>
+              <i
+                class="fa fa-instagram share-icons"
+                aria-hidden="true"
+                style="color: #8c8c8c"
+              ></i>
+              <i
+                class="fa fa-envelope-o share-icons"
+                aria-hidden="true"
+                style="color: #8c8c8c"
+              ></i>
+            </p>
+          </div>
+          <div
+            class="price-tag"
+            style="padding-bottom: 35px; padding-left: 28px"
+          >
+            <p style="color: #9a9a9a">
+              <span
+                style="
+                  font-family: 'Montserrat';
+                  font-size: 18px;
+                  vertical-align: top;
+                "
+              >
+                £
+              </span>
+              <span
+                style="
+                  font-family: 'Montserrat';
+                  font-size: 30px;
+                  text-decoration: line-through;
+                  padding-right: 15px;
+                "
+                >107</span
+              >
+              <span
+                style="
+                  font-family: 'Montserrat';
+                  font-size: 18px;
+                  vertical-align: top;
+                "
+              >
+                £
+              </span>
+              <span style="font-family: 'Montserrat'; font-size: 30px"
+                >89.99</span
+              >
+            </p>
+          </div>
+          <div>
+            <p style="padding-bottom: 10px; padding-left: 33px">
+              <span style="font-weight: bold; color: #575153; font-size: 13px"
+                >AVAILABILITY:</span
+              >
+              <span style="font-weight: bold; color: #575153; font-size: 14px"
+                >In stock</span
+              >
+            </p>
+          </div>
+          <div>
+            <p style="padding-bottom: 12px; padding-left: 33px">
+              <span style="font-weight: bold; color: #575153; font-size: 13px"
+                >PRODUCT CODE:</span
+              >
+              <span style="font-weight: bold; color: #575153; font-size: 14px"
+                >#499577</span
+              >
+            </p>
+          </div>
+          <div>
+            <p style="padding-bottom: 30px; padding-left: 33px">
+              <span style="font-weight: bold; color: #575153; font-size: 13px"
+                >TAGS:</span
+              >
+              <a
+                href="#"
+                style="
+                  color: #00c8c8;
+                  text-decoration: none;
+                  font-weight: bold;
+                  font-size: 14px;
+                "
+                >Classic</a
+              ><span
+                style="
+                  color: #00c8c8;
+                  text-decoration: none;
+                  font-weight: bold;
+                  font-size: 14px;
+                "
+                >,</span
+              >
+              <a
+                href="#"
+                style="
+                  color: #00c8c8;
+                  text-decoration: none;
+                  font-weight: bold;
+                  font-size: 14px;
+                "
+                >Casual</a
+              ><span
+                style="
+                  color: #00c8c8;
+                  text-decoration: none;
+                  font-weight: bold;
+                  font-size: 14px;
+                "
+                >,</span
+              >
+              <a
+                href="#"
+                style="
+                  color: #00c8c8;
+                  text-decoration: none;
+                  font-weight: bold;
+                  font-size: 14px;
+                "
+                >V-neck</a
+              ><span
+                style="
+                  color: #00c8c8;
+                  text-decoration: none;
+                  font-weight: bold;
+                  font-size: 14px;
+                "
+                >,</span
+              >
+              <a
+                href="#"
+                style="
+                  color: #00c8c8;
+                  text-decoration: none;
+                  font-weight: bold;
+                  font-size: 14px;
+                "
+                >Loose</a
+              ><span
+                style="
+                  color: #00c8c8;
+                  text-decoration: none;
+                  font-weight: bold;
+                  font-size: 14px;
+                "
+                >,</span
+              >
+            </p>
+          </div>
+          <div style="padding-bottom: 14px">
+            <p class="description-text">
+              Donec sem lorem laoreet tempor un risus vitae, rutrum sodales nibh
+              suspendisse est<br />
+              congue metus nunc, id viverra elit loreti rhoncus quis consecteur
+              es. Donec pulvinar<br />
+              tempor lorem a pretium justo interdum.
+            </p>
+            <ul>
+              <li>Elasticated cuffs</li>
+              <li>Casual fit</li>
+              <li>100% Cotton</li>
+              <li>Free shipping with 4 days delivery</li>
+            </ul>
+          </div>
+          <div class="row" id="opt-row">
+            <div class="column-triple">
+              <p class="dropdown-selector">COLOUR</p>
+              <select class="select-opt" name="color" id="color">
+                <option value="Select color">Select Color</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="orange">Orange</option>
+              </select>
+            </div>
+            <div class="column-triple">
+              <p class="dropdown-selector">SIZE</p>
+              <select name="color" id="color" class="select-opt">
+                <option value="Select color">Select Size</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="orange">Orange</option>
+              </select>
+            </div>
+            <div class="column-triple">
+              <p class="dropdown-selector">QTY</p>
+              <input
+                type="number"
+                id="quantity"
+                name="quantity"
+                min="1"
+                max="500"
+                class="select-opt"
+              />
+            </div>
+          </div>
+          <div class="row" id="btn-row">
+            <div class="column-left">
+              <button class="btn" id="btn-cart">
+                <i
+                  class="fa fa-shopping-cart"
+                  aria-hidden="true"
+                  style="font-size: 20px"
+                ></i>
+                <span style="padding-left: 7px">ADD TO CART</span>
+              </button>
+            </div>
+            <div class="column-right" id="btn-col-lookbook">
+              <button class="btn" id="btn-lookbook">
+                <i class="fa fa-heart-o"></i>
+                <span style="padding-left: 10px">ADD TO LOOKBOOK</span>
+              </button>
+            </div>
+          </div>
+          <div id="compare">
+            <i id="compare-icon" class="fa fa-compress" aria-hidden="true"></i>
+            <a class="compare-link" href=""> ADD TO COMPARE</a>
+          </div>
+        </div>
+      </div>
+      <div class="column-one">
+        <div class="tab">
+          <button
+            class="tablinks"
+            onclick="openCity(event, 'DESCRIPTION')"
+            id="defaultOpen"
+          >
+            DESCRIPTION
+          </button>
+          <button
+            class="tablinks"
+            onclick="openCity(event, 'VIDEO')"
+          >
+            VIDEO
+          </button>
+          <button
+            class="tablinks"
+            onclick="openCity(event, 'SIZE & SPEC' )"
+          >
+            SIZE & SPEC
+          </button>
+          <button id="btn-d-r"
+            class="tablinks"
+            onclick="openCity(event, 'DELIVERY & RETURNS')"
+          >
+            DELIVERY & RETURNS
+          </button>
+          <button
+            class="tablinks"
+            onclick="openCity(event, 'REVIEWS')"
+          >
+            REVIEWS
+          </button>
+        </div>
+
+        <div id="DESCRIPTION" class="tabcontent"">
+        <p id="tab-content-subject">
+          Nunc egestas posuere enim, eu maximus erat posuere eget
+        </p>
+        <p id="tab-content">
+          Sed ut mi mollis, consequat nulla lacinia, hendrerit turpis. Nulla
+          sapien magna, interdum quis pretium nec, pharetra at felis. Curabitur
+          dictum sapien est, eget ultricies turpis porta vel. Nam suscipit nec
+          lacus sed imperdiet. Vestibulum a purus risus. Nulla et dictum augue,
+          nec efficitur mi. Nam sit amet pretium elit. Aliquam congue, ligula id
+          vehicula vestibulum, orci ex vulputate lacus, ac malesuada elit dolor
+          eget ex. Sed quis aliquet risus, ut cursus lectus. In eget lorem
+          tellus.
+        </p>
+        <p id="tab-content">
+          Quisque eleifend varius nisi nec sagittis. Nulla ullamcorper imperdiet
+          justo, ut venenatis purus lobortis ut. Nunc sagittis urna et hendrerit
+          sodales. Nunc molestie risus nec fringilla lacinia. Nulla facilisi.
+          Etiam neque velit, tristique eget sollicitudin eget, placerat at
+          metus. Proin dictum lobortis velit, id suscipit orci faucibus ut.
+          Aliquam erat volutpat. Vivamus feugiat justo in diam placerat, id
+          dignissim elit auctor. Vestibulum scelerisque sem et lobortis
+          ultricies. Morbi suscipit nulla urna. Suspendisse potenti. Nullam
+          varius quam sed nisl dignissim, vel faucibus ipsum blandit. Vivamus at
+          suscipit augue. Nam finibus gravida lorem eu viverra. Praesent rhoncus
+          imperdiet ultricies. Nullam pretium cursus augue auctor vulputate.
+          Quisque a convallis diam commodo eget diam id, eleifend dictum libero.
+          Etiam varius, nisi vel dignissim sodales, enim dui posuere mauris, in
+          aliquet lorem eros eget neque.
+        </p>
+      </div>
+
+      <div id="VIDEO" class="tabcontent">
+        <p id="tab-content-subject">
+          Nunc egestas posuere enim, eu maximus erat posuere eget
+        </p>
+        <p id="tab-content">
+          Sed ut mi mollis, consequat nulla lacinia, hendrerit turpis. Nulla
+          sapien magna, interdum quis pretium nec, pharetra at felis. Curabitur
+          dictum sapien est, eget ultricies turpis porta vel. Nam suscipit nec
+          lacus sed imperdiet. Vestibulum a purus risus. Nulla et dictum augue,
+          nec efficitur mi. Nam sit amet pretium elit. Aliquam congue, ligula id
+          vehicula vestibulum, orci ex vulputate lacus, ac malesuada elit dolor
+          eget ex. Sed quis aliquet risus, ut cursus lectus. In eget lorem
+          tellus.
+        </p>
+        <p id="tab-content">
+          Quisque eleifend varius nisi nec sagittis. Nulla ullamcorper imperdiet
+          justo, ut venenatis purus lobortis ut. Nunc sagittis urna et hendrerit
+          sodales. Nunc molestie risus nec fringilla lacinia. Nulla facilisi.
+          Etiam neque velit, tristique eget sollicitudin eget, placerat at
+          metus. Proin dictum lobortis velit, id suscipit orci faucibus ut.
+          Aliquam erat volutpat. Vivamus feugiat justo in diam placerat, id
+          dignissim elit auctor. Vestibulum scelerisque sem et lobortis
+          ultricies. Morbi suscipit nulla urna. Suspendisse potenti. Nullam
+          varius quam sed nisl dignissim, vel faucibus ipsum blandit. Vivamus at
+          suscipit augue. Nam finibus gravida lorem eu viverra. Praesent rhoncus
+          imperdiet ultricies. Nullam pretium cursus augue auctor vulputate.
+          Quisque a convallis diam commodo eget diam id, eleifend dictum libero.
+          Etiam varius, nisi vel dignissim sodales, enim dui posuere mauris, in
+          aliquet lorem eros eget neque.
+        </p>
+      </div>
+
+      <div id="SIZE & SPEC" class="tabcontent">
+        <p id="tab-content-subject">
+          Nunc egestas posuere enim, eu maximus erat posuere eget
+        </p>
+        <p id="tab-content">
+          Sed ut mi mollis, consequat nulla lacinia, hendrerit turpis. Nulla
+          sapien magna, interdum quis pretium nec, pharetra at felis. Curabitur
+          dictum sapien est, eget ultricies turpis porta vel. Nam suscipit nec
+          lacus sed imperdiet. Vestibulum a purus risus. Nulla et dictum augue,
+          nec efficitur mi. Nam sit amet pretium elit. Aliquam congue, ligula id
+          vehicula vestibulum, orci ex vulputate lacus, ac malesuada elit dolor
+          eget ex. Sed quis aliquet risus, ut cursus lectus. In eget lorem
+          tellus.
+        </p>
+        <p id="tab-content">
+          Quisque eleifend varius nisi nec sagittis. Nulla ullamcorper imperdiet
+          justo, ut venenatis purus lobortis ut. Nunc sagittis urna et hendrerit
+          sodales. Nunc molestie risus nec fringilla lacinia. Nulla facilisi.
+          Etiam neque velit, tristique eget sollicitudin eget, placerat at
+          metus. Proin dictum lobortis velit, id suscipit orci faucibus ut.
+          Aliquam erat volutpat. Vivamus feugiat justo in diam placerat, id
+          dignissim elit auctor. Vestibulum scelerisque sem et lobortis
+          ultricies. Morbi suscipit nulla urna. Suspendisse potenti. Nullam
+          varius quam sed nisl dignissim, vel faucibus ipsum blandit. Vivamus at
+          suscipit augue. Nam finibus gravida lorem eu viverra. Praesent rhoncus
+          imperdiet ultricies. Nullam pretium cursus augue auctor vulputate.
+          Quisque a convallis diam commodo eget diam id, eleifend dictum libero.
+          Etiam varius, nisi vel dignissim sodales, enim dui posuere mauris, in
+          aliquet lorem eros eget neque.
+        </p>
+      </div>
+
+      <div id="DELIVERY & RETURNS" class="tabcontent">
+        <p id="tab-content-subject">
+          Nunc egestas posuere enim, eu maximus erat posuere eget
+        </p>
+        <p id="tab-content">
+          Sed ut mi mollis, consequat nulla lacinia, hendrerit turpis. Nulla
+          sapien magna, interdum quis pretium nec, pharetra at felis. Curabitur
+          dictum sapien est, eget ultricies turpis porta vel. Nam suscipit nec
+          lacus sed imperdiet. Vestibulum a purus risus. Nulla et dictum augue,
+          nec efficitur mi. Nam sit amet pretium elit. Aliquam congue, ligula id
+          vehicula vestibulum, orci ex vulputate lacus, ac malesuada elit dolor
+          eget ex. Sed quis aliquet risus, ut cursus lectus. In eget lorem
+          tellus.
+        </p>
+        <p id="tab-content">
+          Quisque eleifend varius nisi nec sagittis. Nulla ullamcorper imperdiet
+          justo, ut venenatis purus lobortis ut. Nunc sagittis urna et hendrerit
+          sodales. Nunc molestie risus nec fringilla lacinia. Nulla facilisi.
+          Etiam neque velit, tristique eget sollicitudin eget, placerat at
+          metus. Proin dictum lobortis velit, id suscipit orci faucibus ut.
+          Aliquam erat volutpat. Vivamus feugiat justo in diam placerat, id
+          dignissim elit auctor. Vestibulum scelerisque sem et lobortis
+          ultricies. Morbi suscipit nulla urna. Suspendisse potenti. Nullam
+          varius quam sed nisl dignissim, vel faucibus ipsum blandit. Vivamus at
+          suscipit augue. Nam finibus gravida lorem eu viverra. Praesent rhoncus
+          imperdiet ultricies. Nullam pretium cursus augue auctor vulputate.
+          Quisque a convallis diam commodo eget diam id, eleifend dictum libero.
+          Etiam varius, nisi vel dignissim sodales, enim dui posuere mauris, in
+          aliquet lorem eros eget neque.
+        </p>
+      </div>
+
+      <div id="REVIEWS" class="tabcontent">
+        <p id="tab-content-subject">
+          Nunc egestas posuere enim, eu maximus erat posuere eget
+        </p>
+        <p id="tab-content">
+          Sed ut mi mollis, consequat nulla lacinia, hendrerit turpis. Nulla
+          sapien magna, interdum quis pretium nec, pharetra at felis. Curabitur
+          dictum sapien est, eget ultricies turpis porta vel. Nam suscipit nec
+          lacus sed imperdiet. Vestibulum a purus risus. Nulla et dictum augue,
+          nec efficitur mi. Nam sit amet pretium elit. Aliquam congue, ligula id
+          vehicula vestibulum, orci ex vulputate lacus, ac malesuada elit dolor
+          eget ex. Sed quis aliquet risus, ut cursus lectus. In eget lorem
+          tellus.
+        </p>
+        <p id="tab-content">
+          Quisque eleifend varius nisi nec sagittis. Nulla ullamcorper imperdiet
+          justo, ut venenatis purus lobortis ut. Nunc sagittis urna et hendrerit
+          sodales. Nunc molestie risus nec fringilla lacinia. Nulla facilisi.
+          Etiam neque velit, tristique eget sollicitudin eget, placerat at
+          metus. Proin dictum lobortis velit, id suscipit orci faucibus ut.
+          Aliquam erat volutpat. Vivamus feugiat justo in diam placerat, id
+          dignissim elit auctor. Vestibulum scelerisque sem et lobortis
+          ultricies. Morbi suscipit nulla urna. Suspendisse potenti. Nullam
+          varius quam sed nisl dignissim, vel faucibus ipsum blandit. Vivamus at
+          suscipit augue. Nam finibus gravida lorem eu viverra. Praesent rhoncus
+          imperdiet ultricies. Nullam pretium cursus augue auctor vulputate.
+          Quisque a convallis diam commodo eget diam id, eleifend dictum libero.
+          Etiam varius, nisi vel dignissim sodales, enim dui posuere mauris, in
+          aliquet lorem eros eget neque.
+        </p>
+      </div>
+    </div>
+    <footer-component></footer-component>
+
+    <!-- -----product-description-js-script------- -->
+
+    <script>
+      function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+    </script>
+
+    <!-- -----product-description-js-script------- -->
+    <!-- -----------------single-product-slider-js-script------------------ -->
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        
+        }
+        slides[slideIndex - 1].style.display = "block";
+      }
+    </script>
+    <!-- -----------------single-product-slider------------------ -->
+  </body>
+</html>

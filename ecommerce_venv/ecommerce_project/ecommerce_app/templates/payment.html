@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/payment.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/font-awesome-4.7.0/css/font-awesome.min.css' %}"
+    />
+    
+    <script src="{% static 'js/mens.js' %}"></script>
+    <script src="{% static 'js/header-footer.js' %}"></script>
+    <title>lookbook</title>
+  </head>
+  <body>
+    {% block content %}
+    {% include 'header.html' %}
+    {% endblock %}
+    <form method="post" class="payment_form" action="{% url 'finish_order' %}">
+      {% csrf_token %}
+        <input class="name" name="name" placeholder="Your name">
+        <input class="card" name="card" placeholder="Card Number">
+        <input class="expiration" name="expiration" placeholder="Expiration date (Format: mm/yy)">
+        <input class="security" name="security" placeholder="Security code">
+        <p class="total_price" id="total_price" >Total price: {{price}}</p>
+        <input class="price" id="price" type="text" name="price" value="{{price}}">
+        <button class="finish_order" href="{% url 'finish_order' %}" type="submit">Finish Order</button>
+        
+    </form>
+    <p>{{products}}</p>
+    
+    <footer-component>
+
+    </footer-component>
+  </body>
+  
+</html>
