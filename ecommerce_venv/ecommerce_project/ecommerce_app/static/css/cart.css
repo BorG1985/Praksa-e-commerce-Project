@@ -1,142 +1,101 @@
-.container{
-    
-    display: block;
-    width: 100%;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-white: #ffffff;
+    --section-separator-line: #eeeeee;
+    --active-a-link: #00c8c8;
+    --link-color-gray: #727272;
+}
+
+
+
+.cart-wraper {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: wrap;
+}
+
+.cart-item {
+    border: 3px solid var(--link-color-gray);
+    width: 400px;
+    height: 300px;
+    margin: 20px 20px;
+    flex-wrap: wrap;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+
+.cart-item:hover {
+    border: 3px solid var(--active-a-link);
+    transition: 0.5s ease-out;
+    background-color: var(--link-color-gray);
+    border-radius: 12px;
+    transition: 0.3s ease-out;
+    color: white;
+}
+
+.cart-item img {
+    width: fit-content;
+}
+
+.product-title {
+    padding: 2px;
+}
+
+.product-price {
+    padding: 2px;
 
 }
-.product-card{
-    height: 250px;
-    width: 900px;
-    display: flex;
-    justify-content: space-between;
-    border: 3px;
-    border-radius: 5px;
-    border-color: aqua;
-    border-style: solid;
-    margin-top: 10px;
-   
-}
-.product-image{
+
+.product-image {
     width: 140px;
     height: 175px;
-    margin-top: 20px;
-    margin-left: 20px;
-}
-.Product_Title{
-    font-family: 'Monsterrat';
-    color: darkgray;
-    font-size: 25px;
-    margin-top: 120px;
-}
-.Product_Price{
-    font-family: 'Monsterrat';
-    color: darkgray;
-    font-size: 25px;
-    margin-top: 120px;
-}
-.product-view-button{
-    width: 100px;
-    height: 70px;
-    background-color: black;
-    color: white;
-    font-family: 'Monsterrat';
-    margin-top: 100px;
-}
-.product-remove-button{
-    width: 100px;
-    height: 70px;
-    background-color: red;
-    color: white;
-    font-family: 'Monsterrat';
-    margin-top: 100px;
-    margin-right: 10px;
-
-}
-.payment{
-    border: 2px;
-    border-radius: 3px;
-    border-style: solid;
-    border-color: black;
-    display: flex;
-    margin-top: 10px;
-    justify-content: space-between;
-}
-.make_order{
-    width: 120px;
-    height: 60px;
-    color: aliceblue;
-    background-color: green;
-    font-family: 'Monsterrat';
-    margin-top: 9px;
-    margin-right: 10px;
-}
-.number_of_products{
-    font-family: 'Monsterrat';
-    color: darkgray;
-    font-size: 25px;
-    margin-left:5px;
-    
-
-}
-.total_value{
-    font-family: 'Monsterrat';
-    color: darkgray;
-    font-size: 25px;
-
-}
-#i_total_value{
-    display: none;
-}
-.select_size{
-    width: 150px;
-    height: 40px;
-    background-color: rgb(255, 255, 255);
-    font-family: 'Montserrat';
-    font-size: 15px;
-    margin-top: 120px;
-    color: black;
 }
 
-.size_selector{
-    display: flex;
-}
-.size_choose{
-    
-    font-family: 'Monsterrat';
-    font-size: 25px;
-    color: gray;
-    margin-top: 120px;
-}
-.size{
-    background-color: aqua;
-    font-family: 'Monsterrat';
-    font-size: 15px;
-    color: white;
-    width: 60px;
-    height: 40px;
-    border-radius: 5px;
-    margin-top: 115px;
-}
-#xxs{
-    display: block;
-}
-#xs{
-    display: block;
-}
-#m{
-    display: block;
-}
-#l{
-    display: block;
-}
-#xl{
-    display: block;
-}
-#xxl{
-    display: block;
-}
-.quantity-select{
-    height: 40px;
+
+.sizes {
     width: 50px;
-    margin-top: 100px;
+    height: 34px;
+    border-radius: 8px;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.size-option {
+    text-align-last: center;
+}
+
+.product-view-button {
+    width: 115px;
+    height: 35px;
+    background-color: #00c8c8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    opacity: 0.6;
+    margin-right: 25px;
+}
+
+
+.product-remove-button {
+    width: 125px;
+    height: 35px;
+    background-color: maroon;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    opacity: 0.6;
+}
+
+.product-view-button:hover,
+.product-remove-button:hover {
+    opacity: 1;
+    transition: 0.2s;
+    cursor: grab;
 }

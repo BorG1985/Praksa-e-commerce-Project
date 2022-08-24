@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your lookbook</title>
+    <link rel="stylesheet" href="{% static 'css/mens.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/heder.css' %}" />
+</head>
+
+<body>
+    {% block header %}
+    {% include 'header.html' %}
+    {% endblock %}
+
+    <div class="container">
+        <div class="product-row">
+          {% for product in product %}
+          <form method="POST" action="{% url 'add_to_lookbook' %}" class="cart-form">
+            {% csrf_token %}
+            <div class="product-card">
+              <input id="id" type="number" name="id" value="{{product.id}}"><br>
+              <img class="product-img" name="product-img" src="../static/media/{{product.product_image}}">
+              <p class="product-title" name="product-title">{{product.product_title}}</p>
+              <div class="price">
+                <p class="product-price" name="product-price">{{product.product_price}}</p>&nbsp;
+                <p class="product-value" name="product-value">$</p>
+              </div>
+              <div class="product-cart-buttons">
+                <button class="add-to-cart-button" href="{% url 'add_to_lookbook' %}" action="submit">ADD TO LOOKBOOK
+                  
+                </button>
+          </form>
+          
+        </div>
+      </div>
+      {% endfor %}

@@ -11,6 +11,10 @@
     box-sizing: border-box;
 }
 
+.card-items b {
+    background-color: var(--background-white);
+}
+
 .container {
     background-color: var(--background-white);
     padding: 20px;

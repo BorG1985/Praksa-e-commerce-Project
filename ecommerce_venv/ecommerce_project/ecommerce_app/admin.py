@@ -12,14 +12,20 @@ admin.site.register(ProductSize)
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('status', 'gender', 'product_title',
-                    'product_price', 'size', 'color', 'product_image', 'slug')
+    list_display = ['status', 'gender', 'product_title', 'product_price',
+                    'size', 'color', 'product_image', 'tag_list', 'slug']  # tag_list vraca tags polje
     list_display_links = ['color', ]
-    list_filter = ('gender', 'status', 'product_title', 'product_price')
-    list_editable = ['gender',
-                     'product_price', 'status', 'size']
+    list_filter = ('gender', 'status', 'product_title',
+                   'product_price')
+    list_editable = ['gender', 'product_price', 'status', 'size']
     search_fields = ('product_title', 'product_price')
     prepopulated_fields = {'slug': ('short_product_description', )}
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).prefetch_related('tags')
+
+    def tag_list(self, obj):
+        return u", ".join(o.name for o in obj.tags.all())
 
 
 @admin.register(Category)

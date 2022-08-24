@@ -1,5 +1,6 @@
 
 # Create your views here.
+from audioop import reverse
 from locale import currency
 from operator import countOf
 import re
@@ -9,17 +10,18 @@ from django.http import request, HttpResponse
 from django.http.response import HttpResponseRedirect
 import mysql.connector
 from django.http import HttpResponse
-from django.shortcuts import render
-from .models import Product
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .models import Profile, NewUser, Product,ProductSize
-from ecommerce_app.models import Cart, AllOrders, OrderValues
+from .models import Profile, NewUser, Product, ProductSize
+from ecommerce_app.models import Cart, AllOrders, OrderValues,CurrentLookbook
 from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
 import mysql.connector
 from datetime import date, datetime, timedelta
+from taggit.models import Tag
+from django.core.paginator import Paginator
 
 today = date.today()
 now = datetime.now()
@@ -59,12 +61,14 @@ def localStores(request):
 
 
 def productView(request):
-    if request.method=="POST":
-        id=request.POST['id']
-        product=Product.objects.filter(id=id)
-        size=ProductSize.objects.filter(id=id)
 
-        return render(request, 'product-view.html',{"product":product,"size":size})
+    if request.method == "POST":
+        id = request.POST['id']
+        product = Product.objects.filter(id=id)
+        quantity = ProductSize.objects.values_list('l', flat=True).distinct()
+        tags = Tag.objects.all()
+
+        return render(request, 'product-view.html', {"product": product, "quantity": quantity, "tags": tags})
 
 
 def lookbook(request):
@@ -156,15 +160,36 @@ def edit(request):
 
 
 def mens(request):
+    men_products = Product.objects.filter(gender="male", status="on_count")
     on_count = Product.objects.filter(status="on_count")
     off_count = Product.objects.filter(status="off_count")
+    paginator = Paginator(men_products, 12)  # Show 12 products per page.
 
-    return render(request, 'mens.html', {'on_count': on_count, 'off_count': off_count, })
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'mens.html', {'on_count': on_count, 'off_count': off_count, 'page_obj': page_obj, 'men_products': men_products})
+
+
+def womens(request):
+    women_products = Product.objects.filter(gender="female", status="on_count")
+    on_count = Product.objects.filter(status="on_count")
+    off_count = Product.objects.filter(status="off_count")
+    paginator = Paginator(women_products, 12)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    print(page_obj)
+    return render(request, 'womens.html', {'on_count': on_count, 'off_count': off_count, 'page_obj': page_obj, 'women_products': women_products})
+
+
+def your_lookbook(request):
+    product = Product.objects.all()[:1]
+    return render(request, 'your-lookbook.html', {'product': product})
 
 
 def cart(request):
     product = Cart.objects.all()
-    
     return render(request, 'cart.html', {'cart': product})
 
 
@@ -176,32 +201,26 @@ def add_to_cart(request):
         id = request.POST['id']
 
         mydata = Product.objects.filter(id=id).values()
-        size=ProductSize.objects.filter(id=id).values()
 
         values_by_id = {
             'mymembers': mydata,
         }
         b = values_by_id['mymembers'][0]
-        values_by_size = {
-            'values': size,
-        }
-        sizes = values_by_size['values'][0]
 
         order_number = 1
         num.append(order_number)
         i = len(num)
         n_order_number = i + 1
         Cart(order_number=order_number, order_product=b['product_title'], order_product_price=b[
-             'product_price'], order_product_value="$", order_product_image=b['product_image'],xxs=sizes['xxs'],xs=sizes['xs'],l=sizes['l'],xl=sizes['xl'],xxl=sizes['xxl']).save()
+             'product_price'], order_product_value="$", order_product_image=b['product_image']).save()
         AllOrders(order_number=n_order_number, order_product_id=b['id'], order_product=b['product_title'],
                   order_product_price=b['product_price'], order_product_value="$", order_product_image=b['product_image']).save()
 
         on_count = Product.objects.filter(status="on_count")
         off_count = Product.objects.filter(status="off_count")
         number_of_items = Cart.objects.all().count()
-        size=ProductSize.objects.filter(id=id)
-
-        return render(request, 'mens.html', {'on_count': on_count, 'off_count': off_count, "number_of_items": number_of_items,"size":size})
+        response = redirect('mens')
+        return response
 
 
 def make_order(request):
@@ -236,7 +255,41 @@ def finish_order(request):
             products.append(i['order_product_id'])
         products1 = ';'.join(products)
 
-        OrderValues(order_number=order_number, price=price,name=name, card_number=card_number,
-                    expiration_date=expiration_date, security_code=security_code, date=date, time=time, products=products1).save()
+        OrderValues(order_number=order_number, Price=price, Name=name, card_number=card_number,
+                    expiration_date=expiration_date, security_code=security_code, date=date, time=time, Products=products1).save()
 
         return render(request, 'payment.html', {"products": products1})
+
+
+def choose_hat(request):
+    product=Product.objects.filter(category="hats")
+    return render(request,"lookbook-choose.html",{"product":product})
+
+def choose_shirt(request):
+    product=Product.objects.filter(category="shirts")
+    return render(request,"lookbook-choose.html",{"product":product})
+
+def choose_jeans(request):
+    product=Product.objects.filter(category="jeans")
+    return render(request,"lookbook-choose.html",{"product":product})
+
+def choose_shoes(request):
+    product=Product.objects.filter(category="shoes")
+    return render(request,"lookbook-choose.html",{"product":product})
+
+def add_to_lookbook(request):
+    if request.method=="POST":
+        id=request.POST['id']
+        mydata = Product.objects.filter(id=id).values()
+
+        values_by_id = {
+            'mymembers': mydata,
+        }
+        b = values_by_id['mymembers'][0]
+        CurrentLookbook(product_id=b['id'],lookbook_image=b['product_image'],product_category=b['category']).save()
+        product_hat=CurrentLookbook.objects.filter(product_category="hats").last()
+        product_shirt=CurrentLookbook.objects.filter(product_category="shirts").last()
+        product_jeans=CurrentLookbook.objects.filter(product_category="jeans").last()
+        product_shoes=CurrentLookbook.objects.filter(product_category="shoes").last()
+        return render(request,'your-lookbook.html',{"product_hat":product_hat,"product_shirt":product_shirt,"product_jeans":product_jeans,"product_shoes":product_shoes})
+

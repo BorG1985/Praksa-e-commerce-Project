@@ -24,7 +24,7 @@
     {% block content %}
     {% include 'header.html' %}
     {% endblock %}
-    {%for product in product%}
+    {% for product in product %}
     <div class="header-section">
       <div class="page-title">
         <p>
@@ -231,8 +231,7 @@
           <div>
             <p style="padding-bottom: 30px; padding-left: 33px">
               <span style="font-weight: bold; color: #575153; font-size: 13px"
-                >TAGS:</span
-              >
+                >TAGS:</span>
               <a
                 href="#"
                 style="
@@ -240,70 +239,10 @@
                   text-decoration: none;
                   font-weight: bold;
                   font-size: 14px;
-                "
-                >Classic</a
-              ><span
-                style="
-                  color: #00c8c8;
-                  text-decoration: none;
-                  font-weight: bold;
-                  font-size: 14px;
-                "
-                >,</span
-              >
-              <a
-                href="#"
-                style="
-                  color: #00c8c8;
-                  text-decoration: none;
-                  font-weight: bold;
-                  font-size: 14px;
-                "
-                >Casual</a
-              ><span
-                style="
-                  color: #00c8c8;
-                  text-decoration: none;
-                  font-weight: bold;
-                  font-size: 14px;
-                "
-                >,</span
-              >
-              <a
-                href="#"
-                style="
-                  color: #00c8c8;
-                  text-decoration: none;
-                  font-weight: bold;
-                  font-size: 14px;
-                "
-                >V-neck</a
-              ><span
-                style="
-                  color: #00c8c8;
-                  text-decoration: none;
-                  font-weight: bold;
-                  font-size: 14px;
-                "
-                >,</span
-              >
-              <a
-                href="#"
-                style="
-                  color: #00c8c8;
-                  text-decoration: none;
-                  font-weight: bold;
-                  font-size: 14px;
-                "
-                >Loose</a
-              ><span
-                style="
-                  color: #00c8c8;
-                  text-decoration: none;
-                  font-weight: bold;
-                  font-size: 14px;
-                "
-                >,</span
+                ">
+              {% for tag in tags %}
+                {{tag}}
+              {% endfor %}</a
               >
             </p>
           </div>
@@ -321,23 +260,23 @@
               
             </div>
             <div class="column-triple">
-              {%for size in size%}
               <p class="dropdown-selector">SIZE</p>
               <select name="color" id="color" class="select-opt">
                 <option value="Select color">Select Size</option>
-                
-                <option >xxs</option>
-                <option >xs</option>
-                <option >m</option>
-                <option >l</option>
-                <option >xl</option>
-                <option >xxl</option>
+                <option >XXS</option>                
+                <option >XS</option>
+                <option >S</option>
+                <option >M</option>
+                <option >L</option>
+                <option >XL</option>
+                <option >XXL</option>
               </select>
-              
-              {%endfor%}
             </div>
             <div class="column-triple">
-              <p class="dropdown-selector">QTY</p>
+              <p class="dropdown-selector">Quantity</p>
+            {% for q in quantity %}
+                {{q}}
+              {% endfor %}
               <input
                 type="number"
                 id="quantity"
@@ -345,6 +284,9 @@
                 min="1"
                 max="500"
                 class="select-opt"
+                {% for q in quantity %}
+                placeholder="maximal {{q}}"
+                {% endfor %}
               />
             </div>
           </div>
@@ -407,10 +349,7 @@
           </button>
         </div>
 
-        <div id="DESCRIPTION" class="tabcontent"">
-        <p id="tab-content-subject">
-          Nunc egestas posuere enim, eu maximus erat posuere eget
-        </p>
+        <div id="DESCRIPTION" class="tabcontent">
         {{product.long_product_description}}
       </div>
 

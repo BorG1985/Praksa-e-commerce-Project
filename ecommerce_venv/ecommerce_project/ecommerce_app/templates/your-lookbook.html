@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your lookbook</title>
+    <link rel="stylesheet" href="{% static 'css/your-lookbook.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/heder.css' %}" />
+</head>
+
+<body>
+    {% block header %}
+    {% include 'header.html' %}
+    {% endblock %}
+    {% block content %}
+    
+    <div class="container">
+        <div class="body">
+            
+            
+            <div class="head">
+                <a  href="{% url 'choose-hat' %}">choose</a>
+                <img style="height: 100px; width: 200px;" class="product-img" src="../static/media/{{product_hat.lookbook_image}}">
+            
+            </div>
+            
+            <div class="upper-body">
+                <a  href="{% url 'choose-shirt' %}">choose</a>
+                <img style="height: 300x; width: 200px;" class="product-img" src="../static/media/{{product_shirt.lookbook_image}}">
+            
+
+            </div>
+            
+            <div class="lower-body">
+                <a  href="{% url 'choose-jeans' %}">choose</a>
+                <img style="height: 300x; width: 200px;" class="product-img" src="../static/media/{{product_jeans.lookbook_image}}">
+            
+
+            </div>
+            
+            <div class="shoes">
+                <a  href="{% url 'choose-shoes' %}">choose</a>
+                <img style="height: 100px; width: 200px;" class="product-img" src="../static/media/{{product_shoes.lookbook_image}}">
+            
+        </div>
+    </div>
+    
+    {%endblock %}
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+
+
+
+.container {
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+}
+
+.head {
+    border: 1px solid blue;
+    height: 100px;
+    width: 200px;
+}
+
+.upper-body {
+    border: 1px solid yellow;
+    height: 260px;
+    width: 200px;
+}
+
+.lower-body {
+    border: 1px solid green;
+    height: 260px;
+    width: 200px;
+}
+
+.shoes {
+    border: 1px solid black;
+    height: 100px;
+    width: 200px;
+}

@@ -74,7 +74,7 @@ select {
 }
 
 .searchform {
-    width: 120px;
+    width: 150px;
     box-sizing: border-box;
     border: none;
     background-color: #50503e95;
@@ -91,17 +91,20 @@ select {
     justify-content: center;
     align-items: center;
 }
-.empty{
+
+.empty {
     font-family: 'montserrat';
     color: aliceblue;
     font-size: 15px;
     margin-top: 5px;
 }
-.empty:active{
+
+.empty:active {
     color: #333333;
     text-decoration: none;
 }
-.empty:visited{
+
+.empty:visited {
     text-decoration: none;
     ;
 }
@@ -156,7 +159,6 @@ ul {
 .searchform {
     background-color: aliceblue;
     color: black;
-    width: 180px;
     height: 40px;
 }
 
@@ -181,13 +183,16 @@ ul {
     color: white;
     text-decoration: none;
 }
-.home_link{
+
+.home_link {
     text-decoration: none;
 }
-.home_link:active{
+
+.home_link:active {
     color: #333333;
 }
-.home_link:visited{
+
+.home_link:visited {
     color: #333333;
 }
 

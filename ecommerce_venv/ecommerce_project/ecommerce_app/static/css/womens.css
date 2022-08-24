@@ -1,0 +1,259 @@
+:root {
+    --background-white: #ffffff;
+    --section-separator-line: #eeeeee;
+    --active-a-link: #00c8c8;
+    --link-color-gray: #727272;
+}
+
+.product-row {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 5px;
+
+}
+
+.product-card {
+    border: 3px;
+    border-color: aqua;
+    border-style: solid;
+    border-radius: 5px;
+    width: 320px;
+    height: 600px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.product-card:hover {
+    background-color: var(--link-color-gray);
+    transition: 0.3s ease;
+    color: white;
+    border: none;
+}
+
+.cart-from {
+    width: 24%;
+}
+
+.product-img {
+    height: 350px;
+    width: 280px;
+    margin-left: 20px;
+
+
+}
+
+.product-title {
+    font-family: 'Montserrat';
+    color: rgb(93, 93, 93);
+    font-size: 20px;
+    text-align: center;
+    margin: 10px;
+}
+
+.product-price {
+    font-family: 'Montserrat';
+    color: rgb(94, 94, 94);
+    font-size: 20px;
+    text-align: center;
+    margin: 5px;
+}
+
+.price {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.product-value {
+    font-family: 'Montserrat';
+    color: rgb(94, 94, 94);
+    font-size: 20px;
+    text-align: center;
+    margin: 5px;
+}
+
+.product-card:hover {
+    color: white;
+}
+
+.product-view-button {
+    height: 50px;
+    width: 100px;
+    text-align: center;
+
+    font-family: 'Monsterrat';
+
+    background-color: black;
+    color: aliceblue;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.product-view-button:hover {
+    background-color: aqua;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.add-to-cart-button {
+    height: 50px;
+    width: 100px;
+    text-align: center;
+
+    font-family: 'Monsterrat';
+
+
+    background-color: black;
+    color: aliceblue;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    vertical-align: bottom;
+}
+
+.add-to-cart-button:hover {
+    background-color: green;
+    color: white;
+    border: none;
+    transition: 0.3s ease;
+
+}
+
+.product-cart-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 55px 0px 55px;
+}
+
+.count {
+    margin-top: 20px;
+    font-family: 'Monsterrat';
+    font-size: 15px;
+    color: rgb(26, 21, 188);
+    text-align: center;
+}
+
+.add-to-cart-button-off {
+    height: 50px;
+    width: 100px;
+    text-align: center;
+
+    font-family: 'Monsterrat';
+
+
+    background-color: rgb(209, 35, 35);
+    color: aliceblue;
+    letter-spacing: 1px;
+}
+
+.is_avaliable {
+    font-family: 'Monsterrat';
+    color: green;
+    font-size: 15px;
+    text-align: center;
+}
+
+.is_not_avaliable {
+    font-family: 'Monsterrat';
+    color: red;
+    font-size: 15px;
+    text-align: center;
+}
+
+.filterTab {
+    width: 23%;
+    height: 600px;
+    border: 3px;
+    border-color: grey;
+    border-style: solid;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.filter_h {
+    text-align: center;
+    font-family: 'Monsterrat';
+    color: gray;
+}
+
+.filterByCount {
+    display: flex;
+}
+
+.filter_h_avaliable {
+    font-family: 'Monsterrat';
+    color: gray;
+}
+
+.selectAvaliable {
+    width: 100px;
+    height: 20px;
+    color: black;
+    background-color: aliceblue;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.pagination {
+    margin: 10px;
+}
+
+
+.paginator-button-first,
+.paginator-button-previous,
+.paginator-button-last,
+.paginator-button-next {
+    width: 70px;
+    height: 35px;
+    border: 2px solid rgb(0, 115, 255);
+    background-color: rgb(0, 115, 255);
+    border-radius: 6px;
+}
+
+.paginator-button-no-more-products {
+    width: 200px;
+    height: 35px;
+    border: 2px solid rgb(255, 187, 0);
+    background-color: rgb(255, 187, 0);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+
+}
+
+.paginator-button-first a,
+.paginator-button-previous a,
+.paginator-button-last a,
+.paginator-button-next a {
+    text-decoration: none;
+    color: wheat;
+}
+
+.paginator-button-no-more-products a {
+    text-decoration: none;
+    color: rgb(220, 47, 47);
+}
+
+@media (max-width:768px) {
+    .product-card {
+        display: block;
+        width: 300px;
+        margin-left: 30px;
+    }
+
+    .product-row {
+        display: block;
+    }
+
+    .product-img {
+        margin-left: 10px;
+    }
+
+}
+
+#id {
+    display: none;
+}

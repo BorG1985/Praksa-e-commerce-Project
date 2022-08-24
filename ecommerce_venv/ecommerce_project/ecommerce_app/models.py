@@ -1,6 +1,8 @@
 # Create your models here.
 from pyexpat import model
 from re import L
+from statistics import mode
+from unicodedata import category
 from django.conf import settings
 from distutils.command.upload import upload
 from tabnanny import verbose
@@ -13,6 +15,7 @@ from django.db.models.base import Model
 from django.db.models.fields import CharField, IntegerField
 from django import forms
 from PIL import Image
+from taggit.managers import TaggableManager
 
 
 class NewUser(models.Model):
@@ -56,6 +59,12 @@ class ProductColor(models.Model):
 STATUS_CHOICES = (
     ('on_count', 'On count'),
     ('off_count', 'Off count'),
+)
+CATEGORY_CHOICES = (
+    ('hats', 'Hats'),
+    ('shirts', 'Shirts'),
+    ('jeans', 'Jeans'),
+    ('shoes', 'Shoes'),
 )
 GENDER_CHOICE = (
     ('male', 'Male'),
@@ -135,6 +144,7 @@ LOWER_BODY_SIZE_HEIGHT_CHOICES = [
 class ProductSize(models.Model):
     xxs = models.PositiveIntegerField()
     xs = models.PositiveIntegerField()
+    s = models.PositiveIntegerField()
     m = models.PositiveIntegerField()
     l = models.PositiveIntegerField()
     xl = models.PositiveIntegerField()
@@ -195,8 +205,11 @@ class Product(models.Model):
     size = models.ForeignKey(ProductSize, on_delete=models.CASCADE)
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default='off_count')
+    category= models.CharField(
+        max_length=10, choices=CATEGORY_CHOICES)
     product_created = models.DateTimeField(auto_now_add=True)
     product_updated = models.DateTimeField(auto_now=True)
+    tags = TaggableManager()  # dodaje se u svaki model kome se zele dodati tagovi
     slug = models.SlugField(
         max_length=250, null=False, unique=True, db_index=True, blank=False)
 
@@ -232,17 +245,11 @@ class Cart(models.Model):
     order_product = models.CharField(max_length=100)
     order_product_price = IntegerField()
     order_product_value = CharField(max_length=100)
-    xxs=CharField(max_length=100)
-    xs=CharField(max_length=100)
-    m=CharField(max_length=100)
-    l=CharField(max_length=100)
-    xl=CharField(max_length=100)
-    xxl=CharField(max_length=100)
     order_product_image = models.ImageField(
         upload_to="products/", blank=True)
 
     class Meta:
-        db_table = "ecommerce_order"
+        db_table = "ecommerce_cart"
         verbose_name = "Cart"
         verbose_name_plural = "Carts"
 
@@ -275,3 +282,10 @@ class OrderValues(models.Model):
     class Meta:
         db_table = "ecommerce_order_values"
         verbose_name_plural = "Order values"
+
+class CurrentLookbook(models.Model):
+    product_id=models.CharField(max_length=30)
+    lookbook_image = models.ImageField(
+        upload_to="products/", blank=True)
+    product_category=models.CharField(max_length=20)
+

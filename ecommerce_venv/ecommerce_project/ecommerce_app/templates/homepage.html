@@ -17,8 +17,8 @@
     <section id="main" class="main">
         <div class="main-item">
             <div class="background-image">
-                <img src="{% static 'img/bg-1.png' %}"> <button class="main-button" type="submit">SHOP MEN'S
-                    COLLECTION</button>
+                <img src="{% static 'img/bg-1.png' %}"> <a href="{% url 'mens' %}"><button class="main-button" type="submit">SHOP MEN'S
+                    COLLECTION</button></a>
             </div>
         </div>
     </section>
@@ -179,7 +179,7 @@
                     </div><br><br>
                     <div>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quod.</p>
-                        <button type="submit">VIEW NOW</button>
+                        <a href="{% url 'mens'%}"><button type="submit">VIEW NOW</button></a>
                     </div>
                 </div>
             </div>
@@ -198,7 +198,7 @@
                     </div><br><br>
                     <div>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quod.</p>
-                        <button type="submit">VIEW NOW</button>
+                        <a href="{% url 'womens'%}"><button type="submit">VIEW NOW</button></a>
                     </div>
                 </div>
             </div>
@@ -217,7 +217,7 @@
                     </div><br><br>
                     <div>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quod.</p>
-                        <button type="submit">VIEW NOW</button>
+                        <a href="{% url 'your-lookbook '%}"><button type="submit">VIEW NOW</button></a>
                     </div>
                 </div>
             </div>
