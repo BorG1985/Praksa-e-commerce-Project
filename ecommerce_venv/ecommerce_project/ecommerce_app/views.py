@@ -16,7 +16,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .models import Profile, NewUser, Product, ProductSize
+<<<<<<< HEAD
 from ecommerce_app.models import Cart, AllOrders, OrderValues,CurrentLookbook
+=======
+from ecommerce_app.models import Cart, AllOrders, OrderValues
+>>>>>>> 8c9c6ab62c58be62d5b15c8dfdb85e3c57c2c699
 from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
 import mysql.connector
 from datetime import date, datetime, timedelta
@@ -28,7 +32,7 @@ now = datetime.now()
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="1234",
+    password="root",
     database="ecommerce"
 
 

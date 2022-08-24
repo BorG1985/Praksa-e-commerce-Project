@@ -1,4 +1,19 @@
+<<<<<<< HEAD
 
+=======
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-white: #ffffff;
+    --section-separator-line: #eeeeee;
+    --active-a-link: #00c8c8;
+    --link-color-gray: #727272;
+}
+>>>>>>> 8c9c6ab62c58be62d5b15c8dfdb85e3c57c2c699
 
 
 .container {
@@ -15,13 +30,21 @@
 
 .upper-body {
     border: 1px solid yellow;
+<<<<<<< HEAD
     height: 260px;
+=======
+    height: 350px;
+>>>>>>> 8c9c6ab62c58be62d5b15c8dfdb85e3c57c2c699
     width: 200px;
 }
 
 .lower-body {
     border: 1px solid green;
+<<<<<<< HEAD
     height: 260px;
+=======
+    height: 350px;
+>>>>>>> 8c9c6ab62c58be62d5b15c8dfdb85e3c57c2c699
     width: 200px;
 }
 

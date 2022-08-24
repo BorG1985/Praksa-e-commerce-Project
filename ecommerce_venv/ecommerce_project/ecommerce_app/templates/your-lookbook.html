@@ -16,6 +16,7 @@
     {% include 'header.html' %}
     {% endblock %}
     {% block content %}
+<<<<<<< HEAD
     
     <div class="container">
         <div class="body">
@@ -48,6 +49,26 @@
         </div>
     </div>
     
+=======
+    <div class="container">
+        <div class="body">
+            <div class="head">
+                {% for prod in product %}
+                    <img src="{{prod.product_image}}" />
+                {% endfor %}
+            </div>
+            <div class="upper-body">
+
+            </div>
+            <div class="lower-body">
+
+            </div>
+            <div class="shoes">
+
+            </div>
+        </div>
+    </div>
+>>>>>>> 8c9c6ab62c58be62d5b15c8dfdb85e3c57c2c699
     {%endblock %}
 </body>
 
