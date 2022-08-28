@@ -19,6 +19,45 @@
   {% include 'header.html' %}
   {% endblock %}
   <p style="height:10px ; color: black;">{{a}}</p>
+  <div class="main-container">
+    <div class="filters">
+      <h3 class="filter-h3">FILTER PRODUCTS</h3>
+      &nbsp;
+      <form method="post" action="{% url 'filter_products' %}">
+        {% csrf_token %}
+        <label class="filter-label">Choose color</label>
+        &nbsp;
+        <select class="filter-select" name="color-filter" placeholder="Select color">
+          
+          <option style="background-color: red;">red</option>
+          <option style="background-color: blue;">Blue</option>
+          <option style="background-color: black">Black</option>
+
+        </select>
+        &nbsp;
+        <label class="filter-label">Choose gender</label>
+        &nbsp;
+        <select class="filter-select" name="gender-filter">
+          
+          <option style="background-color: aqua;">male</option>
+          <option style="background-color: rgb(255, 0, 166);">female</option>
+          
+
+        </select>
+        &nbsp;
+        <button class="filter-button" type="submit" href="{% url 'filter_products' %}">Filter Products</button>
+        {% if messages %}    
+  
+      
+        {% for msg in messages %}
+          
+      
+            <p>{{msg}}</p>
+        {% endfor %}
+      {% endif %}
+      </form>
+    </div>
+    <hr>
   <div class="container">
     <div class="product-row">
       {% for product in page_obj %}

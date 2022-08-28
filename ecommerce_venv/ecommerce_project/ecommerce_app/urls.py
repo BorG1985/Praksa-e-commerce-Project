@@ -29,5 +29,6 @@ urlpatterns = [
     path("choose-jeans", views.choose_jeans, name="choose-jeans"),
     path("choose-shoes", views.choose_shoes, name="choose-shoes"),
     path("add_to_lookbook", views.add_to_lookbook, name='add_to_lookbook'),
-    path('finish_order', views.finish_order, name='finish_order')
+    path('finish_order', views.finish_order, name='finish_order'),
+    path("filter_products",views.filter_products,name='filter_products'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

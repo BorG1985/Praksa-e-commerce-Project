@@ -29,7 +29,7 @@ now = datetime.now()
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="root",
+    password="1234",
     database="ecommerce"
 
 
@@ -303,3 +303,15 @@ def add_to_lookbook(request):
         product_shoes = CurrentLookbook.objects.filter(
             product_category="shoes").last()
         return render(request, 'your-lookbook.html', {"product_hat": product_hat, "product_shirt": product_shirt, "product_jeans": product_jeans, "product_shoes": product_shoes})
+
+def filter_products(request):
+    if request.method=="POST":
+        
+        color=request.POST['color-filter']
+        gender=request.POST['gender-filter']
+        
+        on_count = Product.objects.filter(status="on_count",color=color,gender=gender)
+        count=Product.objects.filter(status="on_count",color=color).count()
+        if count==0:
+            messages.success(request,"Nažalost,trenutno nemamo proizvoda koji odgovaraju filteru")
+        return render(request, 'mens.html', {'page_obj': on_count })
