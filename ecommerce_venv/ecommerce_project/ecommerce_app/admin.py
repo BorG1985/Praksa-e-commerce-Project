@@ -1,6 +1,6 @@
 from atexit import register
 from django.contrib import admin
-from .models import NewUser, Product, Profile, Category, TShirt, Jeans, Color, ProductSize
+from .models import NewUser, Product, Profile, Category, TShirt, Jeans, Color, ProductSize, LocalStores
 
 # Register your models here.
 admin.site.register(NewUser)
@@ -8,6 +8,7 @@ admin.site.register(Jeans)
 admin.site.register(TShirt)
 admin.site.register(Color)
 admin.site.register(ProductSize)
+admin.site.register(LocalStores)
 
 
 @admin.register(Product)

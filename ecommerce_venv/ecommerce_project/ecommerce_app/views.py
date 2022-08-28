@@ -16,11 +16,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .models import Profile, NewUser, Product, ProductSize
-<<<<<<< HEAD
-from ecommerce_app.models import Cart, AllOrders, OrderValues,CurrentLookbook
-=======
+from ecommerce_app.models import Cart, AllOrders, OrderValues, CurrentLookbook, LocalStores
 from ecommerce_app.models import Cart, AllOrders, OrderValues
->>>>>>> 8c9c6ab62c58be62d5b15c8dfdb85e3c57c2c699
 from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
 import mysql.connector
 from datetime import date, datetime, timedelta
@@ -60,8 +57,9 @@ def footer(request):
     return render(request, 'footer.html', )
 
 
-def localStores(request):
-    return render(request, 'local-stores.html')
+def local_stores(request):
+    local_stores = LocalStores.objects.all()
+    return render(request, 'local-stores.html', {'local_stores': local_stores})
 
 
 def productView(request):
@@ -266,34 +264,42 @@ def finish_order(request):
 
 
 def choose_hat(request):
-    product=Product.objects.filter(category="hats")
-    return render(request,"lookbook-choose.html",{"product":product})
+    product = Product.objects.filter(category="hats")
+    return render(request, "lookbook-choose.html", {"product": product})
+
 
 def choose_shirt(request):
-    product=Product.objects.filter(category="shirts")
-    return render(request,"lookbook-choose.html",{"product":product})
+    product = Product.objects.filter(category="shirts")
+    return render(request, "lookbook-choose.html", {"product": product})
+
 
 def choose_jeans(request):
-    product=Product.objects.filter(category="jeans")
-    return render(request,"lookbook-choose.html",{"product":product})
+    product = Product.objects.filter(category="jeans")
+    return render(request, "lookbook-choose.html", {"product": product})
+
 
 def choose_shoes(request):
-    product=Product.objects.filter(category="shoes")
-    return render(request,"lookbook-choose.html",{"product":product})
+    product = Product.objects.filter(category="shoes")
+    return render(request, "lookbook-choose.html", {"product": product})
+
 
 def add_to_lookbook(request):
-    if request.method=="POST":
-        id=request.POST['id']
+    if request.method == "POST":
+        id = request.POST['id']
         mydata = Product.objects.filter(id=id).values()
 
         values_by_id = {
             'mymembers': mydata,
         }
         b = values_by_id['mymembers'][0]
-        CurrentLookbook(product_id=b['id'],lookbook_image=b['product_image'],product_category=b['category']).save()
-        product_hat=CurrentLookbook.objects.filter(product_category="hats").last()
-        product_shirt=CurrentLookbook.objects.filter(product_category="shirts").last()
-        product_jeans=CurrentLookbook.objects.filter(product_category="jeans").last()
-        product_shoes=CurrentLookbook.objects.filter(product_category="shoes").last()
-        return render(request,'your-lookbook.html',{"product_hat":product_hat,"product_shirt":product_shirt,"product_jeans":product_jeans,"product_shoes":product_shoes})
-
+        CurrentLookbook(
+            product_id=b['id'], lookbook_image=b['product_image'], product_category=b['category']).save()
+        product_hat = CurrentLookbook.objects.filter(
+            product_category="hats").last()
+        product_shirt = CurrentLookbook.objects.filter(
+            product_category="shirts").last()
+        product_jeans = CurrentLookbook.objects.filter(
+            product_category="jeans").last()
+        product_shoes = CurrentLookbook.objects.filter(
+            product_category="shoes").last()
+        return render(request, 'your-lookbook.html', {"product_hat": product_hat, "product_shirt": product_shirt, "product_jeans": product_jeans, "product_shoes": product_shoes})

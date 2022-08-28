@@ -11,7 +11,7 @@ from . import views
 urlpatterns = [
     path('', views.base, name="base"),
     path('homepage', views.homePage, name="homepage"),
-    path('local-stores', views.localStores, name="local-stores"),
+    path('local-stores', views.local_stores, name="local-stores"),
     path('sign-in', views.signIn, name="sign-in"),
     path('lookbook', views.lookbook, name="lookbook"),
     path('product-view', views.productView, name="product-view"),
@@ -23,15 +23,11 @@ urlpatterns = [
     path('cart', views.cart, name='cart'),
     path('add_to_cart', views.add_to_cart, name='add_to_cart'),
     path('make_order', views.make_order, name='make_order'),
-<<<<<<< HEAD
     path('finish_order', views.finish_order, name='finish_order'),
-    path("choose-hat",views.choose_hat,name="choose-hat"),
-    path("choose-shirt",views.choose_shirt,name="choose-shirt"),
-    path("choose-jeans",views.choose_jeans,name="choose-jeans"),
-    path("choose-shoes",views.choose_shoes,name="choose-shoes"),
-    path("add_to_lookbook",views.add_to_lookbook,name='add_to_lookbook'),
-=======
+    path("choose-hat", views.choose_hat, name="choose-hat"),
+    path("choose-shirt", views.choose_shirt, name="choose-shirt"),
+    path("choose-jeans", views.choose_jeans, name="choose-jeans"),
+    path("choose-shoes", views.choose_shoes, name="choose-shoes"),
+    path("add_to_lookbook", views.add_to_lookbook, name='add_to_lookbook'),
     path('finish_order', views.finish_order, name='finish_order')
->>>>>>> 8c9c6ab62c58be62d5b15c8dfdb85e3c57c2c699
-
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

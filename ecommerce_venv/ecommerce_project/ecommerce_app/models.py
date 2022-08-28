@@ -205,8 +205,8 @@ class Product(models.Model):
     size = models.ForeignKey(ProductSize, on_delete=models.CASCADE)
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default='off_count')
-    category= models.CharField(
-        max_length=10, choices=CATEGORY_CHOICES)
+    category = models.CharField(
+        max_length=10, choices=CATEGORY_CHOICES, blank=True)
     product_created = models.DateTimeField(auto_now_add=True)
     product_updated = models.DateTimeField(auto_now=True)
     tags = TaggableManager()  # dodaje se u svaki model kome se zele dodati tagovi
@@ -225,6 +225,10 @@ class Product(models.Model):
         return f'{self.product_title, self.product_price, self.status}'
 
 
+class Test(models.Model):
+    test = models.CharField(max_length=80)
+
+
 class Profile(models.Model):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -238,6 +242,27 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'Profile for user {self.user.username}'
+
+
+class LocalStores(models.Model):
+    city = models.CharField(max_length=50, blank=False)
+    address = models.CharField(max_length=100, blank=False, null=False)
+    about_store = models.TextField(max_length=500, blank=False, null=False)
+    phone_number = models.CharField(
+        max_length=50, blank=False, null=False, default=None)
+    web_address = models.URLField(max_length=30, default=None)
+    e_mail = models.EmailField(blank=True)
+    weekdays_working_hours = models.CharField(max_length=20, default=None)
+    saturday_working_hours = models.CharField(max_length=20, default=None)
+    sunday_working_hours = models.CharField(max_length=20, default=None)
+
+    class Meta:
+        db_table = "ecommerce_store"
+        verbose_name = "Store"
+        verbose_name_plural = "Store"
+
+    def __str__(self):
+        return self.city
 
 
 class Cart(models.Model):
@@ -283,9 +308,9 @@ class OrderValues(models.Model):
         db_table = "ecommerce_order_values"
         verbose_name_plural = "Order values"
 
+
 class CurrentLookbook(models.Model):
-    product_id=models.CharField(max_length=30)
+    product_id = models.CharField(max_length=30)
     lookbook_image = models.ImageField(
         upload_to="products/", blank=True)
-    product_category=models.CharField(max_length=20)
-
+    product_category = models.CharField(max_length=20)

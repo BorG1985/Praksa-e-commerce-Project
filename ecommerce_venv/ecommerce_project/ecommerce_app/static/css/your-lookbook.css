@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 * {
     margin: 0;
     padding: 0;
@@ -13,8 +10,6 @@
     --active-a-link: #00c8c8;
     --link-color-gray: #727272;
 }
->>>>>>> 8c9c6ab62c58be62d5b15c8dfdb85e3c57c2c699
-
 
 .container {
     border: 1px solid red;
@@ -22,34 +17,164 @@
     justify-content: center;
 }
 
+
+.body a {
+    text-decoration: none;
+}
+
+.body button {
+    border: #727272;
+    width: 65px;
+    justify-self: center;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    border: 1px solid grey;
+    width: 350px;
+    height: 690px;
+    position: absolute;
+    z-index: 1;
+    padding: 0px;
+}
+
+
+.head img {
+    width: 200px;
+    height: 100px;
+}
+
+.shoes img {
+    width: 200px;
+    height: 88px;
+}
+
+.upper-body img,
+.lower-body img {
+    width: 200;
+    height: 300px;
+}
+
 .head {
+    top: 0%;
+    margin: 0px;
+    padding: 0px;
     border: 1px solid blue;
     height: 100px;
     width: 200px;
+    z-index: 1;
+    position: absolute;
 }
+
+.head button {
+    width: 70px;
+    height: 30px;
+    border-radius: 8px;
+    top: 35%;
+    left: 30%;
+    color: #727272;
+    background-color: #00c8c8;
+    opacity: 0.6;
+    z-index: 1;
+    position: absolute;
+}
+
+.head button:hover {
+    cursor: grab;
+    border: 1px solid gray;
+    font-weight: bold;
+    transition: ease-in;
+    opacity: 1;
+}
+
 
 .upper-body {
     border: 1px solid yellow;
-<<<<<<< HEAD
-    height: 260px;
-=======
-    height: 350px;
->>>>>>> 8c9c6ab62c58be62d5b15c8dfdb85e3c57c2c699
+    height: 230px;
     width: 200px;
+    position: absolute;
+    top: 16%;
+    z-index: 1;
+}
+
+.upper-body button {
+    width: 70px;
+    height: 30px;
+    border-radius: 8px;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    color: #727272;
+    background-color: #00c8c8;
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.upper-body button:hover {
+    cursor: grab;
+    border: 1px solid gray;
+    font-weight: bold;
+    transition: ease-in;
+    opacity: 1;
 }
 
 .lower-body {
+    top: 50%;
     border: 1px solid green;
-<<<<<<< HEAD
-    height: 260px;
-=======
-    height: 350px;
->>>>>>> 8c9c6ab62c58be62d5b15c8dfdb85e3c57c2c699
+    height: 240px;
     width: 200px;
+    position: absolute;
+    z-index: 1;
+}
+
+.lower-body button {
+    width: 70px;
+    height: 30px;
+    border-radius: 8px;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    color: #727272;
+    background-color: #00c8c8;
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.lower-body button:hover {
+    cursor: grab;
+    border: 1px solid gray;
+    font-weight: bold;
+    transition: ease-in;
+    opacity: 1;
 }
 
 .shoes {
+    top: 87%;
     border: 1px solid black;
-    height: 100px;
+    height: 88px;
     width: 200px;
+    position: absolute;
+    z-index: 1;
+}
+
+.shoes button {
+    width: 70px;
+    height: 30px;
+    border-radius: 8px;
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    color: #727272;
+    background-color: #00c8c8;
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.shoes button:hover {
+    cursor: grab;
+    border: 1px solid gray;
+    font-weight: bold;
+    transition: ease-in;
+    opacity: 1;
 }
