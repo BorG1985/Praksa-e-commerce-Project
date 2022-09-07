@@ -99,3 +99,20 @@
     transition: 0.2s;
     cursor: grab;
 }
+
+.payment{
+    display: flex;
+    justify-content: space-between;
+}
+.price{
+    display: flex;
+    margin-top: 70px;
+}
+.make_order{
+    width: 100px;
+    height: 40px;
+    color: white;
+    background-color: green;
+    border-radius: 10px;
+    margin-top: 70px;
+}

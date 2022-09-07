@@ -21,19 +21,19 @@
         <img class="body" src="../static/media/products/Human_body_silhouette.jpg">
             <div class="head">
                 <a href="{% url 'choose-hat' %}"><button>choose</button></a>
-                <img class="product-img" src="../static/media/{{product_hat.lookbook_image}}">
+                <img alt="Choose your product" onerror="this.style.display='none'" class="product-img" src="../static/media/{{product_hat.lookbook_image}}">
             </div>
             <div class="upper-body">
                 <a href="{% url 'choose-shirt' %}"><button>choose</button></a>
-                <img class="product-img" src="../static/media/{{product_shirt.lookbook_image}}">
+                <img class="product-img" onerror="this.style.display='none'"  src="../static/media/{{product_shirt.lookbook_image}}">
             </div>
             <div class="lower-body">
                 <a href="{% url 'choose-jeans' %}"><button>choose</button></a>
-                <img class="product-img" src="../static/media/{{product_jeans.lookbook_image}}">
+                <img class="product-img" onerror="this.style.display='none'"  src="../static/media/{{product_jeans.lookbook_image}}">
             </div>
             <div class="shoes">
                 <a href="{% url 'choose-shoes' %}"><button>choose</button></a>
-                <img class="product-img" src="../static/media/{{product_shoes.lookbook_image}}">
+                <img class="product-img"  onerror="this.style.display='none'" src="../static/media/{{product_shoes.lookbook_image}}">
             </div>
         </div>
     </div>

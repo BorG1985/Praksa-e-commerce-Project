@@ -29,8 +29,12 @@
         <input class="card" name="card" placeholder="Card Number">
         <input class="expiration" name="expiration" placeholder="Expiration date (Format: mm/yy)">
         <input class="security" name="security" placeholder="Security code">
-        <p class="total_price" id="total_price" >Total price: {{price}}</p>
-        <input class="price" id="price" type="text" name="price" value="{{price}}">
+        <hr>
+        <div class="price">
+          <p class="total_price" id="total_price" >Total price: {{price}} </p>
+          <p class="value" id="value">$</p>
+        </div>
+        <input class="price" id="price" type="text" name="price" value="{{price}}" style="display:none ;">
         <button class="finish_order" href="{% url 'finish_order' %}" type="submit">Finish Order</button>
         
     </form>

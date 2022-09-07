@@ -38,10 +38,13 @@
       </div>
     </div>
     {% endfor %}
+    
 
   </div>
-  <!--
-    <form method="post" action="{% url 'make_order' %}">
+  
+<hr>
+  
+    <form method="post" class="forma" action="{% url 'make_order' %}">
       {% csrf_token %}
       <div class="payment">
         <p class="number_of_products" id="number_of_products"></p>
@@ -51,18 +54,19 @@
 
         </div>
 
-        <input name="total_value" id="i_total_value">
+        <input name="total_value" id="i_total_value" style="display:none ;">
         <button class="make_order" href="{% url 'make_order' %}" type="submit">Make Order</button>
       </div>
-    </form>!-->
+    </form>
   {% block footer %}
   {% include 'footer.html' %}
   {% endblock %}
 </body>
 <footer>
+  <script>
 
 
-  const productCurrency = document.getElementsByClassName("Product_Price")
+  const productCurrency = document.getElementsByClassName("product-price")
   const data = [].map.call(productCurrency, item => item.textContent)
   counter = 0
   price = 0
@@ -73,10 +77,127 @@
 
   }
   document.getElementById('number_of_products').innerHTML = "Number of products: " + counter
-  document.getElementById('total_value').innerHTML = "Total value: " + price + "$"
+  document.getElementById('total_value').innerHTML = "Total value: " + price 
   inputI = document.getElementById('i_total_value')
-  inputI.setAttribute('value', + price + "$");
+  inputI.setAttribute('value', + price );
 
+  </script>
+  <script>
+    const product=document.getElementsByClassName("product-price")
+    const data2 = [].map.call(product, item => item.textContent)
+    
+
+function myFunction(){
+      
+      var currency = document.getElementById("pay-currency").value
+      if (currency=="BAM"){
+        
+        newPrice=[]
+        
+      {
+        
+        
+        for (i in data2){
+          newPrice[i]=data2[i]*1.8
+
+
+        }
+        for (i in product){
+          product[i].innerHTML=newPrice[i];
+
+        }
+        productValue=document.getElementsByClassName('product_value')
+        for(i in productValue){
+          productValue[i].innerHTML="KM"
+        }
+        var total_price=document.getElementById('i_total_value').value;
+        document.getElementById('total_value').innerHTML="Total value: " + total_price * 1.8 ;
+        document.getElementById('value').innerHTML="KM"
+        
+       
+
+      
+        
+          
+          
+          
+          
+          
+      }
+
+
+      }
+      if (currency=="GBP"){
+        
+        newPrice=[]
+        
+      {
+        
+        
+        for (i in data2){
+          newPrice[i]=data2[i]*0.8
+
+
+        }
+        for (i in product){
+          product[i].innerHTML=newPrice[i];
+
+        }
+        productValue=document.getElementsByClassName('product_value')
+        for(i in productValue){
+          productValue[i].innerHTML="£"
+        }
+
+      
+        var total_price=document.getElementById('i_total_value').value;
+        document.getElementById('total_value').innerHTML="Total value: " + total_price * 0.8 ;
+        document.getElementById('value').innerHTML="£"
+          
+          
+          
+          
+          
+        }
+
+
+      }
+      if (currency=="USD"){
+        
+        newPrice=[]
+        
+      {
+        
+        
+        for (i in data2){
+          newPrice[i]=data2[i]
+
+
+        }
+        for (i in productCurrency){
+          productCurrency[i].innerHTML=newPrice[i];
+
+        }
+        productValue=document.getElementsByClassName('product_value')
+        for(i in productValue){
+          productValue[i].innerHTML="$"
+        }
+
+      
+        var total_price=document.getElementById('i_total_value').value;
+        document.getElementById('total_value').innerHTML="Total value: " + total_price ;
+        document.getElementById('value').innerHTML="$"
+          
+          
+          
+          
+          
+        }
+
+
+      }
+      
+    }
+    
   </script>
 </footer>
 

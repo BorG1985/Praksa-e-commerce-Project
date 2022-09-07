@@ -17,7 +17,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .models import Profile, NewUser, Product, ProductSize
 from ecommerce_app.models import Cart, AllOrders, OrderValues, CurrentLookbook, LocalStores
-from ecommerce_app.models import Cart, AllOrders, OrderValues
+from ecommerce_app.models import Cart, AllOrders, OrderValues,UserSession,CurrentSession
 from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
 import mysql.connector
 from datetime import date, datetime, timedelta
@@ -92,8 +92,10 @@ def signIn(request):  # rename to register
 
         if (res != 0):
 
-            # Redirect to a success page.
-            return HttpResponse("Proradio materi")
+            UserSession(username=email,session_started=now.strftime("%H:%M:%S"),session_started_date=today.strftime("%m/%d/%y")).save()
+            CurrentSession(username=email).save()
+            return render(request,'homepage.html')
+            
         else:
             # Return an 'invalid login' error message.
             return HttpResponse("Ne radi")
@@ -116,25 +118,30 @@ def register_done(request):
 
 def register(request):
     if request.method == 'POST':
-        user_form = UserRegistrationForm(request.POST)
-        if user_form.is_valid():
+        email=request.POST['email']
+        password1=request.POST['password1']
+        password2=request.POST['password2']
+        NewUser(email=email,password1=password1,password2=password2).save()
+        return render(request,'sign-in.html')
+        #user_form = UserRegistrationForm(request.POST)
+       # if user_form.is_valid():
             # Create a new user object but avoid saving it yet
-            new_user = user_form.save(commit=False)
+           # new_user = user_form.save(commit=False)
             # Set the chosen password
-            new_user.set_password(
-                user_form.cleaned_data['Password'])
+           # new_user.set_password(
+              #  user_form.cleaned_data['Password'])
             # Save the User object
-            new_user.save()
+            #new_user.save()
             # Create the user profile
-            Profile.objects.create(user=new_user)
-            return render(request,
-                          'account/register_done.html',
-                          {'new_user': new_user})
-    else:
-        user_form = UserRegistrationForm()
-    return render(request,
-                  'log-in.html',
-                  {'user_form': user_form})
+            #Profile.objects.create(user=new_user)
+            #return render(request,
+                          #'account/register_done.html',
+                         # {'new_user': new_user})
+    #else:
+        #user_form = UserRegistrationForm()
+   # return render(request,
+                  #'log-in.html',
+                 # {'user_form': user_form})
 
 
 @login_required

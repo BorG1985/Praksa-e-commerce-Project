@@ -314,3 +314,18 @@ class CurrentLookbook(models.Model):
     lookbook_image = models.ImageField(
         upload_to="products/", blank=True)
     product_category = models.CharField(max_length=20)
+
+
+class UserSession(models.Model):
+    username=models.CharField(max_length=30)
+    session_started=models.CharField(max_length=20)
+    session_started_date=models.CharField(max_length=20)
+    class Meta:
+        db_table = "ecommerce_user_session"
+
+class CurrentSession(models.Model):
+    username=models.CharField(max_length=30)
+    
+
+    class Meta:
+        db_table = "ecommerce_current_session"  
