@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'taggit',
     'crispy_forms',
     'ecommerce_app',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'ecommerce_app.context_processors.customer_support',
                 'ecommerce_app.context_processors.add_variable_to_context',
             ],
         },
@@ -83,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommerce',
         'USER': 'root',
-        'PASSWORD': '1234',
+        'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS': {
@@ -154,3 +156,12 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Django taggit
 TAGGIT_CASE_INSENSITIVE = True
+
+#e-mail settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER = '#unijeti adresu'
+EMAIL_HOST_PASSWORD = '#unijeti password'
+EMAIL_USE_TLS = True
+#EMAIL_USE_SSL = False

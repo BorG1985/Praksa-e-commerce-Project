@@ -1,4 +1,5 @@
 from audioop import add
+from base64 import urlsafe_b64decode
 from unicodedata import name
 from django import views
 from django.urls import path, include
@@ -12,7 +13,9 @@ urlpatterns = [
     path('', views.base, name="base"),
     path('homepage', views.homePage, name="homepage"),
     path('local-stores', views.local_stores, name="local-stores"),
-    path('sign-in', views.signIn, name="sign-in"),
+    path('log-in', views.log_in, name="log-in"),
+    path('sign-in', views.sign_in, name="sign-in"),
+    path('admin-login', views.admin_login, name="admin-login"),
     path('lookbook', views.lookbook, name="lookbook"),
     path('product-view', views.productView, name="product-view"),
     path('mens', views.mens, name="mens"),
@@ -30,5 +33,6 @@ urlpatterns = [
     path("choose-shoes", views.choose_shoes, name="choose-shoes"),
     path("add_to_lookbook", views.add_to_lookbook, name='add_to_lookbook'),
     path('finish_order', views.finish_order, name='finish_order'),
-    path("filter_products",views.filter_products,name='filter_products'),
+    path("filter_products", views.filter_products, name='filter_products'),
+    path('account/', include('account.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

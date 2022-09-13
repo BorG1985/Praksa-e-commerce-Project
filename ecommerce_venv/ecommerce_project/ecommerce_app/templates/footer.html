@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
 </head>
@@ -22,7 +24,7 @@
                             <p><b>INFORMATION</b></p>
                         </li><br>
                         <li><a href="#">The brand</a></li>
-                        <li><a href="#">Local stores</a></li>
+                        <li><a href="{% url 'local-stores' %}">Local stores</a></li>
                         <li><a href="#">Customer service</a></li>
                         <li><a href="#">Privacy & cookies</a></li>
                         <li><a href="#">Site map</a></li>
@@ -46,10 +48,10 @@
                         <li>
                             <p><b>YOUR ACCOUNT</b></p><br>
                         </li>
-                        <li><a href="#">Sign in</a></li>
-                        <li><a href="#">Register</a></li>
-                        <li><a href="#">View cart</a></li>
-                        <li><a href="#">View your lookbook</a></li>
+                        <li><a href="{% url 'sign-in' %}">Sign in</a></li>
+                        <li><a href="{% url 'sign-in' %}">Register</a></li>
+                        <li><a href="{% url 'cart' %}">View cart</a></li>
+                        <li><a href="{% url 'your-lookbook' %}">View your lookbook</a></li>
                         <li><a href="#">Track an order</a></li>
                         <li><a href="#">Update information</a></li>
                     </ul>
@@ -60,10 +62,10 @@
                             <p><b>LOOKBOOK</b></p><br>
                         </li>
                         <li><a href="#">Latest posts</a></li>
-                        <li><a href="#">Men's lookbook</a></li>
-                        <li><a href="#">Women's lookbook</a></li>
+                        <li><a href="{% url 'mens' %}">Men's lookbook</a></li>
+                        <li><a href="{% url 'womens' %}">Women's lookbook</a></li>
                         <li><a href="#">Lookbook RSS feed</a></li>
-                        <li><a href="#">View your lookbook</a></li>
+                        <li><a href="{% url 'your-lookbook' %}">View your lookbook</a></li>
                         <li><a href="#">Delete your lookbook</a></li>
                     </ul>
                 </div>
@@ -72,11 +74,11 @@
                         <li>
                             <p><b>CONTACT DETAILS</b></p><br>
                         </li>
-                        <li><a href="#">Head Office Avenue Fashion,<br>180-182 Regent Street, London</a></li>
-                        <li><a href="#">Telephone 0123-456-789</a></li>
-                        <li><a href="mailto:support@yourwebsite.com">Email: support@yourwebsite.com</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
+                        {% for contact in customer_support %}
+                        <li><a href="#">Head Office Avenue Fashion,<br>{{contact.address}}, {{contact.city}}</a></li>
+                        <li><a href="#">{{contact.phone_number}}</a></li>
+                        <li><a href="mailto:{{contact.e_mail}}">Send us E-mail</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
@@ -86,10 +88,12 @@
                     <H1>FASHION AWARDS 2016</H1>
                 </div>
                 <div class="social">
-                    <i class="fab fa-facebook-f fa-2x"></i>
-                    <i class="fab fa-twitter fa-2x"></i>
-                    <i class="fab fa-instagram fa-2x"></i>
-                    <i class="fab fa-pinterest fa-2x"></i>
+                    {% for social in customer_support %}
+                    <a href="{{social.facebook_link}}"><i class="fab fa-facebook-f fa-2x"></i></a>
+                    <a href="{{social.twitter_link}}"><i class="fab fa-twitter fa-2x"></i></a>
+                    <a href="{{social.instagram_link}}"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="{{social.pinterest_link}}"><i class="fab fa-pinterest fa-2x"></i></a>
+                    {% endfor %}
                 </div>
             </div>
         </div>

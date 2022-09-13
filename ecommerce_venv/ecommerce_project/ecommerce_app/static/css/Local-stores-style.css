@@ -50,6 +50,11 @@ a {
     padding: 40px 40px;
 }
 
+.info-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .meni-info {
     text-align: center;
     padding: 2rem 0;
@@ -404,7 +409,7 @@ a {
 #info1 {
     float: left;
     width: auto;
-    height: 460px;
+    height: 357px;
     background-color: rgb(248, 246, 246);
 }
 

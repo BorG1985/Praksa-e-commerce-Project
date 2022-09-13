@@ -1,6 +1,7 @@
 
 # Create your views here.
 from audioop import reverse
+from email import message
 from locale import currency
 from operator import countOf
 import re
@@ -15,10 +16,9 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .models import Profile, NewUser, Product, ProductSize
-from ecommerce_app.models import Cart, AllOrders, OrderValues, CurrentLookbook, LocalStores
-from ecommerce_app.models import Cart, AllOrders, OrderValues,UserSession,CurrentSession
-from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
+from .models import NewUser, Product, ProductSize
+from ecommerce_app.models import Cart, AllOrders, OrderValues, CurrentLookbook, LocalStores, UserSession, CurrentSession
+from .forms import LoginForm, UserRegistrationForm, UserEditForm
 import mysql.connector
 from datetime import date, datetime, timedelta
 from taggit.models import Tag
@@ -29,10 +29,8 @@ now = datetime.now()
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="1234",
+    password="root",
     database="ecommerce"
-
-
 )
 
 
@@ -49,12 +47,14 @@ def homePage(request):
 
 
 def header(request):
-
+    user_exist = NewUser.objects.filter(
+        email=email, password=password).get()
     return render(request, 'header.html')
 
 
 def footer(request):
-    return render(request, 'footer.html', )
+    customer_support = LocalStores.objects.all()
+    return render(request, 'footer.html', {'customer_support': customer_support})
 
 
 def local_stores(request):
@@ -77,95 +77,73 @@ def lookbook(request):
     return render(request, 'lookbook.html')
 
 
-def signIn(request):  # rename to register
+def admin_login(request):
+    login_form = LoginForm()
     if request.method == "POST":
-        signin_form = UserRegistrationForm(request.POST)
-        if signin_form.is_valid():
-            signin_form.save()
-            return HttpResponseRedirect('sign-in')
-    else:
-        signin_form = UserRegistrationForm()
+        mail = request.POST['email']
+        password = request.POST['password']
+        user = authenticate(request, username=mail, password=password)
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect("homepage")
+        else:
+            return HttpResponse("nije nasao usera")
+    login_form = LoginForm()
+    return render(request, 'admin-sign-in.html', {"login_form": login_form})
+
+
+# --> sredjen user_sign_in_and_login jos samo responesi da budu lijepi
+
+def log_in(request):
+    login_form = LoginForm(request.POST)
     if request.method == "POST":
         email = request.POST['email']
         password = request.POST['password']
-        res = NewUser.objects.filter(email=email, password=password).count()
-
-        if (res != 0):
-
-            UserSession(username=email,session_started=now.strftime("%H:%M:%S"),session_started_date=today.strftime("%m/%d/%y")).save()
+        if login_form.is_valid():
+            user_exist = NewUser.objects.filter(
+                email=email, password=password).exists()  # exists() vraca True ili False
+            if user_exist == False:
+                # \"ide u navodnike\"
+                return HttpResponse(f"User with email: \"" + str(email) + "\" does not exist or wrong e-mail and password!")
+            if user_exist is not None:
+                user_exist = NewUser.objects.filter(
+                    email=email, password=password).get()
+                registered_user = user_exist
+                # http response prihvata samo str value i zato formatiranje
+                return HttpResponse(f"Welcome \"" + str(user_exist)+"\"")
+            else:
+                return HttpResponse("ne cackaj formu")
+        else:
+            login_form = LoginForm()
+            """UserSession(username=email,session_started=now.strftime("%H:%M:%S"),session_started_date=today.strftime("%m/%d/%y")).save()
             CurrentSession(username=email).save()
-            return render(request,'homepage.html')
-            
+            return render(request,'homepage.html')"""
+    return render(request, 'log-in.html', {"login_form": login_form})
+
+
+def sign_in(request):
+    signin_form = UserRegistrationForm(request.POST)
+    if request.method == "POST":
+        email = request.POST['email']
+        password = request.POST['password']
+        password2 = request.POST['password2']
+        if password == password2:
+            if signin_form.is_valid():
+                new_user = NewUser.objects.create(
+                    email=email, password=password, password2=password2)  # provjeriti da li imaju dva ista mail u bazi!!!
+                print("kreiran user")
+                signin_form.save()
+                # http response prihvata samo str value i zato formatiranje
+                return HttpResponse(f"Welcome" + " "+str(new_user))
+            else:
+                messages.error(request, "ne valja ti nesto")
+                signin_form = UserRegistrationForm()
         else:
-            # Return an 'invalid login' error message.
-            return HttpResponse("Ne radi")
+            return HttpResponse("Password dont match, please try again!")
     else:
-        login_form = LoginForm()
+        signin_form = UserRegistrationForm()
 
-    return render(request, 'sign-in.html', {"signin_form": signin_form, "login_form": login_form})
-
-
-@login_required
-def dashboard(request):
-    return render(request,
-                  'account/dashboard.html',
-                  {'section': 'dashboard'})
-
-
-def register_done(request):
-    return render(request, 'account/register_done.html')
-
-
-def register(request):
-    if request.method == 'POST':
-        email=request.POST['email']
-        password1=request.POST['password1']
-        password2=request.POST['password2']
-        NewUser(email=email,password1=password1,password2=password2).save()
-        return render(request,'sign-in.html')
-        #user_form = UserRegistrationForm(request.POST)
-       # if user_form.is_valid():
-            # Create a new user object but avoid saving it yet
-           # new_user = user_form.save(commit=False)
-            # Set the chosen password
-           # new_user.set_password(
-              #  user_form.cleaned_data['Password'])
-            # Save the User object
-            #new_user.save()
-            # Create the user profile
-            #Profile.objects.create(user=new_user)
-            #return render(request,
-                          #'account/register_done.html',
-                         # {'new_user': new_user})
-    #else:
-        #user_form = UserRegistrationForm()
-   # return render(request,
-                  #'log-in.html',
-                 # {'user_form': user_form})
-
-
-@login_required
-def edit(request):
-    if request.method == 'POST':
-        user_form = UserEditForm(instance=request.user,
-                                 data=request.POST)
-        profile_form = ProfileEditForm(
-            instance=request.user.profile,
-            data=request.POST,
-            files=request.FILES)
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()
-            messages.success(request, 'Profile updated successfully')
-        else:
-            messages.error(request, 'Error updating your profile')
-    else:
-        user_form = UserEditForm(instance=request.user)
-        profile_form = ProfileEditForm(instance=request.user.profile)
-    return render(request,
-                  'account/edit.html',
-                  {'user_form': user_form,
-                   'profile_form': profile_form})
+    return render(request, 'sign-in.html', {"signin_form": signin_form})
 
 
 def mens(request):
@@ -311,14 +289,17 @@ def add_to_lookbook(request):
             product_category="shoes").last()
         return render(request, 'your-lookbook.html', {"product_hat": product_hat, "product_shirt": product_shirt, "product_jeans": product_jeans, "product_shoes": product_shoes})
 
+
 def filter_products(request):
-    if request.method=="POST":
-        
-        color=request.POST['color-filter']
-        gender=request.POST['gender-filter']
-        
-        on_count = Product.objects.filter(status="on_count",color=color,gender=gender)
-        count=Product.objects.filter(status="on_count",color=color).count()
-        if count==0:
-            messages.success(request,"Nažalost,trenutno nemamo proizvoda koji odgovaraju filteru")
-        return render(request, 'mens.html', {'page_obj': on_count })
+    if request.method == "POST":
+
+        color = request.POST['color-filter']
+        gender = request.POST['gender-filter']
+
+        on_count = Product.objects.filter(
+            status="on_count", color=color, gender=gender)
+        count = Product.objects.filter(status="on_count", color=color).count()
+        if count == 0:
+            messages.success(
+                request, "Nažalost,trenutno nemamo proizvoda koji odgovaraju filteru")
+        return render(request, 'mens.html', {'page_obj': on_count})

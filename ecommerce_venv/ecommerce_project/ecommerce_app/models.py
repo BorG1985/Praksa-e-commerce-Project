@@ -19,7 +19,7 @@ from taggit.managers import TaggableManager
 
 
 class NewUser(models.Model):
-    email = models.CharField(max_length=150)
+    email = models.EmailField(max_length=150)
     password = models.CharField(max_length=50, null=False, blank=False)
     password2 = models.CharField(max_length=50, null=True, blank=False)
 
@@ -229,29 +229,25 @@ class Test(models.Model):
     test = models.CharField(max_length=80)
 
 
-class Profile(models.Model):
-    user = models.OneToOneField(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    date_of_birth = models.DateField(blank=True, null=True)
-    photo = models.ImageField(upload_to='users/', blank=True)
-
-    class Meta:
-        db_table = "ecommerce_profile"
-        verbose_name = "User profile"
-        verbose_name_plural = "User profiles"
-
-    def __str__(self):
-        return f'Profile for user {self.user.username}'
-
-
 class LocalStores(models.Model):
     city = models.CharField(max_length=50, blank=False)
     address = models.CharField(max_length=100, blank=False, null=False)
+    map_url = models.URLField(null=True, default=None)
     about_store = models.TextField(max_length=500, blank=False, null=False)
+    director = models.CharField(max_length=50, blank=True, null=True)
+    marketing_director = models.CharField(max_length=50, blank=True, null=True)
     phone_number = models.CharField(
         max_length=50, blank=False, null=False, default=None)
     web_address = models.URLField(max_length=30, default=None)
     e_mail = models.EmailField(blank=True)
+    facebook_link = models.URLField(
+        max_length=100, blank=True, null=True)
+    twitter_link = models.URLField(
+        max_length=100, blank=True, null=True)
+    instagram_link = models.URLField(
+        max_length=100, blank=True, null=True)
+    pinterest_link = models.URLField(
+        max_length=100, blank=True, null=True)
     weekdays_working_hours = models.CharField(max_length=20, default=None)
     saturday_working_hours = models.CharField(max_length=20, default=None)
     sunday_working_hours = models.CharField(max_length=20, default=None)
@@ -317,15 +313,16 @@ class CurrentLookbook(models.Model):
 
 
 class UserSession(models.Model):
-    username=models.CharField(max_length=30)
-    session_started=models.CharField(max_length=20)
-    session_started_date=models.CharField(max_length=20)
+    username = models.CharField(max_length=30)
+    session_started = models.CharField(max_length=20)
+    session_started_date = models.CharField(max_length=20)
+
     class Meta:
         db_table = "ecommerce_user_session"
 
+
 class CurrentSession(models.Model):
-    username=models.CharField(max_length=30)
-    
+    username = models.CharField(max_length=30)
 
     class Meta:
-        db_table = "ecommerce_current_session"  
+        db_table = "ecommerce_current_session"

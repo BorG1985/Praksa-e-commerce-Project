@@ -25,8 +25,10 @@
         </select>
       </div>
       <div class="center-upper-header">
+
         <a href="{% url 'sign-in' %}" class="register-link">Register</a>&nbsp&nbsp&nbsp
-        <a class="sign-in-link" href="{% url 'sign-in' %}">Sign in</a>
+        <a class="sign-in-link" href="{% url 'log-in' %}">Sign in</a>
+
       </div>
       <div class="right-upper-header">
         <span class="cart">
@@ -96,7 +98,7 @@
                 <div class="column">
                   <h3>OUR LOOKBOOKS</h3>
                   <a href="#">Latest Posts</a>
-                  <a href="#">Men's Lookbook</a>
+                  <a href="{% url 'mens' %}">Men's Lookbook</a>
                   <a href="{% url 'womens' %}">Women's Lookbook</a>
                 </div>
                 <div class="column">
@@ -119,7 +121,7 @@
                 <div class="column">
                   <h3>OUR LOOKBOOKS</h3>
                   <a href="#">Latest Posts</a>
-                  <a href="#">Men's Lookbook</a>
+                  <a href="{% url 'mens' %}">Men's Lookbook</a>
                   <a href="{% url 'womens' %}">Women's Lookbook</a>
                 </div>
                 <div class="column">
@@ -142,7 +144,7 @@
                 <div class="column">
                   <h3>OUR LOOKBOOKS</h3>
                   <a href="#">Latest Posts</a>
-                  <a href="#">Men's Lookbook</a>
+                  <a href="{% url 'mens' %}">Men's Lookbook</a>
                   <a href="{% url 'womens' %}">Women's Lookbook</a>
                 </div>
                 <div class="column">

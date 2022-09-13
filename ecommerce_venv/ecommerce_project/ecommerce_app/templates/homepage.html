@@ -1,4 +1,6 @@
 {% load static %}
+{% block header %}
+{% endblock %}
 {% block homepage %}
 <!DOCTYPE html>
 <html lang="en">
@@ -224,4 +226,10 @@
         </div>
     </section><br>
     <hr class="section-separator-line"><br><br>
+    {% endblock %}
+    {% block footer %}
+    {% include 'footer.html' %}
+    {% endblock %}
+    {% block script %}
+     <script src="{% static 'js/fetch_homepage_data.js' %}"
     {% endblock %}

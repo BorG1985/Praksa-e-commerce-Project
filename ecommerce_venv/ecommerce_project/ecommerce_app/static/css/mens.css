@@ -4,36 +4,7 @@
     --active-a-link: #00c8c8;
     --link-color-gray: #727272;
 }
-.filters{
-    width: 1000px;
-    display: flex;
-    justify-content: space-between;
-}
-.filter-h3{
-    margin: 0;
-    color: #727272;
-    font-family: 'Monsterrat';
-}
-.filter-label{
-    font-family: 'Monsterrat';
-    color: #727272;
-}
-.filter-select{
-    font-family: 'Monsterrat';
-    border-radius: 25px;
-    width: 150px;
-    height: 30px;
-    background-color: rgb(99, 109, 117);
-}
-.filter-button{
-    font-family: 'Monsterrat';
-    background-color: #00c8c8;
-    font-size: 15px;
-    color: #ffffff;
-    border-radius: 10px;
-    width: 120px;
-    height: 30px;
-}
+
 .product-row {
     display: flex;
     flex-flow: row wrap;
