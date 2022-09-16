@@ -26,8 +26,10 @@
       </div>
       <div class="center-upper-header">
 
-        <a href="{% url 'sign-in' %}" class="register-link">Register</a>&nbsp&nbsp&nbsp
-        <a class="sign-in-link" href="{% url 'log-in' %}">Sign in</a>
+        <a id="register_link" href="{% url 'sign-in' %}" class="register-link">Register</a>&nbsp&nbsp&nbsp
+        <a id ="sign_in_link" class="sign-in-link" href="{% url 'log-in' %}">Sign in</a>
+        <p id="welcome_user">Welcome : {{current_user}}</p>
+        <a id="log_out" href="{% url 'log_out' %}">Log out</a>
 
       </div>
       <div class="right-upper-header">
@@ -159,6 +161,9 @@
         </ul>
       </div>
       <div class="right-main-header">
+        
+        <input id="name_value" style="display: none;" value="{{current_user}}">
+        <p id="test"></p>
         <span class="search">
           <input class="searchform" type="text" placeholder="Search..">
           <button class="searchbutton" type="submit"><i class="fa fa-search"></i></button>
@@ -168,3 +173,19 @@
   </div>
 </body>
 {% endblock %}
+<script>
+  value=document.getElementById('name_value').value;
+  if(value != ""){
+    document.getElementById('register_link').style.display="none";
+    document.getElementById('sign_in_link').style.display="none";
+    document.getElementById('log_out').style.display="block";
+    document.getElementById('welcome_user').style.display="block";
+  }else{
+    document.getElementById('register_link').style.display="block";
+    document.getElementById('sign_in_link').style.display="block";
+    document.getElementById('log_out').style.display="none";
+    document.getElementById('welcome_user').style.display="none";
+    
+  }
+</script>
+</html>

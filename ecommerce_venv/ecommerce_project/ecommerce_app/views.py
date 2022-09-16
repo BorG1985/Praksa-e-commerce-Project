@@ -29,7 +29,7 @@ now = datetime.now()
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="root",
+    password="1234",
     database="ecommerce"
 )
 
@@ -47,8 +47,7 @@ def homePage(request):
 
 
 def header(request):
-    user_exist = NewUser.objects.filter(
-        email=email, password=password).get()
+    
     return render(request, 'header.html')
 
 
@@ -109,6 +108,8 @@ def log_in(request):
                 user_exist = NewUser.objects.filter(
                     email=email, password=password).get()
                 registered_user = user_exist
+                UserSession(username=email,session_started=now.strftime("%H:%M:%S"),session_started_date=today.strftime("%m/%d/%y")).save()
+                CurrentSession(username=email).save()
                 # http response prihvata samo str value i zato formatiranje
                 return HttpResponse(f"Welcome \"" + str(user_exist)+"\"")
             else:
@@ -132,7 +133,7 @@ def sign_in(request):
                 new_user = NewUser.objects.create(
                     email=email, password=password, password2=password2)  # provjeriti da li imaju dva ista mail u bazi!!!
                 print("kreiran user")
-                signin_form.save()
+                
                 # http response prihvata samo str value i zato formatiranje
                 return HttpResponse(f"Welcome" + " "+str(new_user))
             else:
@@ -303,3 +304,11 @@ def filter_products(request):
             messages.success(
                 request, "Nažalost,trenutno nemamo proizvoda koji odgovaraju filteru")
         return render(request, 'mens.html', {'page_obj': on_count})
+
+
+
+def log_out(request):
+    CurrentSession.objects.all().delete()
+    return render(request,'homepage.html')
+
+    

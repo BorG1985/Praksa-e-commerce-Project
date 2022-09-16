@@ -35,4 +35,5 @@ urlpatterns = [
     path('finish_order', views.finish_order, name='finish_order'),
     path("filter_products", views.filter_products, name='filter_products'),
     path('account/', include('account.urls')),
+    path("log_out",views.log_out,name='log_out'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

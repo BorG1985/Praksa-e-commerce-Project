@@ -369,3 +369,20 @@ ul {
     display: table;
     clear: both;
 }
+#register_link{
+    display: block;
+}
+#sign_in_link{
+    display: block;
+}
+#welcome_user{
+    color: aqua;
+    font-family: 'montserrat';
+    margin-right: 30px;
+    display: block;
+
+}
+#log_out{
+    margin-top: 5px;
+    display: block;
+}
