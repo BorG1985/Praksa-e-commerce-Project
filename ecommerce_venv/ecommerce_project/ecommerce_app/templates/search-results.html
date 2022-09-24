@@ -1,0 +1,39 @@
+{% load static %} 
+<!DOCTYPE html>
+<html>
+  {% block header %}
+  {% include 'header.html' %}
+  {% endblock %}
+  {% block body %}
+  <div class="container">
+    <div class="product-row">
+    {% for product in object_list %}
+      <form method="POST" action="{% url 'add_to_cart' %}" class="cart-form">
+        {% csrf_token %}
+        <div class="product-card">
+          <input id="id" type="number" name="id" value="{{product.id}}"><br>
+          <img class="product-img" name="product-img" src="../static/media/{{product.product_image}}">
+          <p class="product-title" name="product-title">{{product.product_title}}</p>
+          <div class="price">
+            <p class="product-price" name="product-price">{{product.product_price}}</p>&nbsp;
+            <p class="product-value" name="product-value">$</p>
+          </div>
+          <div class="product-cart-buttons">
+            <button class="add-to-cart-button" href="{% url 'mens' %}" action="submit">ADD TO
+              <i style="font-size:26px" class="fa">&#xf07a;</i>
+            </button>
+      </form>
+      <form method="POST" action="{% url 'product-view' %}" class="cart-form">
+        {% csrf_token %}
+        <a class="product-view-button" href="{% url 'product-view' %}">
+        <button class="product-view-button">
+          VIEW PRODUCT
+        </button></a>
+        <input id="id" type="number" name="id" value="{{product.id}}"><br>
+      </form>
+    </div>
+  </div>
+
+{% endfor %}
+{% endblock %}
+</html>

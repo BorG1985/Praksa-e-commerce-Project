@@ -16,7 +16,6 @@
 h2 {
     display: flex;
     margin-bottom: 40px;
-    font-family: 'Montserrat';
     justify-content: center;
     color: darkgrey;
 }
@@ -63,13 +62,11 @@ hr {
     color: aliceblue;
     font-size: 20px;
     text-align: center;
-    font-family: 'Montserrat';
     letter-spacing: 2px;
     border-style: none;
 }
 
 .link-btn {
-    font-family: 'Montserrat';
     color: aqua;
     text-decoration: none;
     text-align: center;
@@ -79,8 +76,6 @@ hr {
 label {
     display: flex;
     align-items: center;
-    font-family: 'Montserrat';
-
 }
 
 .create {
@@ -92,7 +87,6 @@ label {
 
 p {
     font-size: 12px;
-    font-family: 'Montserrat';
 }
 
 .check-div {

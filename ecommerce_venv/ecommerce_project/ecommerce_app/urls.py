@@ -8,7 +8,7 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
 from . import views
-
+from .views import SearchResultsView
 urlpatterns = [
     path('', views.base, name="base"),
     path('homepage', views.homePage, name="homepage"),
@@ -35,5 +35,6 @@ urlpatterns = [
     path('finish_order', views.finish_order, name='finish_order'),
     path("filter_products", views.filter_products, name='filter_products'),
     path('account/', include('account.urls')),
-    path("log_out",views.log_out,name='log_out'),
+    path("log_out", views.log_out, name='log_out'),
+    path('search-results', SearchResultsView.as_view(), name="search-results"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

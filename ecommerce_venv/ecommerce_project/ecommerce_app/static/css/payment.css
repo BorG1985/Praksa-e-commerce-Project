@@ -7,7 +7,6 @@ input{
     height: 50px;
     color: black;
     background-color: aqua;
-    font-family: 'Monsterrat';
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 5px;
@@ -15,7 +14,6 @@ input{
     margin-left: 5px;
 }
 .total_price{
-    font-family: 'Monsterrat';
     font-size: 25px;
     color: gray;
 }
@@ -24,7 +22,6 @@ input{
     height: 40px;
     color: white;
     background-color: green;
-    font-family: 'Monsterrat';
     margin-left: 5px;
     border-radius: 10px;
 }
@@ -32,7 +29,6 @@ input{
     display: flex;
 }
 .value{
-    font-family: 'Monsterrat';
     font-size: 25px;
     color: gray;
 }

@@ -7,17 +7,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="{% static 'css/womens.css' %}" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
-  <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}" />
-  <script src="{% static 'js/header-footer.js' %}"></script>
-  <script src="{% static 'js/mens.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/mens.css' %}">
+    <script src="{% static 'js/header-footer.js' %}"></script>
   <title>lookbook</title>
 </head>
-
+{% block header %}
+{% include 'header.html' %}
+{% endblock %}
 <body>
-  {% block header %}
-  {% include 'header.html' %}
-  {% endblock %}
+  
   <p style="height:10px ; color: black;">{{a}}</p>
   <div class="container">
     <div class="product-row">

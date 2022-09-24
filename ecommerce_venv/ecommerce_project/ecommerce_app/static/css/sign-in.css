@@ -2,14 +2,12 @@
     display: flex;
 }
 
-.sign-in {
-    display: block;
-    width: 50%;
-    margin-left: 50px;
-    margin-right: 50px;
-    border-right: 2px;
-    border-color: black;
-
+.sign-in,
+.register {
+    padding-top: 80px;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
 }
 
 h2 {
@@ -30,19 +28,25 @@ h2 {
 }
 
 .register {
-    display: block;
-    width: 50%;
-    margin-left: 50px;
-    margin-right: 50px;
-    border-right: 2px;
-    border-color: black;
-
+    padding-top: 0px;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
 }
 
 .sign-in-button {
+    flex: 1;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 50px;
+    text-align: center;
+}
+
+.create {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -82,13 +86,6 @@ label {
 
 }
 
-.create {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
-    text-align: center;
-}
-
 p {
     font-size: 12px;
     font-family: 'Montserrat';
@@ -100,6 +97,16 @@ p {
 
 .link-btn-txt {
     margin-top: 25px;
+}
+
+.checkbox {
+    justify-content: center;
+}
+
+ul,
+li {
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width:768px) {

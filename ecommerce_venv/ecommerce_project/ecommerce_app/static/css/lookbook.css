@@ -1,10 +1,8 @@
 p {
-  font-family: "Montserrat";
   color: #9a9a9a;
 }
 
 ul {
-  font-family: "Montserrat";
   color: #9a9a9a;
 }
 
@@ -22,13 +20,13 @@ ul {
 }
 
 
-body{
+body {
   display: block;
 }
 
 
 @media only screen and (max-width: 768px) {
-  
+
   .header-section {
     height: 300px;
     width: 100%;
@@ -54,7 +52,6 @@ body{
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-family: "Montserrat";
   font-size: 47px;
   font-weight: 100;
   letter-spacing: 2px;
@@ -67,7 +64,6 @@ body{
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-family: "Montserrat";
   font-size: 30px;
   font-weight: 100;
   letter-spacing: 2px;
@@ -81,10 +77,12 @@ body{
   .breadcrumbs {
     font-size: 10px;
   }
+
   .page-title {
     font-size: 20px;
   }
-  #h-link-1{
+
+  #h-link-1 {
     padding-left: 0px;
 
   }
@@ -97,15 +95,17 @@ body{
     display: block;
     padding-left: 0px;
   }
-  .product-group{
+
+  .product-group {
     display: block;
   }
-  .h-links-lookbook{
+
+  .h-links-lookbook {
     display: block;
     padding-left: 0px;
 
   }
-  
+
 
 
 }
@@ -117,9 +117,8 @@ body{
 
 .h-links-lookbook {
   color: #9a9a9a;
-  font-weight:bolder;
-  font-family: "Montserrat";
-  font-size: 13px;  
+  font-weight: bolder;
+  font-size: 13px;
   text-decoration: none;
   margin-left: 25px;
 }
@@ -138,78 +137,81 @@ body{
 
 }
 
-.first-lookbook-row{
+.first-lookbook-row {
   display: flex;
   height: 500px;
   padding-left: 60px;
   padding-top: 60px;
 }
 
-.first-lookbook-row-one{
+.first-lookbook-row-one {
   width: 25%;
   background-image: url(../static/img/item1.jpg);
-} 
+}
 
-.first-lookbook-row-two{
+.first-lookbook-row-two {
   width: 25%;
   background-image: url(../static/img/item2.jpg);
   margin-left: 10px;
-} 
-.first-lookbook-row-three{
+}
+
+.first-lookbook-row-three {
   width: 50%;
   background-image: url(../static/img/item3.jpg);
   background-size: cover;
   margin-left: 10px;
   margin-right: 60px;
-}   
+}
 
-.lookbook-h2{
-  font-family: 'Montserrat';
+.lookbook-h2 {
   color: #575153;
   margin-top: 50px;
   margin-left: 5px;
   font-size: 40px;
 }
 
-.lookbook-h6{
-  font-family: 'Montserrat';
+.lookbook-h6 {
   color: #575153;
   margin-top: 20px;
   margin-left: 5px;
 }
 
-.lookbook-p{
-  font-family: 'Montserrat';
+.lookbook-p {
   color: #575153;
   margin-top: 30px;
   margin-left: 5px;
   width: 40%;
   font-size: 12px;
 }
-.second-lookbook-row{
+
+.second-lookbook-row {
   display: flex;
   height: 500px;
   padding-left: 60px;
   padding-top: 60px;
 }
-.second-lookbook-row-one{
+
+.second-lookbook-row-one {
   background-image: url(../static/img/item4.jpg);
   width: 25%;
 
 }
-.second-lookbook-row-two{
+
+.second-lookbook-row-two {
   background-image: url(../static/img/item5.jpg);
   width: 25%;
   margin-left: 10px;
 
 }
-.second-lookbook-row-three{
+
+.second-lookbook-row-three {
   background-image: url(../static/img/item6.jpg);
   width: 25%;
   margin-left: 10px;
 
 }
-.second-lookbook-row-four{
+
+.second-lookbook-row-four {
   background-image: url(../static/img/item7.jpg);
   width: 25%;
   margin-left: 10px;
@@ -217,53 +219,55 @@ body{
 
 }
 
-.lookbook-btn{
+.lookbook-btn {
   width: 150px;
   height: 50px;
   background: transparent;
-  font-family: 'Montserrat';
   margin-top: 30px;
   margin-left: 5px;
 
 }
 
-.third-lookbook-row{
+.third-lookbook-row {
   display: flex;
   margin-top: 10px;
   padding-left: 60px;
 }
-.third-lookbook-row-one{
+
+.third-lookbook-row-one {
   background-image: url(../static/img/win-book.jpg);
   background-position: center;
-  
+
   padding-left: 20px;
   width: 75%;
   height: 500px;
 
 
 }
-.third-lookbook-row-two{
+
+.third-lookbook-row-two {
   background-image: url(../static/img/item9.jpg);
   margin-left: 10px;
   margin-right: 60px;
   width: 25%;
 }
 
-.lookbook-p-2{
-  font-family: 'Montserrat';
+.lookbook-p-2 {
   color: #575153;
   margin-top: 30px;
   margin-left: 5px;
   width: 35%;
   font-size: 12px;
 }
-.big-award{
+
+.big-award {
   color: #00c8c8;
   font-size: 170px;
   font-weight: bold;
   float: right;
   margin-bottom: 200px;
 }
+
 .lookbooks {
   display: flex;
 }
@@ -384,15 +388,16 @@ body{
   transition: 0.6s ease;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
 
-  .first-lookbook-row{
+  .first-lookbook-row {
     display: block;
     height: 100%;
     margin-top: 10px;
-    
+
   }
-  .first-lookbook-row-one{
+
+  .first-lookbook-row-one {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -401,7 +406,8 @@ body{
     background-repeat: no-repeat;
     margin-top: 10px;
   }
-  .first-lookbook-row-two{
+
+  .first-lookbook-row-two {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -410,7 +416,8 @@ body{
     background-repeat: no-repeat;
     margin-top: 10px;
   }
-  .first-lookbook-row-three{
+
+  .first-lookbook-row-three {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -419,13 +426,15 @@ body{
     background-repeat: no-repeat;
     margin-top: 10px;
   }
-  .second-lookbook-row{
+
+  .second-lookbook-row {
     display: block;
     height: 100%;
     margin-top: 10px;
-    
+
   }
-  .second-lookbook-row-one{
+
+  .second-lookbook-row-one {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -434,7 +443,8 @@ body{
     background-repeat: no-repeat;
     margin-top: 10px;
   }
-  .second-lookbook-row-two{
+
+  .second-lookbook-row-two {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -443,7 +453,8 @@ body{
     background-repeat: no-repeat;
     margin-top: 10px;
   }
-  .second-lookbook-row-three{
+
+  .second-lookbook-row-three {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -452,7 +463,8 @@ body{
     background-repeat: no-repeat;
     margin-top: 10px;
   }
-  .second-lookbook-row-four{
+
+  .second-lookbook-row-four {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -461,13 +473,15 @@ body{
     background-repeat: no-repeat;
     margin-top: 10px;
   }
-  .third-lookbook-row{
+
+  .third-lookbook-row {
     display: block;
     height: 100%;
     margin-top: 10px;
-    
+
   }
-  .third-lookbook-row-one{
+
+  .third-lookbook-row-one {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -476,7 +490,8 @@ body{
     background-repeat: no-repeat;
     margin-top: 10px;
   }
-  .third-lookbook-row-two{
+
+  .third-lookbook-row-two {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -485,21 +500,25 @@ body{
     background-repeat: no-repeat;
     margin-top: 10px;
   }
-  .lookbooks{
+
+  .lookbooks {
     display: block;
   }
-  .big-award{
+
+  .big-award {
     font-size: 50px;
   }
-  .product-group{
+
+  .product-group {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 70%;
   }
-  .h-links-lookbook{
+
+  .h-links-lookbook {
     margin-top: 10px;
   }
 
-  
+
 }

@@ -5,6 +5,12 @@
     --link-color-gray: #727272;
 }
 
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 .product-row {
     display: flex;
     flex-flow: row wrap;
@@ -44,7 +50,6 @@
 }
 
 .product-title {
-    font-family: 'Montserrat';
     color: rgb(93, 93, 93);
     font-size: 20px;
     text-align: center;
@@ -52,7 +57,6 @@
 }
 
 .product-price {
-    font-family: 'Montserrat';
     color: rgb(94, 94, 94);
     font-size: 20px;
     text-align: center;
@@ -66,7 +70,6 @@
 }
 
 .product-value {
-    font-family: 'Montserrat';
     color: rgb(94, 94, 94);
     font-size: 20px;
     text-align: center;
@@ -79,7 +82,6 @@
     width: 100px;
     text-align: center;
 
-    font-family: 'Monsterrat';
 
     background-color: black;
     color: aliceblue;
@@ -99,7 +101,6 @@
     width: 100px;
     text-align: center;
 
-    font-family: 'Monsterrat';
 
 
     background-color: black;
@@ -127,7 +128,6 @@
 
 .count {
     margin-top: 20px;
-    font-family: 'Monsterrat';
     font-size: 15px;
     color: rgb(26, 21, 188);
     text-align: center;
@@ -138,7 +138,6 @@
     width: 100px;
     text-align: center;
 
-    font-family: 'Monsterrat';
 
 
     background-color: rgb(209, 35, 35);
@@ -147,14 +146,12 @@
 }
 
 .is_avaliable {
-    font-family: 'Monsterrat';
     color: green;
     font-size: 15px;
     text-align: center;
 }
 
 .is_not_avaliable {
-    font-family: 'Monsterrat';
     color: red;
     font-size: 15px;
     text-align: center;
@@ -172,7 +169,6 @@
 
 .filter_h {
     text-align: center;
-    font-family: 'Monsterrat';
     color: gray;
 }
 
@@ -181,7 +177,6 @@
 }
 
 .filter_h_avaliable {
-    font-family: 'Monsterrat';
     color: gray;
 }
 

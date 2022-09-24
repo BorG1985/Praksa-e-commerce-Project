@@ -6,21 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/payment.css' %}" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="{% static 'css/font-awesome-4.7.0/css/font-awesome.min.css' %}"
-    />
-
     <script src="{% static 'js/mens.js' %}"></script>
     <script src="{% static 'js/header-footer.js' %}"></script>
     <title>lookbook</title>
   </head>
   <body>
-    {% block content %} {% include 'header.html' %} {% endblock %}
+    {% block header %} {% include 'header.html' %} {% endblock %}
     <form method="post" class="payment_form" action="{% url 'finish_order' %}">
       {% csrf_token %}
       <input class="name" name="name" placeholder="Your name" />

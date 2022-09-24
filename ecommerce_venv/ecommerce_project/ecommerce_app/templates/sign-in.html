@@ -1,18 +1,12 @@
-{% load static %} {% block content %} {% include 'header.html' %} {% endblock %}
+{% load static %} {% block header %} {% include 'header.html' %} {% endblock %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
     <link rel="stylesheet" href="{% static 'css/sign-in.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/mens.css' %}" />
   </head>
 
   <body>
@@ -28,14 +22,14 @@
           </label>
           <div class="create">
             <button class="create-btn" action="submit">CREATE ACCOUNT</button>
-            <p class="link-btn-txt">
-              By clicking on 'CREATE ACCOUNT' you agree to our
-              <a href="#" class="link-btn"
-                >Privacy Policy
-                <i class="fa fa-long-arrow-right" aria-hidden="true"></i
-              ></a>
-            </p>
           </div>
+          <p class="link-btn-txt">
+            By clicking on 'CREATE ACCOUNT' you agree to our
+            <a href="#" class="link-btn"
+              >Privacy Policy
+              <i class="fa fa-long-arrow-right" aria-hidden="true"></i
+            ></a>
+          </p>
         </form>
       </div>
       {% endblock %}

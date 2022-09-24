@@ -6,21 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/lookbook.css' %}" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="{% static 'css/font-awesome-4.7.0/css/font-awesome.min.css' %}"
-    />
+    <link rel="stylesheet" href="{% static 'css/mens.css' %}" />
     <script src="{% static 'js/header-footer.js' %}"></script>
     <title>lookbook</title>
   </head>
   <body>
-    {% block content %}
-    {% include 'header.html' %}
-    {% endblock %}
+    {% block header %} {% include 'header.html' %} {% endblock %}
     <section class="header-section">
       <div class="page-title">
         <p>
@@ -35,157 +26,131 @@
         </p>
       </div>
     </section>
-    <section class="lookbook-body">      
-    </section>
+    <section class="lookbook-body"></section>
     <section>
       <div>
-        <hr id="line-of-section">
+        <hr id="line-of-section" />
       </div>
       <div class="product-group">
-        <a class="h-links-lookbook" href="" >LATEST</a>
-        <a class="h-links-lookbook" id="h-link-1" href="" >MOST LIKED</a>        
-        <a class="h-links-lookbook" id="h-link-2" href="" >BEST SELLERS</a>
-        <a class="h-links-lookbook" id="h-link-2" href="" >PRICE LOW TO HIGH</a>
-        <a class="h-links-lookbook" id="h-link-2" href="" >PRICE HIGH TO LOW</a>
+        <a class="h-links-lookbook" href="">LATEST</a>
+        <a class="h-links-lookbook" id="h-link-1" href="">MOST LIKED</a>
+        <a class="h-links-lookbook" id="h-link-2" href="">BEST SELLERS</a>
+        <a class="h-links-lookbook" id="h-link-2" href="">PRICE LOW TO HIGH</a>
+        <a class="h-links-lookbook" id="h-link-2" href="">PRICE HIGH TO LOW</a>
       </div>
-      
     </section>
     <div class="first-lookbook-row">
-      <div class="first-lookbook-row-one">
-
-      </div>
-      <div class="first-lookbook-row-two">
-        
-      </div>
+      <div class="first-lookbook-row-one"></div>
+      <div class="first-lookbook-row-two"></div>
       <div class="first-lookbook-row-three">
-        <p class="lookbook-h2">
-          <strong>JANE'S </strong>LOOKBOOK
-        </p>
-        <h6 class="lookbook-h6">
-          GET THE LOOK FOR UNDER 200$
-        </h6>
+        <p class="lookbook-h2"><strong>JANE'S </strong>LOOKBOOK</p>
+        <h6 class="lookbook-h6">GET THE LOOK FOR UNDER 200$</h6>
         <p class="lookbook-p">
-          We invited actress Jane Marshall to join us for the day and choose her perfect outfit from our vast range of womens fashion.<br><br>This is of course not true as this is just a design for a website and this is simply filler text.
-
-
+          We invited actress Jane Marshall to join us for the day and choose her
+          perfect outfit from our vast range of womens fashion.<br /><br />This
+          is of course not true as this is just a design for a website and this
+          is simply filler text.
         </p>
         <button class="lookbook-btn">VIEW NOW</button>
-
-        
       </div>
     </div>
     <div class="second-lookbook-row">
-      <div class="second-lookbook-row-one">
-
-      </div>
-      <div class="second-lookbook-row-two">
-
-      </div>
-      <div class="second-lookbook-row-three">
-
-      </div>
-      <div class="second-lookbook-row-four">
-
-      </div>
+      <div class="second-lookbook-row-one"></div>
+      <div class="second-lookbook-row-two"></div>
+      <div class="second-lookbook-row-three"></div>
+      <div class="second-lookbook-row-four"></div>
     </div>
     <div class="third-lookbook-row">
       <div class="third-lookbook-row-one">
-        <p class="lookbook-h2">
-          <strong>WIN </strong>A NEW LOOK!
-        </p>
+        <p class="lookbook-h2"><strong>WIN </strong>A NEW LOOK!</p>
         <h6 class="lookbook-h6">
           ADD LOOKS OR ITEMS TO YOUR LOOKBOOK FOR A CHANCE OF WINNING
         </h6>
         <p class="lookbook-p-2">
-          See an item or a complete look you like, click the  button to add it to your 
-          lookbook and you'll be automatically entered to our monthly draw where 
-          one winner gets a <strong>£300</strong> gift voucher to spend on our website!<br><br> 
+          See an item or a complete look you like, click the  button to add it
+          to your lookbook and you'll be automatically entered to our monthly
+          draw where one winner gets a <strong>£300</strong> gift voucher to
+          spend on our website!<br /><br />
 
-          Terms: No purchase necessary. Vouchers are non-transferable and no 
+          Terms: No purchase necessary. Vouchers are non-transferable and no
           cash alternative is ofered. Competition is for members only.
-
-
-
-
         </p>
         <button class="lookbook-btn">SHOP NOW</button>
-        <p class="big-award">
-          WIN
-        </p>
-
-      
-        
-
+        <p class="big-award">WIN</p>
       </div>
-      <div class="third-lookbook-row-two">
-
-      </div>
+      <div class="third-lookbook-row-two"></div>
     </div>
     <section id="lookbooks" class="lookbooks">
       <div class="man-lookbook">
-          <div class="man-picture">
-              <img src="../static/img/men.png" alt="My image">
+        <div class="man-picture">
+          <img src="../static/img/men.png" alt="My image" />
+        </div>
+        <div class="man-lookbook-text">
+          <div class="lookbook-text">
+            <div>
+              <h1>
+                <span class="lookbook-span-first">MENS'S</span><br />
+                <span class="lookbook-span-second">LOOKBOOK</span>
+              </h1>
+            </div>
+            <br /><br />
+            <div>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Perspiciatis, quod.
+              </p>
+              <button type="submit">VIEW NOW</button>
+            </div>
           </div>
-          <div class="man-lookbook-text">
-              <div class="lookbook-text">
-                  <div>
-                      <h1><span class="lookbook-span-first">MENS'S</span><br>
-                          <span class="lookbook-span-second">LOOKBOOK</span>
-                      </h1>
-                  </div><br><br>
-                  <div>
-                      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quod.</p>
-                      <button type="submit">VIEW NOW</button>
-                  </div>
-              </div>
-          </div>
+        </div>
       </div>
       <div class="woman-lookbook">
-          <div class="woman-picture">
-              <img src="../static/img/woman.png" alt="My image">
+        <div class="woman-picture">
+          <img src="../static/img/woman.png" alt="My image" />
+        </div>
+        <div class="woman-lookbok-text">
+          <div class="lookbook-text">
+            <div>
+              <h1>
+                <span class="lookbook-span-first">WOMENS'S</span><br />
+                <span class="lookbook-span-second">LOOKBOOK</span>
+              </h1>
+            </div>
+            <br /><br />
+            <div>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Perspiciatis, quod.
+              </p>
+              <button type="submit">VIEW NOW</button>
+            </div>
           </div>
-          <div class="woman-lookbok-text">
-              <div class="lookbook-text">
-                  <div>
-                      <h1>
-                          <span class="lookbook-span-first">WOMENS'S</span><br>
-                          <span class="lookbook-span-second">LOOKBOOK</span>
-                      </h1>
-                  </div><br><br>
-                  <div>
-                      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quod.</p>
-                      <button type="submit">VIEW NOW</button>
-                  </div>
-              </div>
-          </div>
+        </div>
       </div>
       <div class="your-lookbook">
-          <div class="your-picture">
-              <img src="../static/img/anonim.png" alt="My image">
+        <div class="your-picture">
+          <img src="../static/img/anonim.png" alt="My image" />
+        </div>
+        <div class="your-lookbook-text">
+          <div class="lookbook-text">
+            <div>
+              <h1>
+                <span class="lookbook-span-first">YOUR</span><br />
+                <span class="lookbook-span-second">LOOKBOOK</span>
+              </h1>
+            </div>
+            <br /><br />
+            <div>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Perspiciatis, quod.
+              </p>
+              <button type="submit">VIEW NOW</button>
+            </div>
           </div>
-          <div class="your-lookbook-text">
-              <div class="lookbook-text">
-                  <div>
-                      <h1>
-                          <span class="lookbook-span-first">YOUR</span><br>
-                          <span class="lookbook-span-second">LOOKBOOK</span>
-                      </h1>
-                  </div><br><br>
-                  <div>
-                      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quod.</p>
-                      <button type="submit">VIEW NOW</button>
-                  </div>
-              </div>
-          </div>
+        </div>
       </div>
-  </section>
-  <footer-component></footer-component>
-
-    
-  </body>
-</html>
-
-
-    
+    </section>
+    <footer-component></footer-component>
   </body>
 </html>

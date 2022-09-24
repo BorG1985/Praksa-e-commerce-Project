@@ -23,13 +23,15 @@ import mysql.connector
 from datetime import date, datetime, timedelta
 from taggit.models import Tag
 from django.core.paginator import Paginator
+from django.db.models import Q
+from django.views.generic.list import ListView
 
 today = date.today()
 now = datetime.now()
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="1234",
+    password="root",
     database="ecommerce"
 )
 
@@ -47,7 +49,7 @@ def homePage(request):
 
 
 def header(request):
-    
+
     return render(request, 'header.html')
 
 
@@ -108,7 +110,8 @@ def log_in(request):
                 user_exist = NewUser.objects.filter(
                     email=email, password=password).get()
                 registered_user = user_exist
-                UserSession(username=email,session_started=now.strftime("%H:%M:%S"),session_started_date=today.strftime("%m/%d/%y")).save()
+                UserSession(username=email, session_started=now.strftime(
+                    "%H:%M:%S"), session_started_date=today.strftime("%m/%d/%y")).save()
                 CurrentSession(username=email).save()
                 # http response prihvata samo str value i zato formatiranje
                 return HttpResponse(f"Welcome \"" + str(user_exist)+"\"")
@@ -133,7 +136,7 @@ def sign_in(request):
                 new_user = NewUser.objects.create(
                     email=email, password=password, password2=password2)  # provjeriti da li imaju dva ista mail u bazi!!!
                 print("kreiran user")
-                
+
                 # http response prihvata samo str value i zato formatiranje
                 return HttpResponse(f"Welcome" + " "+str(new_user))
             else:
@@ -306,9 +309,19 @@ def filter_products(request):
         return render(request, 'mens.html', {'page_obj': on_count})
 
 
-
 def log_out(request):
     CurrentSession.objects.all().delete()
-    return render(request,'homepage.html')
+    return render(request, 'homepage.html')
 
-    
+
+class SearchResultsView(ListView):
+    model = Product
+    template_name = "search-results.html"
+
+    def get_queryset(self):  # new
+        query = self.request.GET.get("q")
+        object_list = Product.objects.filter(
+            Q(product_title__icontains=query) | Q(
+                long_product_description__icontains=query)
+        )
+        return object_list

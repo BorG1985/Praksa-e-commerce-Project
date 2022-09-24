@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommerce',
         'USER': 'root',
-        'PASSWORD': '1234',
+        'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS': {
@@ -157,7 +157,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Django taggit
 TAGGIT_CASE_INSENSITIVE = True
 
-#e-mail settings
+# e-mail settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'

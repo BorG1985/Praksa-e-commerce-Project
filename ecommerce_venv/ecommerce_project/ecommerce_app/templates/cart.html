@@ -1,23 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">  
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="{% static 'css/cart.css' %}" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
-  <link rel="stylesheet" href="{% static 'css/font-awesome-4.7.0/css/font-awesome.min.css' %}" />
-  <script src="{% static 'js/header-footer.js' %}"></script>
-
-  <title>lookbook</title>
-</head>
-
+{% block header %}
+{% include 'header.html' %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
 <body>
-  {% block header %}
-  {% include 'header.html' %}
-  {% endblock %}
+
   <div class="cart-wraper">
     {% for product in cart %}
 

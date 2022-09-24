@@ -8,13 +8,12 @@
     <title>Your lookbook</title>
     <link rel="stylesheet" href="{% static 'css/your-lookbook.css' %}" />
     <link rel="stylesheet" href="{% static 'css/heder.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/mens.css' %}" />
   </head>
 
   <body>
-    {% block header %} 
-    {% include 'header.html' %} 
-    {% endblock %} 
-    {% block content %}
+    {% block header %} {% include 'header.html' %} {% endblock %} {% block
+    content %}
     <div class="container">
       <div class="body">
         <img
