@@ -1,13 +1,23 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">  
+<html lang="en">
 
-{% block header %}
-{% include 'header.html' %}
-<link rel="stylesheet" href="{% static 'css/cart.css' %}">
-{% endblock %}
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/cart.css' %}" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/font-awesome-4.7.0/css/font-awesome.min.css' %}" />
+  <script src="{% static 'js/header-footer.js' %}"></script>
+
+  <title>lookbook</title>
+</head>
+
 <body>
-
+  {% block header %}
+  {% include 'header.html' %}
+  {% endblock %}
   <div class="cart-wraper">
     {% for product in cart %}
 
@@ -16,15 +26,26 @@
       <p class="product-title">{{product.order_product}}</p>
       <p class="product-price">{{product.order_product_price}}</p>
       <div class="cart-buttons">
-        <select id="sizes" class="sizes">
+        <select id="sizes" class="sizes" name="sizes">
           <option class="size-option" value="xs">XS</option>
           <option class="size-option" value="s">S</option>
           <option class="size-option" value="m">M</option>
           <option class="size-option" value="l">L</option>
           <option class="size-option" value="xl">XL</option>
         </select>
-        <button class="product-view-button">VIEW PRODUCT</button>
-        <button class="product-remove-button" action="delete_item">REMOVE</button>
+        <form method="POST" action="{% url 'product-view' %}" class="cart-form">
+          {% csrf_token %}
+        <button class="product-view-button" href="{% url 'product-view' %}">VIEW PRODUCT</button>
+    
+        <input id="id" type="number" name="id" value="{{product.order_product_id}}" style="display: none;"><br>
+        </form>
+        <form method="post" action="{% url 'remove_button' %}" class="cart-form">
+          {% csrf_token %}
+          <button class="product-remove-button" href="{% url 'remove_button' %}">REMOVE</button>
+          <input id="id" type="number" name="id" value="{{product.order_product_id}}" style="display: none;"><br>
+          <input id="id"  name="sizes" value="{{product.order_product_size}}" style="display: none;"><br>
+        
+        </form>
       </div>
     </div>
     {% endfor %}
