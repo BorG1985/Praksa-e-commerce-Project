@@ -21,7 +21,7 @@ class UserRegistrationForm(ModelForm):
         attrs={"placeholder": "Repeat password to register", 'style': 'width: 300px; height: 30px; border:2px solid aqua;border-radius: 8px;margin-bottom:10px;'}), label='')
     name = forms.CharField(widget=forms.TextInput(
         attrs={"placeholder": "Enter your name", 'style': 'width: 300px; height: 30px; border:2px solid aqua; border-radius: 8px;margin-bottom:10px;'}), label='')
-    surename = forms.CharField(widget=forms.TextInput(
+    surname = forms.CharField(widget=forms.TextInput(
         attrs={"placeholder": "Enter your surename", 'style': 'width: 300px; height: 30px; border:2px solid aqua; border-radius: 8px;margin-bottom:10px;'}), label='')
     address = forms.CharField(widget=forms.TextInput(
         attrs={"placeholder": "Enter your address", 'style': 'width: 300px; height: 30px; border:2px solid aqua; border-radius: 8px;margin-bottom:10px;'}), label='')

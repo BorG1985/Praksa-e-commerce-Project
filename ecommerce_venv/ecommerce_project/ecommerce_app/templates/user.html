@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/user.css' %}" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}" />
+  
+  
+  <title>lookbook</title>
+</head>
+
+<body>
+  {% block header %}
+  {% include 'header.html' %}
+  {% endblock %}
+  <div class="user_info">
+    <h2 class="account_h">Account Info</h2>
+    {% for data in account_info %}
+    <p class="account_info">Email: {{data.email}}</p>
+    <p class="account_info">Name: {{data.name}}</p>
+    <p class="account_info">Surname: {{data.surname}}</p>
+    <p class="account_info">Address: {{data.addres}}</p>
+    <p class="account_info">Phone Number : {{data.phone}}</p>
+  </div>
+  {% endfor %}
+  <div class="info_data">
+    <table id="user_info_table">
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            
+            <th>Name</th>
+            <th>Price</th>
+            <th>Card Number</th>
+            <th>Expiration Date</th>
+            <th>Security Code</th>
+            
+            <th>Date</th>
+            <th>Time</th>
+            <th>Order Number</th>
+            <th>Products</th>
+            
+ 
+
+
+
+            
+            
+    
+        </tr>
+        {% for data in info %}
+        <tr>
+            <td>{{data.id}}</td>
+            <td>{{data.username}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.price}}</td>
+            <td>{{data.card_number}}</td>
+            <td>{{data.expiration_date}}</td>
+            <td>{{data.security_code}}</td>
+            <td>{{data.date}}</td>
+            <td>{{data.time}}</td>
+            <td>{{data.order_number}}</td>
+            <td>{{data.products}}</td>
+            
+            
+        </tr>
+        {% endfor %}
+  </div>
+  <hr>

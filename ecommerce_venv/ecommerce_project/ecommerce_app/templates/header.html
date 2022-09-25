@@ -33,7 +33,7 @@
 
         <a id="register_link" href="{% url 'sign-in' %}" class="register-link">Register</a>&nbsp&nbsp&nbsp
         <a id="sign_in_link" class="sign-in-link" href="{% url 'log-in' %}">Sign in</a>
-        <p id="welcome_user">Welcome : {{current_user}}</p>
+        <a id="welcome_user" href="{% url 'user_info' %}">Welcome : {{current_user}}</a>
         <a id="log_out" href="{% url 'log_out' %}">Log out</a>
 
       </div>

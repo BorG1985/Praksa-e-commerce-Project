@@ -1,0 +1,42 @@
+.info_data{
+    width: 75%;
+}
+.user_info{
+  background-color: aqua ;
+  
+}
+#user_info_table {
+    font-family: 'monserrat';
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #user_info_table td, #user_info_table th {
+    border: 1px solid rgb(25, 147, 168);
+    padding: 8px;
+  }
+  
+  #user_info_table tr{background-color: whitesmoke(182, 166, 24);}
+  
+  #user_info_table tr:hover {background-color: #ddd;}
+  
+  #user_info_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: aqua;
+    color: rgb(255, 255, 255);
+  }
+  .account_info{
+    color: rgb(255, 255, 255);
+    font-family: 'montserrat';
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight:bold ;
+  }
+.account_h{
+    font-family: 'monserrat';
+    color: black;
+    margin-bottom: 20px;
+}

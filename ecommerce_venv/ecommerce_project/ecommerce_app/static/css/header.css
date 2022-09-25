@@ -387,3 +387,11 @@ ul {
     margin-top: 5px;
     display: block;
 }
+#log_out:active{
+    text-decoration: none;
+    color: #ddd;
+}
+#log_out:visited{
+    text-decoration: none;
+    color: #ddd;
+}

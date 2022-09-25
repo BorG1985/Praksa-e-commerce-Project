@@ -6,6 +6,7 @@ from locale import currency
 from operator import countOf
 import re
 from typing import NoReturn
+from unicodedata import name
 from django.db.models.query import EmptyQuerySet
 from django.http import request, HttpResponse
 from django.http.response import HttpResponseRedirect
@@ -25,20 +26,18 @@ from taggit.models import Tag
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.views.generic.list import ListView
+import bcrypt
 
 today = date.today()
 now = datetime.now()
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="root",
+    password="1234",
     database="ecommerce"
 )
 
-
 mycursor = mydb.cursor()
-
-
 def base(request):
 
     return render(request, 'base.html')
@@ -49,7 +48,7 @@ def homePage(request):
 
 
 def header(request):
-
+    
     return render(request, 'header.html')
 
 
@@ -99,22 +98,27 @@ def log_in(request):
     login_form = LoginForm(request.POST)
     if request.method == "POST":
         email = request.POST['email']
-        password = request.POST['password']
+        password = str(request.POST['password'])
         if login_form.is_valid():
-            user_exist = NewUser.objects.filter(
-                email=email, password=password).exists()  # exists() vraca True ili False
-            if user_exist == False:
-                # \"ide u navodnike\"
-                return HttpResponse(f"User with email: \"" + str(email) + "\" does not exist or wrong e-mail and password!")
-            if user_exist is not None:
+            user_login_pass = password.encode('utf-8')
+        
+        
+            counter=NewUser.objects.filter(email=email).count()
+            if counter > 0:
+                user_email_row=NewUser.objects.filter(email=email).values_list()
+                user_pass=user_email_row[0][2]
+                user_passs=user_pass.encode()
+                
+                result=bcrypt.checkpw(user_login_pass,user_passs)
+            
+            if result== True:
                 user_exist = NewUser.objects.filter(
-                    email=email, password=password).get()
-                registered_user = user_exist
-                UserSession(username=email, session_started=now.strftime(
-                    "%H:%M:%S"), session_started_date=today.strftime("%m/%d/%y")).save()
+                    email=email).get()
+                
+                UserSession(username=email,session_started=now.strftime("%H:%M:%S"),session_started_date=today.strftime("%m/%d/%y")).save()
                 CurrentSession(username=email).save()
                 # http response prihvata samo str value i zato formatiranje
-                return HttpResponse(f"Welcome \"" + str(user_exist)+"\"")
+                return render(request,'base.html')
             else:
                 return HttpResponse("ne cackaj formu")
         else:
@@ -131,14 +135,28 @@ def sign_in(request):
         email = request.POST['email']
         password = request.POST['password']
         password2 = request.POST['password2']
+        name=request.POST['name']
+        surname=request.POST['surname']
+        address=request.POST['address']
+        phone=request.POST['phone_number']
+        bytes = password.encode('utf-8')
+        bytes2 = password2.encode('utf-8')
+        salt = bcrypt.gensalt()
+        hashed_pass1 = bcrypt.hashpw(bytes, salt)
+        hashed_pass2 = bcrypt.hashpw(bytes2, salt)
+        encode_pass1=hashed_pass1.decode()
+        encode_pass2=hashed_pass2.decode()
+
+
         if password == password2:
             if signin_form.is_valid():
                 new_user = NewUser.objects.create(
-                    email=email, password=password, password2=password2)  # provjeriti da li imaju dva ista mail u bazi!!!
+                    email=email, password=encode_pass1, password2=encode_pass2,name=name,surname=surname,addres=address,phone=phone)  # provjeriti da li imaju dva ista mail u bazi!!!
                 print("kreiran user")
-
+                login_form = LoginForm(request.POST)
+                
                 # http response prihvata samo str value i zato formatiranje
-                return HttpResponse(f"Welcome" + " "+str(new_user))
+                return render(request,'log-in.html' , {"login_form": login_form})
             else:
                 messages.error(request, "ne valja ti nesto")
                 signin_form = UserRegistrationForm()
@@ -188,8 +206,10 @@ num = []
 
 
 def add_to_cart(request):
+    counter=OrderValues.objects.all().count()
     if request.method == "POST":
         id = request.POST['id']
+        size="XS"
 
         mydata = Product.objects.filter(id=id).values()
 
@@ -197,19 +217,23 @@ def add_to_cart(request):
             'mymembers': mydata,
         }
         b = values_by_id['mymembers'][0]
+        
+        if counter > 0 :
+            order__number=OrderValues.objects.all().order_by('-id').values_list()[:1]
+            order_number=order__number[0][1]
+        else:
+            order_number=0
 
-        order_number = 1
-        num.append(order_number)
-        i = len(num)
-        n_order_number = i + 1
-        Cart(order_number=order_number, order_product=b['product_title'], order_product_price=b[
+
+        
+        Cart(order_product_id=id,order_product_size=size,order_number=order_number + 1, order_product=b['product_title'], order_product_price=b[
              'product_price'], order_product_value="$", order_product_image=b['product_image']).save()
-        AllOrders(order_number=n_order_number, order_product_id=b['id'], order_product=b['product_title'],
+        AllOrders(order_product_size=size,order_number=order_number + 1, order_product_id=b['id'], order_product=b['product_title'],
                   order_product_price=b['product_price'], order_product_value="$", order_product_image=b['product_image']).save()
 
         on_count = Product.objects.filter(status="on_count")
         off_count = Product.objects.filter(status="off_count")
-        number_of_items = Cart.objects.all().count()
+        
         response = redirect('mens')
         return response
 
@@ -230,13 +254,19 @@ def finish_order(request):
         price = request.POST['price']
         date = today.strftime("%m/%d/%y")
         time = now.strftime("%H:%M:%S")
-        sql = "select * from ecommerce_all_orders ORDER BY id DESC LIMIT 1;"
+        
+        email=CurrentSession.objects.all().order_by('-id').values_list()[:1]
+        counter=OrderValues.objects.all().count()
+        if counter > 0 :
+            order__number=OrderValues.objects.all().order_by('-id').values_list()[:1]
+            order_number=order__number[0][1]
+        else:
+            order_number=1
+        
 
-        mycursor.execute(sql)
-        a = mycursor.fetchall()
-        order_number = a[0][1]
+        
         products = []
-        mydata = AllOrders.objects.filter(order_number=order_number).values()
+        mydata = AllOrders.objects.filter(order_number=order_number + 1).values()
 
         values_by_id = {
             'mymembers': mydata,
@@ -246,8 +276,8 @@ def finish_order(request):
             products.append(i['order_product_id'])
         products1 = ';'.join(products)
 
-        OrderValues(order_number=order_number, Price=price, Name=name, card_number=card_number,
-                    expiration_date=expiration_date, security_code=security_code, date=date, time=time, Products=products1).save()
+        OrderValues(order_number=order_number + 1, price=price, name=name, card_number=card_number,
+                    expiration_date=expiration_date, security_code=security_code, date=date, time=time, products=products1,username=email[0][1]).save()
 
         return render(request, 'payment.html', {"products": products1})
 
@@ -309,9 +339,27 @@ def filter_products(request):
         return render(request, 'mens.html', {'page_obj': on_count})
 
 
+
 def log_out(request):
     CurrentSession.objects.all().delete()
-    return render(request, 'homepage.html')
+    return render(request,'base.html')
+
+    
+def user_info(request):
+    info=OrderValues.objects.all()
+    email=CurrentSession.objects.all().order_by('-id').values_list()[:1]
+    
+    account_info=NewUser.objects.filter(email=email[0][1])
+    return render(request,'user.html',{"info":info,"account_info":account_info})
+
+def remove_button(request):
+    if request.method == "POST":
+        id=request.POST['id']
+        size=request.POST['sizes']
+        Cart.objects.filter(order_product_id=id,order_product_size=size).delete()
+        response = redirect('cart')
+        return response
+
 
 
 class SearchResultsView(ListView):

@@ -20,8 +20,13 @@ from taggit.managers import TaggableManager
 
 class NewUser(models.Model):
     email = models.EmailField(max_length=150)
-    password = models.CharField(max_length=50, null=False, blank=False)
-    password2 = models.CharField(max_length=50, null=True, blank=False)
+    password = models.CharField(max_length=150, null=False, blank=False)
+    password2 = models.CharField(max_length=150, null=True, blank=False)
+    name=models.CharField(max_length=50, null=True, blank=False)
+    surname=models.CharField(max_length=50, null=True, blank=False)
+    addres=models.CharField(max_length=50, null=True, blank=False)
+    phone=models.CharField(max_length=50, null=True, blank=False)
+    
 
     class Meta:
         db_table = "ecommerce_newuser"
@@ -265,6 +270,7 @@ class Cart(models.Model):
     order_number = models.IntegerField()
     order_product = models.CharField(max_length=100)
     order_product_price = IntegerField()
+    order_product_size=models.CharField(max_length=20)
     order_product_value = CharField(max_length=100)
     order_product_image = models.ImageField(
         upload_to="products/", blank=True)
@@ -280,6 +286,7 @@ class AllOrders(models.Model):
     order_product = models.CharField(max_length=100)
     order_product_id = models.CharField(max_length=50)
     order_product_price = IntegerField()
+    order_product_size=models.CharField(max_length=20)
     order_product_value = CharField(max_length=100)
     order_product_image = models.ImageField(
         upload_to="products/", blank=True)
