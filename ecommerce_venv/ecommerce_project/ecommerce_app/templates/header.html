@@ -39,7 +39,7 @@
       </div>
       <div class="right-upper-header">
         <span class="cart">
-          <a href="{% url 'cart' %}" id="empty" class="empty">{{number_of_products}}</a>
+          <a  href="{% url 'cart' %}" id="empty" class="empty">{{number_of_products}}</a>
 
           &nbsp&nbsp&nbsp
           <i style="font-size:26px" class="fa">&#xf07a;</i>
@@ -55,92 +55,21 @@
           <div class="dropdown">
             <a href="{% url 'mens' %}">
               <li><button class="dropbtn">MENS
-                  <i class="fa fa-caret-down"></i>
-                </button></li>
-            </a>
-            <div class="dropdown-content">
-              <div class="row">
-                <div class="column">
-                  <h3>OUR LOOKBOOKS</h3>
-                  <a href="#">Latest Posts</a>
-                  <a href="#">Men's Lookbook</a>
-                  <a href="{% url 'womens' %}">Women's Lookbook</a>
-                </div>
-                <div class="column">
-                  <h3>YOUR LOOKBOOK</h3>
-                  <a href="#">View and Edit</a>
-                  <a href="#">Share</a>
-                  <a href="#">Delete</a>
-                </div>
-              </div>
-            </div>
+                  
           </div>
           <div class="dropdown">
             <a href="{% url 'womens' %}">
               <li><button class="dropbtn">WOMENS
-                  <i class="fa fa-caret-down"></i>
-                </button></li>
-            </a>
-            <div class="dropdown-content">
-              <div class="row">
-                <div class="column">
-                  <h3>OUR LOOKBOOKS</h3>
-                  <a href="#">Latest Posts</a>
-                  <a href="#">Men's Lookbook</a>
-                  <a href="{% url 'womens' %}">Women's Lookbook</a>
-                </div>
-                <div class="column">
-                  <h3>YOUR LOOKBOOK</h3>
-                  <a href="#">View and Edit</a>
-                  <a href="#">Share</a>
-                  <a href="#">Delete</a>
-                </div>
-              </div>
-            </div>
+                  
           </div>
           <div class="dropdown">
             <li><button class="dropbtn">THE BRAND
-                <i class="fa fa-caret-down"></i>
-              </button></li>
-            <div class="dropdown-content">
-              <div class="row">
-                <div class="column">
-                  <h3>OUR LOOKBOOKS</h3>
-                  <a href="#">Latest Posts</a>
-                  <a href="{% url 'mens' %}">Men's Lookbook</a>
-                  <a href="{% url 'womens' %}">Women's Lookbook</a>
-                </div>
-                <div class="column">
-                  <h3>YOUR LOOKBOOK</h3>
-                  <a href="#">View and Edit</a>
-                  <a href="#">Share</a>
-                  <a href="#">Delete</a>
-                </div>
-              </div>
-            </div>
+                
           </div>
           <div class="dropdown">
             <a href="{% url 'local-stores' %}">
               <li><button class="dropbtn">LOCAL STORES
-                  <i class="fa fa-caret-down"></i>
-                </button></li>
-            </a>
-            <div class="dropdown-content">
-              <div class="row">
-                <div class="column">
-                  <h3>OUR LOOKBOOKS</h3>
-                  <a href="#">Latest Posts</a>
-                  <a href="{% url 'mens' %}">Men's Lookbook</a>
-                  <a href="{% url 'womens' %}">Women's Lookbook</a>
-                </div>
-                <div class="column">
-                  <h3>YOUR LOOKBOOK</h3>
-                  <a href="#">View and Edit</a>
-                  <a href="#">Share</a>
-                  <a href="#">Delete</a>
-                </div>
-              </div>
-            </div>
+                  
           </div>
           <div class="dropdown">
             <a href="{% url 'lookbook' %}">
@@ -158,7 +87,7 @@
                 </div>
                 <div class="column">
                   <h3>YOUR LOOKBOOK</h3>
-                  <a href="#">View and Edit</a>
+                  <a href="{% url 'your-lookbook' %}">View and Edit</a>
                   <a href="#">Share</a>
                   <a href="#">Delete</a>
                 </div>

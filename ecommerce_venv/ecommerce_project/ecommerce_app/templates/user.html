@@ -32,7 +32,7 @@
     <table id="user_info_table">
         <tr>
             <th>Id</th>
-            <th>Username</th>
+            
             
             <th>Name</th>
             <th>Price</th>
@@ -56,7 +56,7 @@
         {% for data in info %}
         <tr>
             <td>{{data.id}}</td>
-            <td>{{data.username}}</td>
+            
             <td>{{data.name}}</td>
             <td>{{data.price}}</td>
             <td>{{data.card_number}}</td>
@@ -70,5 +70,54 @@
             
         </tr>
         {% endfor %}
+        </table>
+        <br>
+        <div class="search_by_order_number">
+          <p class="search_by_order">Search by order number</p>
+          <form method="post" action="{% url 'search_by_order_number' %}">
+            {% csrf_token %}
+            <input name="number" type="number" value="0">
+            <button type="submit" href="{% url 'search_by_order_number' %}">Search</button>
+          </form>
+
+        </div>
+        <br>
+        
+        <table id="user_info_table">
+          <tr>
+              <th>Id</th>
+              <th>Product</th>
+              
+              <th>Product Id</th>
+              <th>Price</th>
+              <th>Size</th>
+              <th>Quantity</th>
+              <th>Image</th>
+              
+              <th>Color</th>
+              
+   
+  
+  
+  
+              
+              
+      
+          </tr>
+          {% for data in products %}
+          <tr>
+              <td>{{data.id}}</td>
+              <td>{{data.order_product}}</td>
+              <td>{{data.order_product_id}}</td>
+              <td>{{data.order_product_price}}</td>
+              <td>{{data.order_product_size}}</td>
+              <td>{{data.order_product_quantity}}</td>
+              <td><img class="product-image" src="../static/media/{{data.order_product_image}}" /></td>
+              <td>{{data.order_product_color}}</td>
+              
+              
+              
+          </tr>
+          {% endfor %}
   </div>
   <hr>

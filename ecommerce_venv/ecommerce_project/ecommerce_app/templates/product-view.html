@@ -69,6 +69,8 @@
           <br />
         </div>
         <div class="column-right">
+          <form action="{% url 'add_to_cart' %}" method="post">
+            {% csrf_token %}
           <div class="product-title"><p>{{product.product_title}}</p></div>
           <div>
             <p
@@ -223,6 +225,7 @@
               <span style="font-weight: bold; color: #575153; font-size: 14px"
                 >{{product.id}}</span
               >
+              <input name="id" style="display: none;" value="{{product.id}}">
             </p>
           </div>
           <div>
@@ -254,21 +257,106 @@
               <p class="dropdown-selector">COLOUR</p>
               <br>
               <p class="color">{{product.color}}</p>
+              <input name="color" value="{{product.color}}" style="display:none ;">
               
             </div>
+
             <div class="column-triple">
+              
+              
               <p class="dropdown-selector">SIZE</p>
-              <select name="color" id="color" class="select-opt">
+              
+              <select onclick="return quantity_function()" name="size" id="size" class="select-opt">
                 <option value="Select color">Select Size</option>
-                <option >XXS</option>                
-                <option >XS</option>
-                <option >S</option>
-                <option >M</option>
-                <option >L</option>
-                <option >XL</option>
-                <option >XXL</option>
+                <option id="xxs" class="option_xxs">XXS</option>
+                <option id="xs" class="option_xs">XS</option>
+                <option id="s" class="option_l">S</option>
+                <option id="m" class="option_m">M</option>
+                <option id="l" class="option_l">L</option>
+                
+                
+                <option id="xl" class="option_xl" >XL</option>
+                <option id="xxl" class="option_xxl" >XXL</option>
               </select>
+              
+              
             </div>
+            {%for size in size%}
+            
+            <input class="class_xxs" style="display:none ; " id="pxxs" value="{{size.xxs}}">
+            <input class="class_xs" style="display:none ; " id="pxs" value="{{size.xs}}">
+            <input class="class_s" style="display:none ; " id="ps" value="{{size.s}}">
+            <input class="class_m" style="display:none ; " id="pm" value="{{size.m}}">
+            <input class="class_l" style="display:none ; " id="pl" value="{{size.l}}">
+            <input class="class_xl" style="display: none;" id="pxl" value="{{size.xl}}">
+            <input class="class_xxl" style="display:none ; " id="pxxl" value="{{size.xxl}}">
+            {%endfor%}
+            
+              
+            <script>
+
+
+              var xxs=document.getElementById('pxxs').value;
+              
+              if(xxs==0){
+                document.getElementById('xxs').style.display="none";
+              }
+              var xs=document.getElementById('pxs').value;
+              
+              if(xs==0){
+                document.getElementById('xs').style.display="none";
+              }
+              
+              var m=document.getElementById('pm').value;
+              
+              if(m==0){
+                document.getElementById('m').style.display="none";
+              }
+              
+              var l=document.getElementById('pl').value;
+              
+              if(l==0){
+                document.getElementById('l').style.display="none";
+              }
+              
+              var xl=document.getElementById('pxl').value;
+              
+              if(xl==0){
+                document.getElementById('xl').style.display="none";
+              }
+              
+              var xxl=document.getElementById('pxxl').value;
+              
+              if(xxl==0){
+                document.getElementById('xxl').style.display="none";
+              }
+              
+              function quantity_function(){
+                var quantity = document.getElementById("size").value;
+                       if (quantity=="XXS"){
+                        document.getElementById('quantity').setAttribute("max",document.getElementById('pxxs').value)
+              }
+              if (quantity=="XS"){
+                        document.getElementById('quantity').setAttribute("max",document.getElementById('pxs').value)
+              }
+              if (quantity=="S"){
+                        document.getElementById('quantity').setAttribute("max",document.getElementById('ps').value)
+              }
+              if (quantity=="M"){
+                        document.getElementById('quantity').setAttribute("max",document.getElementById('pm').value)
+              }
+              if (quantity=="L"){
+                        document.getElementById('quantity').setAttribute("max",document.getElementById('pl').value)
+              }
+              if (quantity=="XL"){
+                        document.getElementById('quantity').setAttribute("max",document.getElementById('pxl').value)
+              }
+              if (quantity=="XXL"){
+                        document.getElementById('quantity').setAttribute("max",document.getElementById('pxxl').value)
+              }
+            }
+              
+          </script>
             <div class="column-triple">
               <p class="dropdown-selector">Quantity</p>
             {% for q in quantity %}
@@ -289,7 +377,7 @@
           </div>
           <div class="row" id="btn-row">
             <div class="column-left">
-              <button class="btn" id="btn-cart">
+              <button class="btn" id="btn-cart" href="{% url 'add_to_cart' %}">
                 <i
                   class="fa fa-shopping-cart"
                   aria-hidden="true"
@@ -311,6 +399,7 @@
           </div>
         </div>
       </div>
+    </form>
       <div class="column-one">
         <div class="tab">
           <button

@@ -2,6 +2,7 @@
 # Create your views here.
 from audioop import reverse
 from email import message
+from importlib.resources import path
 from locale import currency
 from operator import countOf
 import re
@@ -67,10 +68,11 @@ def productView(request):
     if request.method == "POST":
         id = request.POST['id']
         product = Product.objects.filter(id=id)
-        quantity = ProductSize.objects.values_list('l', flat=True).distinct()
+        size=ProductSize.objects.filter(id=id)
+        
         tags = Tag.objects.all()
 
-        return render(request, 'product-view.html', {"product": product, "quantity": quantity, "tags": tags})
+        return render(request, 'product-view.html', {"product": product, "size": size, "tags": tags})
 
 
 def lookbook(request):
@@ -193,13 +195,36 @@ def womens(request):
 
 
 def your_lookbook(request):
-    product = Product.objects.all()[:1]
-    return render(request, 'your-lookbook.html', {'product': product})
+    counter=CurrentSession.objects.all().count()
+    if counter == 0:
+        login_form = LoginForm()
+            
+        return render(request, 'log-in.html', {"login_form": login_form})
+    else:
+        product_hat = CurrentLookbook.objects.filter(
+            product_category="hats").last()
+        product_shirt = CurrentLookbook.objects.filter(
+            product_category="shirts").last()
+        product_jeans = CurrentLookbook.objects.filter(
+            product_category="jeans").last()
+        product_shoes = CurrentLookbook.objects.filter(
+            product_category="shoes").last()
+        return render(request, 'your-lookbook.html', {"product_hat": product_hat, "product_shirt": product_shirt, "product_jeans": product_jeans, "product_shoes": product_shoes})
+        
 
 
 def cart(request):
-    product = Cart.objects.all()
-    return render(request, 'cart.html', {'cart': product})
+    counter=CurrentSession.objects.all().count()
+    if counter == 0:
+        login_form = LoginForm()
+            
+        return render(request, 'log-in.html', {"login_form": login_form})
+    else:
+
+        
+
+        product = Cart.objects.all()
+        return render(request, 'cart.html', {'cart': product})
 
 
 num = []
@@ -209,7 +234,9 @@ def add_to_cart(request):
     counter=OrderValues.objects.all().count()
     if request.method == "POST":
         id = request.POST['id']
-        size="XS"
+        size=request.POST['size']
+        quantity=request.POST['quantity']
+        color=request.POST['color']
 
         mydata = Product.objects.filter(id=id).values()
 
@@ -226,9 +253,10 @@ def add_to_cart(request):
 
 
         
-        Cart(order_product_id=id,order_product_size=size,order_number=order_number + 1, order_product=b['product_title'], order_product_price=b[
+        Cart(order_product_id=id,order_product_quantity=quantity,order_product_color=color,order_product_size=size,order_number=order_number + 1, order_product=b['product_title'], order_product_price=b[
              'product_price'], order_product_value="$", order_product_image=b['product_image']).save()
-        AllOrders(order_product_size=size,order_number=order_number + 1, order_product_id=b['id'], order_product=b['product_title'],
+        AllOrders(order_product_size=size,order_product_quantity=quantity,order_product_color=color,
+        order_number=order_number + 1, order_product_id=b['id'], order_product=b['product_title'],
                   order_product_price=b['product_price'], order_product_value="$", order_product_image=b['product_image']).save()
 
         on_count = Product.objects.filter(status="on_count")
@@ -277,7 +305,7 @@ def finish_order(request):
         products1 = ';'.join(products)
 
         OrderValues(order_number=order_number + 1, price=price, name=name, card_number=card_number,
-                    expiration_date=expiration_date, security_code=security_code, date=date, time=time, products=products1,username=email[0][1]).save()
+                    expiration_date=expiration_date, security_code=security_code, date=date, time=time, products=products1,email=email[0][1]).save()
 
         return render(request, 'payment.html', {"products": products1})
 
@@ -305,6 +333,7 @@ def choose_shoes(request):
 def add_to_lookbook(request):
     if request.method == "POST":
         id = request.POST['id']
+        email=CurrentSession.objects.all().order_by('-id').values_list()[:1]
         mydata = Product.objects.filter(id=id).values()
 
         values_by_id = {
@@ -312,7 +341,7 @@ def add_to_lookbook(request):
         }
         b = values_by_id['mymembers'][0]
         CurrentLookbook(
-            product_id=b['id'], lookbook_image=b['product_image'], product_category=b['category']).save()
+            product_id=b['id'], lookbook_image=b['product_image'], product_category=b['category'],gender=b['gender'],username=email[0][1]).save()
         product_hat = CurrentLookbook.objects.filter(
             product_category="hats").last()
         product_shirt = CurrentLookbook.objects.filter(
@@ -342,6 +371,7 @@ def filter_products(request):
 
 def log_out(request):
     CurrentSession.objects.all().delete()
+    Cart.objects.all().delete()
     return render(request,'base.html')
 
     
@@ -373,3 +403,20 @@ class SearchResultsView(ListView):
                 long_product_description__icontains=query)
         )
         return object_list
+
+def search_by_order_number(request):
+    if request.method == "POST":
+        number=request.POST['number']
+        products=AllOrders.objects.filter(order_number=number)
+        info=OrderValues.objects.all()
+        email=CurrentSession.objects.all().order_by('-id').values_list()[:1]
+        
+        account_info=NewUser.objects.filter(email=email[0][1])
+        return render(request,'user.html',{"info":info,"account_info":account_info,"products":products})
+        
+
+
+def delete_lookbook(request):
+    email=CurrentSession.objects.all().order_by('-id').values_list()[:1]
+    CurrentLookbook.objects.filter(username=email).delete()
+

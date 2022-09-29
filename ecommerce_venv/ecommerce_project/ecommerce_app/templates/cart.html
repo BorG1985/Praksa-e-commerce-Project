@@ -18,21 +18,27 @@
   {% block header %}
   {% include 'header.html' %}
   {% endblock %}
+  {{test}}
   <div class="cart-wraper">
     {% for product in cart %}
 
     <div class="cart-item">
       <img class="product-image" src="../static/media/{{product.order_product_image}}" />
       <p class="product-title">{{product.order_product}}</p>
-      <p class="product-price">{{product.order_product_price}}</p>
+      <div class="price">
+      <p id="product_price" class="product-price">{{product.order_product_price}}</p>
+      
+      <p id="product_price_value" class="product_value">$</p>
+    </div>
+    <div class="quantity_div">
+      <p class="quantity_h">Quantity: </p>
+      <p class="quantity">{{product.order_product_quantity}}</p>
+
+    </div>
+    
+      
       <div class="cart-buttons">
-        <select id="sizes" class="sizes" name="sizes">
-          <option class="size-option" value="xs">XS</option>
-          <option class="size-option" value="s">S</option>
-          <option class="size-option" value="m">M</option>
-          <option class="size-option" value="l">L</option>
-          <option class="size-option" value="xl">XL</option>
-        </select>
+        
         <form method="POST" action="{% url 'product-view' %}" class="cart-form">
           {% csrf_token %}
         <button class="product-view-button" href="{% url 'product-view' %}">VIEW PRODUCT</button>
@@ -46,6 +52,12 @@
           <input id="id"  name="sizes" value="{{product.order_product_size}}" style="display: none;"><br>
         
         </form>
+        <input style="display: none;" id="price"  value="{{product.order_product_price}}">
+        <input style="display: none;" id="quantity"   value="{{product.order_product_quantity}}">
+        
+        <input style="display: none;" id="quantity_id"  value="{{product.number_of_products}}">
+        
+
       </div>
     </div>
     {% endfor %}
@@ -64,17 +76,27 @@
           <p id="value" class="value">$</p>
 
         </div>
-
+        
         <input name="total_value" id="i_total_value" style="display:none ;">
         <button class="make_order" href="{% url 'make_order' %}" type="submit">Make Order</button>
       </div>
     </form>
+    
   {% block footer %}
   {% include 'footer.html' %}
   {% endblock %}
 </body>
-<footer>
+
   <script>
+    const prices=document.getElementsByClassName("product-price")
+    const prices_data = [].map.call(prices, item => item.textContent)
+    const quantity=document.getElementsByClassName("quantity")
+    const quantity_data = [].map.call(quantity, item => item.textContent)
+    
+    for (i in prices){
+      prices[i].innerHTML=prices_data[i] * quantity_data[i]
+
+    }
 
 
   const productCurrency = document.getElementsByClassName("product-price")
@@ -210,6 +232,6 @@ function myFunction(){
     }
     
   </script>
-</footer>
+
 
 </html>

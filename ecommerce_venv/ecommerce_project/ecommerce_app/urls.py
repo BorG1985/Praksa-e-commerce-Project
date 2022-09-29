@@ -8,7 +8,7 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
 from . import views
-from .views import SearchResultsView
+from .views import SearchResultsView, remove_button, search_by_order_number
 urlpatterns = [
     path('', views.base, name="base"),
     path('homepage', views.homePage, name="homepage"),
@@ -38,4 +38,6 @@ urlpatterns = [
     path("log_out", views.log_out, name='log_out'),
     path("user_info",views.user_info,name='user_info'),
     path('search-results', SearchResultsView.as_view(), name="search-results"),
+    path('remove_button',views.remove_button,name='remove_button'),
+    path("searc_by_order_number",views.search_by_order_number,name='search_by_order_number'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

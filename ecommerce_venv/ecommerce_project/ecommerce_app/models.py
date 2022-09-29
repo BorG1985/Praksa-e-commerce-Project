@@ -270,6 +270,8 @@ class Cart(models.Model):
     order_number = models.IntegerField()
     order_product = models.CharField(max_length=100)
     order_product_id=models.CharField(max_length=100)
+    order_product_quantity=models.CharField(max_length=100)
+    order_product_color=models.CharField(max_length=50)
     order_product_price = IntegerField()
     order_product_size=models.CharField(max_length=20)
     order_product_value = CharField(max_length=100)
@@ -287,6 +289,8 @@ class AllOrders(models.Model):
     order_product = models.CharField(max_length=100)
     order_product_id = models.CharField(max_length=50)
     order_product_price = IntegerField()
+    order_product_quantity=models.CharField(max_length=100)
+    order_product_color=models.CharField(max_length=50)
     order_product_size=models.CharField(max_length=20)
     order_product_value = CharField(max_length=100)
     order_product_image = models.ImageField(
@@ -307,6 +311,7 @@ class OrderValues(models.Model):
     security_code = models.IntegerField()
     date = models.CharField(max_length=10)
     time = models.CharField(max_length=10)
+    email=models.CharField(max_length=50)
 
     class Meta:
         db_table = "ecommerce_order_values"
@@ -318,6 +323,8 @@ class CurrentLookbook(models.Model):
     lookbook_image = models.ImageField(
         upload_to="products/", blank=True)
     product_category = models.CharField(max_length=20)
+    gender= models.CharField(max_length=25)
+    username= models.CharField(max_length=25)
 
 
 class UserSession(models.Model):

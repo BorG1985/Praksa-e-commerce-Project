@@ -22,7 +22,7 @@
 .cart-item {
     border: 3px solid var(--link-color-gray);
     width: 400px;
-    height: 300px;
+    height: 350px;
     margin: 20px 20px;
     flex-wrap: wrap;
     text-align: center;
@@ -106,7 +106,7 @@
 }
 .price{
     display: flex;
-    margin-top: 70px;
+    
 }
 .make_order{
     width: 100px;
@@ -123,4 +123,36 @@
 .cart-buttons{
     display: flex;
     justify-content: space-around;
+}
+
+
+.product_value{
+    font-family: 'Monsterrat';
+    color: darkgray;
+    font-size: 16px;
+    
+}
+.quantity_div{
+    display: flex;
+    margin-left: 40%;
+}
+.number_of_products{
+    font-family: 'Monsterrat';
+    color: darkgray;
+    font-size: 25px;
+    margin-left:5px;
+    
+
+}
+.total_value{
+    font-family: 'Monsterrat';
+    color: darkgray;
+    font-size: 25px;
+
+}
+.value{
+    font-family: 'Monsterrat';
+    color: darkgray;
+    font-size: 25px;
+    
 }

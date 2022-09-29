@@ -40,3 +40,11 @@
     color: black;
     margin-bottom: 20px;
 }
+.search_by_order_number{
+  display: flex;
+  justify-content: space-evenly;
+}
+.product-image{
+  width: 70px;
+  height: 87px;
+}

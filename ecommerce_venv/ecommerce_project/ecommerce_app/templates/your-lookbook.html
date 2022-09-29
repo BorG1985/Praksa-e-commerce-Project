@@ -12,8 +12,10 @@
   </head>
 
   <body>
-    {% block header %} {% include 'header.html' %} {% endblock %} {% block
-    content %}
+    {% block header %}
+     {% include 'header.html' %}
+    {% endblock %}
+       
     <div class="container">
       <div class="body">
         <img
@@ -55,6 +57,6 @@
         </div>
       </div>
     </div>
-    {% endblock %}
+    
   </body>
 </html>
