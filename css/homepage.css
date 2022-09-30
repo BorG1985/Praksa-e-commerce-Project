@@ -1,0 +1,604 @@
+:root {
+    --background-white: #ffffff;
+    --section-separator-line: #eeeeee;
+    --active-a-link: #00c8c8;
+    --link-color-gray: #727272;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: var(--background-white);
+    padding: 20px;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    margin-left: 6.5%;
+    margin-right: 50%;
+    justify-content: space-evenly;
+
+}
+
+.nav-link-a {
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 12px;
+    color: var(--link-color-gray);
+}
+
+.nav-link-a:hover {
+    color: var(--active-a-link)
+}
+
+.nav-link-a.active {
+    color: var(--active-a-link)
+}
+
+.nav-item {
+    flex-direction: row;
+    list-style-type: none;
+}
+
+.section-separator-line {
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    color: var(--section-separator-line);
+}
+
+
+.items-container {
+    display: flex;
+}
+
+.first-row {
+    display: flex;
+    margin-left: 123px;
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+.second-row {
+    display: flex;
+    margin-right: 123px;
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+
+.item {
+    position: relative;
+}
+
+.item img {
+    width: 100%;
+    padding: 2.5% 2.5% 0% 2.5%;
+}
+
+.item-3 img {
+    padding-top: 7px;
+    padding-right: 7px;
+    padding-left: 7px;
+}
+
+.item-1 img {
+    padding-left: 13px;
+}
+
+.item-2 img {
+    padding-right: 15px;
+}
+
+.item p {
+    position: absolute;
+    left: 20px;
+    top: 0px;
+    font-family: 'Montserrat';
+    color: #9a9a9a;
+    font-size: 0.9em;
+}
+
+.item-3 p {
+    position: absolute;
+    left: 25px;
+    top: 0px;
+    font-family: 'Montserrat';
+    color: #9a9a9a;
+    font-size: 0.9em;
+}
+
+p.old-price {
+    left: 30px;
+}
+
+.item p span {
+    font-size: 0.5em;
+    vertical-align: text-top;
+
+}
+
+.item .old-price {
+    text-decoration-line: line-through;
+
+}
+
+.items-container {
+    position: relative;
+}
+
+.main-button {
+    position: relative;
+    bottom: 200px;
+    right: 250px;
+    padding: 2%;
+    float: right;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #727272;
+    background-color: #fff;
+    border: #727272 solid;
+}
+
+.main-button:hover {
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #F8F8F8;
+    background-color: #00c8c8;
+    cursor: grab;
+    border: none;
+    /*border bottom kad se kursor howeruje nad njim blinka...kako ispraviti bug?*/
+    transition: 0.6s ease;
+}
+
+
+.item .new-price {
+    left: 80px;
+}
+
+.item-1 .item2 {
+    width: 50%;
+}
+
+.item-1-2 {
+    display: flex;
+}
+
+.item-5-6 {
+    display: flex;
+    margin-bottom: 0px;
+}
+
+
+
+.item-5 img {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.item-detail {
+    display: none;
+    padding: 5%;
+    text-align: center;
+    position: absolute;
+    width: -webkit-fill-available;
+    z-index: 1;
+    background-color: white;
+    margin: 0px 3%;
+
+}
+
+
+.item-detail-title {
+    font-family: 'Montserrat';
+    color: #727272;
+    font-size: 0.9em;
+    text-align: center;
+    font-weight: 600;
+    font-variant-caps: all-small-caps;
+    line-height: 20px;
+}
+
+.item-detail-title span {
+    font-size: 0.5em;
+    vertical-align: text-top;
+}
+
+.item-detail p {
+    left: inherit;
+    top: inherit;
+    text-align: center;
+    color: #8e8c8c;
+    font-size: 0.9em;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.item-relative {
+    display: contents;
+}
+
+.icons {
+    margin-top: 10px;
+    text-align: center;
+}
+
+p {
+    padding: 5% 0%;
+    word-break: break-word;
+    white-space: normal;
+}
+
+
+.item-detail .icons i {
+    color: #fff;
+    background: #727272;
+    font-weight: 900;
+    padding: 8px;
+    font-size: 12px;
+    border-radius: 50%;
+}
+
+.item-detail i:hover {
+    background: #00c8c8;
+}
+
+.item-1:hover .item-detail {
+    margin-left: 14px;
+    margin-right: 8px;
+}
+
+.item-3:hover .item-detail {
+    margin-left: 8px;
+    margin-right: 7px;
+}
+
+.item-2:hover .item-detail {
+    margin-right: 15px;
+}
+
+.item-n {
+    width: 0px;
+}
+
+.item-4 .item-detail {
+    margin: 0;
+}
+
+.item-4 img {
+    height: fit-content;
+    padding-bottom: 26px;
+    background-color: #F8F8F8;
+}
+
+.item a :hover {
+    -webkit-box-shadow: 2px -10px 72px -14px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px -10px 72px -14px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px -10px 72px -14px rgba(0, 0, 0, 0.75);
+}
+
+.item:hover .item-detail {
+    display: block;
+    -webkit-box-shadow: 2px 0px 72px -14px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 0px 72px -14px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 0px 72px -14px rgba(0, 0, 0, 0.75);
+}
+
+.plus-item {
+    display: grid;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+
+}
+
+.plus-item img {
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0 0 5px 0;
+}
+
+.item .info-icon {
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    font-size: 25px;
+    color: #fff;
+}
+
+.item:hover .plus-item img,
+.item:hover.item .info-icon {
+    display: block;
+    height: 70px;
+}
+
+.icons {
+    color: #fff;
+    background: #727272;
+    font-weight: 900;
+    padding: 8px;
+    font-size: 12px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.lookbooks {
+    display: flex;
+}
+
+.man-lookbook {
+    display: flex;
+    background-color: #F8F8F8;
+    padding: 2% 2% 0% 2%;
+    margin: 1% 1% 1% 0%;
+    height: 382px;
+
+}
+
+.background-image img {
+    width: 100%;
+    height: max-content;
+}
+
+.man-lookbook img {
+    width: auto;
+    height: 100%;
+}
+
+.woman-lookbook img {
+    width: auto;
+    height: 100%;
+}
+
+.your-lookbook img {
+    width: auto;
+    height: 100%;
+}
+
+.woman-lookbook {
+    display: flex;
+    background-color: #F8F8F8;
+    padding: 2% 2% 0% 2%;
+    margin: 1%;
+    height: 382px;
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.your-lookbook {
+    display: flex;
+    background-color: #F8F8F8;
+    padding: 2% 2% 0% 2%;
+    margin: 1% 0% 1% 1%;
+    height: 382px;
+}
+
+.lookbook-text h1 {
+    justify-content: left;
+}
+
+.lookbook-span-first,
+.lookbook-span-second,
+.lookbook-span-first p,
+.lookbook-span-second p {
+    display: flex;
+    font-family: sans-serif;
+    font-weight: bold;
+    float: right;
+    justify-content: left;
+}
+
+.lookbooks {
+    margin: 0px;
+    padding: 0px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.lookbooks img {
+    width: fit-content;
+    height: 350px;
+}
+
+.lookbook-span-first,
+.lookbook-span-second,
+.lookbook-span-first {
+    font-family: sans-serif;
+    font-weight: bold;
+    float: right;
+}
+
+.lookbook-text p {
+    text-align: right;
+    padding: 30px 0px;
+}
+
+.lookbook-text button {
+    float: right;
+    width: 50%;
+    padding: 5%;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #727272;
+    background-color: #fff;
+    border: #727272 solid;
+}
+
+.lookbook-text button:hover {
+    float: right;
+    width: 50%;
+    padding: 5%;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #F8F8F8;
+    background-color: #00c8c8;
+    cursor: grab;
+    border: none;
+    /*border bottom kad se kursor howeruje nad njim blinka...kako ispraviti bug?*/
+    transition: 0.6s ease;
+}
+
+.bottoom-body,
+a,
+ul,
+li {
+    list-style-type: none;
+    text-decoration: none;
+    color: #727272;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+    font-weight: normal;
+}
+
+.second-bottom-body-row {
+    display: flex;
+    flex: 1;
+    width: 100%;
+}
+
+.award-winner {
+    padding-top: 5%;
+    margin-left: 7%;
+    margin-right: 2%;
+    text-align: center;
+    background-color: #333333;
+    color: white;
+    height: 180px;
+    font-family: sans-serif;
+    width: 100%;
+}
+
+.social {
+    background-color: #00c8c8;
+    text-align: center;
+    color: white;
+    height: 180px;
+    font-family: sans-serif;
+    width: 100%;
+    margin-right: 7%;
+}
+
+.social i {
+    margin-top: 70px;
+    justify-content: center;
+    padding: 0% 6%;
+}
+
+.social i:hover {
+    cursor: grab;
+}
+
+.bottom-body-container {
+    background-color: #F8F8F8;
+    padding: 3% 15%;
+}
+
+.first-bottom-body-row {
+    display: flex;
+    align-items: baseline;
+    text-align: left;
+    margin-left: 8%;
+    width: 900px;
+    background-color: #F8F8F8;
+    margin-bottom: 50px;
+    font-size: 12px;
+}
+
+.first-bottom-body-row li {
+    margin-bottom: 15px;
+}
+
+.first-bottom-body-column,
+.second-bottom-body-column,
+.third-bottom-body-column,
+.fourth-bottom-body-column {
+    margin-right: 27px;
+    padding-right: 5%;
+}
+
+@media all and (max-width: 768px) {
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .main {
+        height: auto;
+    }
+
+    .main-button {
+        bottom: 100px;
+        right: 150px;
+    }
+
+    .navbar {
+        display: flex;
+        margin: 0% 2%;
+    }
+
+    .nav-item {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 2%;
+    }
+
+    .items-container {
+        display: block;
+        max-width: 768px;
+    }
+
+    .first-row {
+        margin: 0px;
+        min-width: 768px
+    }
+
+    .second-row {
+        margin: 0px;
+        min-width: 768px;
+    }
+
+    .bottom-body-container {
+        display: none;
+    }
+
+    .lookbooks {
+        flex-direction: column;
+        margin: 2%;
+        width: 745px;
+        position: relative;
+    }
+
+    .man-lookbook,
+    .woman-lookbook,
+    .your-lookbook {
+        position: relative;
+    }
+
+    .card-items br {
+        display: none;
+    }
+
+    .lookbooks button {
+        margin-top: 120px;
+        position: absolute;
+        top: 140px;
+        right: 20px;
+    }
+
+    p {
+        word-break: break-all;
+        white-space: normal;
+    }
+}
