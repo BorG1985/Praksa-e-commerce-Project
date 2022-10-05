@@ -34,13 +34,14 @@ now = datetime.now()
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="1234",
+    password="root",
     database="ecommerce"
 )
 
 mycursor = mydb.cursor()
-def base(request):
 
+
+def base(request):
     return render(request, 'base.html')
 
 
@@ -49,7 +50,7 @@ def homePage(request):
 
 
 def header(request):
-    
+
     return render(request, 'header.html')
 
 
@@ -68,8 +69,8 @@ def productView(request):
     if request.method == "POST":
         id = request.POST['id']
         product = Product.objects.filter(id=id)
-        size=ProductSize.objects.filter(id=id)
-        
+        size = ProductSize.objects.filter(id=id)
+
         tags = Tag.objects.all()
 
         return render(request, 'product-view.html', {"product": product, "size": size, "tags": tags})
@@ -103,24 +104,24 @@ def log_in(request):
         password = str(request.POST['password'])
         if login_form.is_valid():
             user_login_pass = password.encode('utf-8')
-        
-        
-            counter=NewUser.objects.filter(email=email).count()
+
+            counter = NewUser.objects.filter(email=email).count()
             if counter > 0:
-                user_email_row=NewUser.objects.filter(email=email).values_list()
-                user_pass=user_email_row[0][2]
-                user_passs=user_pass.encode()
-                
-                result=bcrypt.checkpw(user_login_pass,user_passs)
-            
-            if result== True:
-                user_exist = NewUser.objects.filter(
-                    email=email).get()
-                
-                UserSession(username=email,session_started=now.strftime("%H:%M:%S"),session_started_date=today.strftime("%m/%d/%y")).save()
+                user_email_row = NewUser.objects.filter(
+                    email=email).values_list()
+                user_pass = user_email_row[0][2]
+                user_passs = user_pass.encode()
+
+                result = bcrypt.checkpw(user_login_pass, user_passs)
+
+            if result == True:
+                user_exist = NewUser.objects.filter(email=email).get()
+
+                UserSession(username=email, session_started=now.strftime(
+                    "%H:%M:%S"), session_started_date=today.strftime("%m/%d/%y")).save()
                 CurrentSession(username=email).save()
                 # http response prihvata samo str value i zato formatiranje
-                return render(request,'base.html')
+                return render(request, 'base.html')
             else:
                 return HttpResponse("ne cackaj formu")
         else:
@@ -137,28 +138,27 @@ def sign_in(request):
         email = request.POST['email']
         password = request.POST['password']
         password2 = request.POST['password2']
-        name=request.POST['name']
-        surname=request.POST['surname']
-        address=request.POST['address']
-        phone=request.POST['phone_number']
+        name = request.POST['name']
+        surname = request.POST['surname']
+        address = request.POST['address']
+        phone = request.POST['phone_number']
         bytes = password.encode('utf-8')
         bytes2 = password2.encode('utf-8')
         salt = bcrypt.gensalt()
         hashed_pass1 = bcrypt.hashpw(bytes, salt)
         hashed_pass2 = bcrypt.hashpw(bytes2, salt)
-        encode_pass1=hashed_pass1.decode()
-        encode_pass2=hashed_pass2.decode()
-
+        encode_pass1 = hashed_pass1.decode()
+        encode_pass2 = hashed_pass2.decode()
 
         if password == password2:
             if signin_form.is_valid():
                 new_user = NewUser.objects.create(
-                    email=email, password=encode_pass1, password2=encode_pass2,name=name,surname=surname,addres=address,phone=phone)  # provjeriti da li imaju dva ista mail u bazi!!!
+                    email=email, password=encode_pass1, password2=encode_pass2, name=name, surname=surname, addres=address, phone=phone)  # provjeriti da li imaju dva ista mail u bazi!!!
                 print("kreiran user")
                 login_form = LoginForm(request.POST)
-                
+
                 # http response prihvata samo str value i zato formatiranje
-                return render(request,'log-in.html' , {"login_form": login_form})
+                return render(request, 'log-in.html', {"login_form": login_form})
             else:
                 messages.error(request, "ne valja ti nesto")
                 signin_form = UserRegistrationForm()
@@ -195,10 +195,10 @@ def womens(request):
 
 
 def your_lookbook(request):
-    counter=CurrentSession.objects.all().count()
+    counter = CurrentSession.objects.all().count()
     if counter == 0:
         login_form = LoginForm()
-            
+
         return render(request, 'log-in.html', {"login_form": login_form})
     else:
         product_hat = CurrentLookbook.objects.filter(
@@ -210,18 +210,15 @@ def your_lookbook(request):
         product_shoes = CurrentLookbook.objects.filter(
             product_category="shoes").last()
         return render(request, 'your-lookbook.html', {"product_hat": product_hat, "product_shirt": product_shirt, "product_jeans": product_jeans, "product_shoes": product_shoes})
-        
 
 
 def cart(request):
-    counter=CurrentSession.objects.all().count()
+    counter = CurrentSession.objects.all().count()
     if counter == 0:
         login_form = LoginForm()
-            
+
         return render(request, 'log-in.html', {"login_form": login_form})
     else:
-
-        
 
         product = Cart.objects.all()
         return render(request, 'cart.html', {'cart': product})
@@ -231,12 +228,12 @@ num = []
 
 
 def add_to_cart(request):
-    counter=OrderValues.objects.all().count()
+    counter = OrderValues.objects.all().count()
     if request.method == "POST":
         id = request.POST['id']
-        size=request.POST['size']
-        quantity=request.POST['quantity']
-        color=request.POST['color']
+        size = request.POST['size']
+        quantity = request.POST['quantity']
+        color = request.POST['color']
 
         mydata = Product.objects.filter(id=id).values()
 
@@ -244,24 +241,23 @@ def add_to_cart(request):
             'mymembers': mydata,
         }
         b = values_by_id['mymembers'][0]
-        
-        if counter > 0 :
-            order__number=OrderValues.objects.all().order_by('-id').values_list()[:1]
-            order_number=order__number[0][1]
+
+        if counter > 0:
+            order__number = OrderValues.objects.all().order_by(
+                '-id').values_list()[:1]
+            order_number = order__number[0][1]
         else:
-            order_number=0
+            order_number = 0
 
-
-        
-        Cart(order_product_id=id,order_product_quantity=quantity,order_product_color=color,order_product_size=size,order_number=order_number + 1, order_product=b['product_title'], order_product_price=b[
+        Cart(order_product_id=id, order_product_quantity=quantity, order_product_color=color, order_product_size=size, order_number=order_number + 1, order_product=b['product_title'], order_product_price=b[
              'product_price'], order_product_value="$", order_product_image=b['product_image']).save()
-        AllOrders(order_product_size=size,order_product_quantity=quantity,order_product_color=color,
-        order_number=order_number + 1, order_product_id=b['id'], order_product=b['product_title'],
+        AllOrders(order_product_size=size, order_product_quantity=quantity, order_product_color=color,
+                  order_number=order_number + 1, order_product_id=b['id'], order_product=b['product_title'],
                   order_product_price=b['product_price'], order_product_value="$", order_product_image=b['product_image']).save()
 
         on_count = Product.objects.filter(status="on_count")
         off_count = Product.objects.filter(status="off_count")
-        
+
         response = redirect('mens')
         return response
 
@@ -282,19 +278,19 @@ def finish_order(request):
         price = request.POST['price']
         date = today.strftime("%m/%d/%y")
         time = now.strftime("%H:%M:%S")
-        
-        email=CurrentSession.objects.all().order_by('-id').values_list()[:1]
-        counter=OrderValues.objects.all().count()
-        if counter > 0 :
-            order__number=OrderValues.objects.all().order_by('-id').values_list()[:1]
-            order_number=order__number[0][1]
-        else:
-            order_number=1
-        
 
-        
+        email = CurrentSession.objects.all().order_by('-id').values_list()[:1]
+        counter = OrderValues.objects.all().count()
+        if counter > 0:
+            order__number = OrderValues.objects.all().order_by(
+                '-id').values_list()[:1]
+            order_number = order__number[0][1]
+        else:
+            order_number = 1
+
         products = []
-        mydata = AllOrders.objects.filter(order_number=order_number + 1).values()
+        mydata = AllOrders.objects.filter(
+            order_number=order_number + 1).values()
 
         values_by_id = {
             'mymembers': mydata,
@@ -305,7 +301,7 @@ def finish_order(request):
         products1 = ';'.join(products)
 
         OrderValues(order_number=order_number + 1, price=price, name=name, card_number=card_number,
-                    expiration_date=expiration_date, security_code=security_code, date=date, time=time, products=products1,email=email[0][1]).save()
+                    expiration_date=expiration_date, security_code=security_code, date=date, time=time, products=products1, email=email[0][1]).save()
 
         return render(request, 'payment.html', {"products": products1})
 
@@ -333,7 +329,7 @@ def choose_shoes(request):
 def add_to_lookbook(request):
     if request.method == "POST":
         id = request.POST['id']
-        email=CurrentSession.objects.all().order_by('-id').values_list()[:1]
+        email = CurrentSession.objects.all().order_by('-id').values_list()[:1]
         mydata = Product.objects.filter(id=id).values()
 
         values_by_id = {
@@ -341,7 +337,7 @@ def add_to_lookbook(request):
         }
         b = values_by_id['mymembers'][0]
         CurrentLookbook(
-            product_id=b['id'], lookbook_image=b['product_image'], product_category=b['category'],gender=b['gender'],username=email[0][1]).save()
+            product_id=b['id'], lookbook_image=b['product_image'], product_category=b['category'], gender=b['gender'], username=email[0][1]).save()
         product_hat = CurrentLookbook.objects.filter(
             product_category="hats").last()
         product_shirt = CurrentLookbook.objects.filter(
@@ -368,28 +364,28 @@ def filter_products(request):
         return render(request, 'mens.html', {'page_obj': on_count})
 
 
-
 def log_out(request):
     CurrentSession.objects.all().delete()
     Cart.objects.all().delete()
-    return render(request,'base.html')
+    return render(request, 'base.html')
 
-    
+
 def user_info(request):
-    info=OrderValues.objects.all()
-    email=CurrentSession.objects.all().order_by('-id').values_list()[:1]
-    
-    account_info=NewUser.objects.filter(email=email[0][1])
-    return render(request,'user.html',{"info":info,"account_info":account_info})
+    info = OrderValues.objects.all()
+    email = CurrentSession.objects.all().order_by('-id').values_list()[:1]
+
+    account_info = NewUser.objects.filter(email=email[0][1])
+    return render(request, 'user.html', {"info": info, "account_info": account_info})
+
 
 def remove_button(request):
     if request.method == "POST":
-        id=request.POST['id']
-        size=request.POST['sizes']
-        Cart.objects.filter(order_product_id=id,order_product_size=size).delete()
+        id = request.POST['id']
+        size = request.POST['sizes']
+        Cart.objects.filter(order_product_id=id,
+                            order_product_size=size).delete()
         response = redirect('cart')
         return response
-
 
 
 class SearchResultsView(ListView):
@@ -404,19 +400,18 @@ class SearchResultsView(ListView):
         )
         return object_list
 
+
 def search_by_order_number(request):
     if request.method == "POST":
-        number=request.POST['number']
-        products=AllOrders.objects.filter(order_number=number)
-        info=OrderValues.objects.all()
-        email=CurrentSession.objects.all().order_by('-id').values_list()[:1]
-        
-        account_info=NewUser.objects.filter(email=email[0][1])
-        return render(request,'user.html',{"info":info,"account_info":account_info,"products":products})
-        
+        number = request.POST['number']
+        products = AllOrders.objects.filter(order_number=number)
+        info = OrderValues.objects.all()
+        email = CurrentSession.objects.all().order_by('-id').values_list()[:1]
+
+        account_info = NewUser.objects.filter(email=email[0][1])
+        return render(request, 'user.html', {"info": info, "account_info": account_info, "products": products})
 
 
 def delete_lookbook(request):
-    email=CurrentSession.objects.all().order_by('-id').values_list()[:1]
+    email = CurrentSession.objects.all().order_by('-id').values_list()[:1]
     CurrentLookbook.objects.filter(username=email).delete()
-

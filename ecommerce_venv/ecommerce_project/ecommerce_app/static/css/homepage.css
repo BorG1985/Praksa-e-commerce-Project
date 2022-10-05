@@ -21,7 +21,7 @@
     width: 100%;
 }
 
-.navbar {
+.navbar-body {
     display: flex;
     margin-left: 6.5%;
     margin-right: 50%;
@@ -288,7 +288,7 @@ p {
 }
 
 .plus-item {
-    display: grid;
+    display: none;
     position: absolute;
     top: 15px;
     right: 25px;
@@ -314,7 +314,7 @@ p {
 
 .item:hover .plus-item img,
 .item:hover.item .info-icon {
-    display: block;
+    display: none;
     height: 70px;
 }
 
@@ -549,7 +549,7 @@ li {
         right: 150px;
     }
 
-    .navbar {
+    .navbar-body {
         display: flex;
         margin: 0% 2%;
     }

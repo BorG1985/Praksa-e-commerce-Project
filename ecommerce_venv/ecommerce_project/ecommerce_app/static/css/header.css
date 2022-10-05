@@ -1,6 +1,7 @@
 body {
     margin: auto;
 }
+
 .header a {
     text-decoration: none;
 }
@@ -73,7 +74,7 @@ select {
 .cart {
     color: aliceblue;
     background-color: aqua;
-    width: 150px;
+    width: 170px;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -98,6 +99,7 @@ select {
 
 .main-header {
     display: flex;
+    flex: 1;
     position: relative;
     height: 100px;
     background-color: rgb(255, 255, 255);
@@ -116,23 +118,128 @@ select {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-li {
-    display: inline;
-    color: #333333;
-}
-
-ul {
-    display: flex;
+    overflow: hidden;
+    text-align: center;
 }
 
 .right-main-header {
-    margin-left: 100px;
-    width: 25%;
     display: flex;
     align-items: center;
+    padding-left: 70px;
 }
+
+
+.dropdown {
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: 8px;
+    height: 35px;
+}
+
+.navbar:hover,
+.dropdown:hover .dropbtn:hover {
+    background-color: aqua;
+    box-sizing: border-box;
+    transition: 0.8s;
+    height: 50px;
+    cursor: grab;
+    padding: 0px 10px;
+}
+
+.dropdown-meny:hover + .dropdown-content{
+    display: block;
+}
+.dropdown-content {
+    display:none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 100%;
+    top: 58px;
+    left: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    box-sizing: border-box;
+    margin-top: 15px;
+}
+.dropdown-content:hover{
+    display:block;
+}
+.dropdown-content h3 {
+    padding: 10px 0px;
+}
+.row {
+    display: flex;
+}
+
+.column {
+
+    width: 50%;
+    padding: 10px;
+    background-color: #ccc;
+    height: 250px;
+    text-align: center;
+
+}
+
+.column a {
+    float: none;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.column a:hover {
+    background-color: #ddd;
+}
+
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#register_link {
+    display: block;
+}
+
+#sign_in_link {
+    display: block;
+}
+
+#welcome_user {
+    color: aqua;
+    margin-right: 30px;
+    display: block;
+
+}
+
+#log_out {
+    margin-top: 5px;
+    display: block;
+}
+#log_out:active{
+    text-decoration: none;
+    color: #ddd;
+}
+#log_out:visited{
+    text-decoration: none;
+    color: #ddd;
+}
+
+
 
 .search {
     display: flex;
@@ -154,7 +261,9 @@ ul {
     height: auto;
     width: 130px;
 }
-
+.searchform input:hover {
+    color:green;
+}
 .searchbutton {
     width: 120px;
     font-size: 16px;
@@ -166,18 +275,6 @@ ul {
     width: 30px;
     font-size: 16px;
     cursor: grab;
-}
-
-li {
-    display: inline;
-    color: gray;
-    font-size: 12px;
-    text-decoration: none;
-    font-weight: bolder;
-}
-
-ul {
-    list-style-type: none;
 }
 
 .empty {
@@ -289,110 +386,3 @@ ul {
 }
 
 
-.center-main-header {
-    overflow: hidden;
-}
-
-
-
-.dropdown {
-    overflow: hidden;
-    box-sizing: border-box;
-}
-
-.dropdown .dropbtn {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    padding: 14px 16px;
-    background-color: inherit;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-.navbar a:hover,
-.dropdown:hover .dropbtn {
-    background-color: aqua;
-    box-sizing: border-box;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    width: 100%;
-    left: 0;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    box-sizing: border-box;
-}
-
-
-
-.dropdown:hover .dropdown-content {
-    display: block;
-    box-sizing: border-box;
-}
-
-.row {
-    display: flex;
-}
-
-.column {
-
-    width: 50%;
-    padding: 10px;
-    background-color: #ccc;
-    height: 250px;
-    text-align: center;
-
-}
-
-.column a {
-    float: none;
-    color: black;
-    padding: 16px;
-    text-decoration: none;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.column a:hover {
-    background-color: #ddd;
-}
-
-
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-#register_link {
-    display: block;
-}
-
-#sign_in_link {
-    display: block;
-}
-
-#welcome_user {
-    color: aqua;
-    margin-right: 30px;
-    display: block;
-
-}
-
-#log_out {
-    margin-top: 5px;
-    display: block;
-}
-#log_out:active{
-    text-decoration: none;
-    color: #ddd;
-}
-#log_out:visited{
-    text-decoration: none;
-    color: #ddd;
-}

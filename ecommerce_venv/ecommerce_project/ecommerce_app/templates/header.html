@@ -1,83 +1,97 @@
-{% load static %}
-{% block header %}
+{% load static %} {% block header %}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css"
+      integrity="sha512-RvQxwf+3zJuNwl4e0sZjQeX7kUa3o82bDETpgVCH2RiwYSZVDdFJ7N/woNigN/ldyOOoKw8584jM4plQdt8bhA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/mens.css' %}" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css"
-    integrity="sha512-RvQxwf+3zJuNwl4e0sZjQeX7kUa3o82bDETpgVCH2RiwYSZVDdFJ7N/woNigN/ldyOOoKw8584jM4plQdt8bhA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="{% static 'css/header.css' %}">
-  <link rel="stylesheet" href="{% static 'css/mens.css' %}">
-</head>
+  <body>
+    <div class="header">
+      <div class="upper-header">
+        <div class="left-upper-header">
+          <select
+            onclick="return myFunction()"
+            name="pay-currency"
+            id="pay-currency"
+            required
+          >
+            <option disabled="true">Currency</option>
+            <option>USD</option>
+            <option>GBP</option>
 
-<body>
-  <div class="header">
-
-    <div class="upper-header">
-      <div class="left-upper-header">
-        <select onclick="return myFunction()" name="pay-currency" id="pay-currency" required>
-          <option disabled="true">Currency</option>
-          <option>USD</option>
-          <option>GBP</option>
-
-          <option>BAM</option>
-        </select>
+            <option>BAM</option>
+          </select>
+        </div>
+        <div class="center-upper-header">
+          <a id="register_link" href="{% url 'sign-in' %}" class="register-link"
+            >Register</a
+          >&nbsp&nbsp&nbsp
+          <a id="sign_in_link" class="sign-in-link" href="{% url 'log-in' %}"
+            >Sign in</a
+          >
+          <a id="welcome_user" href="{% url 'user_info' %}"
+            >Welcome : {{current_user}}</a
+          >
+          <a id="log_out" href="{% url 'log_out' %}">Log out</a>
+        </div>
+        <div class="right-upper-header">
+          <span class="cart">
+            <a href="{% url 'cart' %}" id="empty" class="empty"
+              >{{number_of_products}}</a
+            >
+            &nbsp&nbsp&nbsp
+            <i style="font-size: 26px" class="fa">&#xf07a;</i>
+          </span>
+        </div>
       </div>
-      <div class="center-upper-header">
-
-        <a id="register_link" href="{% url 'sign-in' %}" class="register-link">Register</a>&nbsp&nbsp&nbsp
-        <a id="sign_in_link" class="sign-in-link" href="{% url 'log-in' %}">Sign in</a>
-        <a id="welcome_user" href="{% url 'user_info' %}">Welcome : {{current_user}}</a>
-        <a id="log_out" href="{% url 'log_out' %}">Log out</a>
-
-      </div>
-      <div class="right-upper-header">
-        <span class="cart">
-          <a  href="{% url 'cart' %}" id="empty" class="empty">{{number_of_products}}</a>
-
-          &nbsp&nbsp&nbsp
-          <i style="font-size:26px" class="fa">&#xf07a;</i>
-        </span>
-      </div>
-    </div>
-    <div class="main-header">
-      <div class="left-main-header">
-        <a href="{% url 'base' %}" class="home_link"><b>AVENUE </b>&nbsp FASHION<a>
-      </div>
-      <div class="center-main-header">
-        <ul>
+      <div class="main-header">
+        <div class="left-main-header">
+          <a href="{% url 'base' %}" class="home_link"
+            ><b>AVENUE </b>&nbsp FASHION</a
+          >
+        </div>
+        <div class="center-main-header">
           <div class="dropdown">
-            <a href="{% url 'mens' %}">
-              <li><button class="dropbtn">MENS
-                  
+            <a href="{% url 'mens' %}"><button class="dropbtn">MENS</button></a>
           </div>
           <div class="dropdown">
-            <a href="{% url 'womens' %}">
-              <li><button class="dropbtn">WOMENS
-                  
+            <a href="{% url 'womens' %}"
+              ><button class="dropbtn">WOMENS</button></a
+            >
           </div>
           <div class="dropdown">
-            <li><button class="dropbtn">THE BRAND
-                
+            <button class="dropbtn">THE BRAND</button>
           </div>
           <div class="dropdown">
-            <a href="{% url 'local-stores' %}">
-              <li><button class="dropbtn">LOCAL STORES
-                  
+            <a href="{% url 'local-stores' %}"
+              ><button class="dropbtn">LOCAL STORES</button></a
+            >
           </div>
-          <div class="dropdown">
-            <a href="{% url 'lookbook' %}">
-              <li><button class="dropbtn">LOOK BOOK
-                  <i class="fa fa-caret-down"></i>
-                </button></li>
-            </a>
-            <div class="dropdown-content">
+          <div class="dropdown dropdown-meny">
+            <a href="{% url 'lookbook' %}"
+              ><button class="dropbtn">
+                LOOK BOOK <i class="fa fa-caret-down"></i></button
+            ></a>
+            
+          </div>
+          <div class="dropdown-content">
               <div class="row">
                 <div class="column">
                   <h3>OUR LOOKBOOKS</h3>
@@ -93,34 +107,41 @@
                 </div>
               </div>
             </div>
-          </div>
-        </ul>
-      </div>
-      <div class="right-main-header">
-        <input id="name_value" style="display: none;" value="{{current_user}}">
-        <form action="{% url 'search-results' %}" method="get" class="searchform">
-          <input name="q" type="text" placeholder="Search..."><button class="searchbutton"><i
-              class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
+        </div>
+        <div class="right-main-header">
+          <input
+            id="name_value"
+            style="display: none"
+            value="{{current_user}}"
+          />
+          <form
+            action="{% url 'search-results' %}"
+            method="get"
+            class="searchform"
+          >
+            <input name="q" type="text" placeholder="Search..." /><button
+              class="searchbutton"
+            >
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-</body>
-{% endblock %}
-<script>
-  value = document.getElementById('name_value').value;
-  if (value != "") {
-    document.getElementById('register_link').style.display = "none";
-    document.getElementById('sign_in_link').style.display = "none";
-    document.getElementById('log_out').style.display = "block";
-    document.getElementById('welcome_user').style.display = "block";
-  } else {
-    document.getElementById('register_link').style.display = "block";
-    document.getElementById('sign_in_link').style.display = "block";
-    document.getElementById('log_out').style.display = "none";
-    document.getElementById('welcome_user').style.display = "none";
-
-  }
-</script>
-
+  </body>
+  {% endblock %}
+  <script>
+    value = document.getElementById("name_value").value;
+    if (value != "") {
+      document.getElementById("register_link").style.display = "none";
+      document.getElementById("sign_in_link").style.display = "none";
+      document.getElementById("log_out").style.display = "block";
+      document.getElementById("welcome_user").style.display = "block";
+    } else {
+      document.getElementById("register_link").style.display = "block";
+      document.getElementById("sign_in_link").style.display = "block";
+      document.getElementById("log_out").style.display = "none";
+      document.getElementById("welcome_user").style.display = "none";
+    }
+  </script>
 </html>
