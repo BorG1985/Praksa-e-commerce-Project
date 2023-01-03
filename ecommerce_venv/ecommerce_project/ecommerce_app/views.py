@@ -152,13 +152,17 @@ def sign_in(request):
 
         if password == password2:
             if signin_form.is_valid():
+                if NewUser.objects.filter(email__iexact=email).exists():
+                    return HttpResponseRedirect("email address exists") and redirect("/") 
+                    #ispraviti problem kada imaju dva usera sa istom email adresom
                 new_user = NewUser.objects.create(
                     email=email, password=encode_pass1, password2=encode_pass2, name=name, surname=surname, addres=address, phone=phone)  # provjeriti da li imaju dva ista mail u bazi!!!
                 print("kreiran user")
                 login_form = LoginForm(request.POST)
-
+                print("prosao ovo")
                 # http response prihvata samo str value i zato formatiranje
-                return render(request, 'log-in.html', {"login_form": login_form})
+                return redirect('/log-in')
+                print("prosao i ovo")
             else:
                 messages.error(request, "ne valja ti nesto")
                 signin_form = UserRegistrationForm()
@@ -166,6 +170,7 @@ def sign_in(request):
             return HttpResponse("Password dont match, please try again!")
     else:
         signin_form = UserRegistrationForm()
+        print("ovdje je")
 
     return render(request, 'sign-in.html', {"signin_form": signin_form})
 
